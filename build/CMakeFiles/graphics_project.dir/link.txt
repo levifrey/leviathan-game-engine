@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/graphics_project.dir/home/leviwfrey/projects/graphics/src/main.cpp.o CMakeFiles/graphics_project.dir/home/leviwfrey/projects/graphics/src/glad.c.o -o graphics_project  -lglfw /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so 

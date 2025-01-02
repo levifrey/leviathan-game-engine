@@ -1,0 +1,3 @@
+/home/leviwfrey/projects/graphics/build/CMakeFiles/main.dir
+/home/leviwfrey/projects/graphics/build/CMakeFiles/edit_cache.dir
+/home/leviwfrey/projects/graphics/build/CMakeFiles/rebuild_cache.dir
