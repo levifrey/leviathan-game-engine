@@ -1,21 +1,25 @@
 #include <iostream>
 #include "glad.h"
 #include <GLFW/glfw3.h>
-#include<cmath>
+#include <cmath>
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 
 const char *vertexShaderSource = "#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
+	"layout (location = 1) in vec3 aColor;\n"
+	"out vec3 ourColor;\n"
     "void main()\n"
     "{\n"
     "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+	"   ourColor = aColor;\n"
     "}\0";
 
 const char *fragmentShaderSource = "#version 330 core\n"
     "out vec4 FragColor;\n"
-    "uniform vec4 ourColor;"
-
+    "in vec3 ourColor;"
     "void main() {\n"
-        "FragColor = ourColor;\n"
+    "	FragColor = vec4(ourColor, 1.0);\n"
     "}\0";
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
@@ -45,6 +49,46 @@ void processInput(GLFWwindow* window) {
 
 }
 
+void createElement(
+	float vertices[], 
+	size_t vertices_size, 
+	unsigned int indices[], 
+	size_t indices_size, 
+	unsigned int& VAO, 
+	unsigned int& VBO, 
+	unsigned int& EBO) 
+{	
+	glGenVertexArrays(1, &VAO);
+	glGenBuffers(1, &VBO);
+	glGenBuffers(1, &EBO);
+
+	glBindVertexArray(VAO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, vertices_size, vertices, GL_STATIC_DRAW);
+	
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices_size, indices, GL_STATIC_DRAW);
+
+	glBindVertexArray(0);
+}
+
+void attributePointer(
+	unsigned int& VAO, 
+	unsigned int& VBO, 
+	unsigned int id, 
+	int size, 
+	GLenum type, 
+	bool normalized, 
+	GLsizei stride, 
+	const void* offset) 
+{
+	glBindVertexArray(VAO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glVertexAttribPointer(id, size, type, normalized, stride, offset);
+	glEnableVertexAttribArray(id);
+	glBindVertexArray(0);	
+}
+
 int main(int, char**) {
 
     //initialize
@@ -56,8 +100,9 @@ int main(int, char**) {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     const int WINDOW_WIDTH = 800;
-    const int WINDOW_HEIGHT = 600;
-    
+    const int WINDOW_HEIGHT = 800;
+
+    // create window    
     GLFWwindow* window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "window", NULL, NULL);
     if (window == NULL) {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -77,58 +122,26 @@ int main(int, char**) {
 
     glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
 
-    //define vertices (VBO)
-    float vertices1[] = {
-        -0.25f, 0.25f, 0.0f,
-        -0.25f, -0.25f, 0.0f,
-        -0.75f, -0.25f, 0.0f,
-        -0.75f, 0.25f, 0.0f
-    };
+	// Test using new functions:
+	float test_vertices[] = {
+		// positions     // colors
+		-0.5,  0.5, 0.0, 1.0, 0.0, 0.0, // top left
+		 0.5,  0.5, 0.0, 0.0, 1.0, 0.0, // top right
+		 0.5, -0.5, 0.0, 0.0, 0.0, 1.0, // bottom right
+		-0.5, -0.5, 0.0, 1.0, 1.0, 1.0  // bottom left
+	};
 
-    //define triangles based on vertex indices (EBO)
-    unsigned int indices1[] = {
-        0, 1, 3,
-        1, 2, 3
-    };
+	unsigned int test_indices[] = {
+		0, 1, 2, // upper right triangle
+		0, 2, 3  // lower left triangle
+	};
 
-    float vertices2[] = {
-        0.25f, -0.25f, 0.0f,
-        0.75f, -0.25f, 0.0f,
-        0.5f, 0.5f, 0.0f
-    };
+	unsigned int test_VBO, test_VAO, test_EBO;
 
-    unsigned int indices2[] = {
-        0, 2, 1
-    };
-
-    unsigned int VAO1, VAO2;
-    unsigned int VBO1, VBO2;
-    unsigned int EBO1, EBO2;
-
-    glGenVertexArrays(1, &VAO1);
-    glGenVertexArrays(1, &VAO2);
-
-    glGenBuffers(1, &VBO1);
-    glGenBuffers(1, &VBO2);
-
-    glGenBuffers(1, &EBO1);
-    glGenBuffers(1, &EBO2);
-
-    glBindVertexArray(VAO1);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO1);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices1), vertices1, GL_STATIC_DRAW);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO1);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices1), indices1, GL_STATIC_DRAW);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-
-    glBindVertexArray(VAO2);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO2);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices2), vertices2, GL_STATIC_DRAW);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO2);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices2), indices2, GL_STATIC_DRAW);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
+	createElement(test_vertices, sizeof(test_vertices), test_indices, sizeof(test_indices), test_VAO, test_VBO, test_EBO);
+	attributePointer(test_VAO, test_VBO, 0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+	attributePointer(test_VAO, test_VBO, 1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3*sizeof(float)));
+		 	
 
     //create new vertex shader
     unsigned int vertexShader;
@@ -180,6 +193,17 @@ int main(int, char**) {
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
 
+    // Textures
+    int width, height, nrChannels;
+    unsigned char *data = stbi_load("container.jpg", &width, &height, &nrChannels, 0);
+    unsigned int texture;
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    stbi_image_free(data);
+
+
     while(!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT);
         //input 
@@ -189,18 +213,9 @@ int main(int, char**) {
 
         glUseProgram(shaderProgram);
 
-        float timeValue = glfwGetTime();
-        float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
-        int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
-
-        glBindVertexArray(VAO1);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO1);
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-        
-        glBindVertexArray(VAO2);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO2);
-        glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+		glBindVertexArray(test_VAO);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, test_EBO);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
         //check events & swap buffers
         glfwSwapBuffers(window);
@@ -210,5 +225,4 @@ int main(int, char**) {
     glfwTerminate();
     return 0;
 }
-
 
