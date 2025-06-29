@@ -6,8 +6,8 @@ find_package(OpenGL REQUIRED)
 
 add_executable(main 
     ../src/main.cpp
-    ../src/glad.h
-    ../src/glad.c
+	../src/Shader.cpp
+    ../include/glad.c
 )
 
 target_link_libraries(main glfw OpenGL::GL)

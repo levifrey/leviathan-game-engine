@@ -83,35 +83,51 @@ CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leviwfrey/projects/graphics/src/main.cpp -o CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/main.cpp.s
 
-CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.o: /home/leviwfrey/projects/graphics/src/glad.c
-CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.o -MF CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.o.d -o CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.o -c /home/leviwfrey/projects/graphics/src/glad.c
+CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o: /home/leviwfrey/projects/graphics/src/Shader.cpp
+CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o -MF CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o.d -o CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o -c /home/leviwfrey/projects/graphics/src/Shader.cpp
 
-CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/leviwfrey/projects/graphics/src/glad.c > CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.i
+CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leviwfrey/projects/graphics/src/Shader.cpp > CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.i
 
-CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/leviwfrey/projects/graphics/src/glad.c -o CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.s
+CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leviwfrey/projects/graphics/src/Shader.cpp -o CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.s
+
+CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.o: /home/leviwfrey/projects/graphics/include/glad.c
+CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.o -MF CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.o.d -o CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.o -c /home/leviwfrey/projects/graphics/include/glad.c
+
+CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/leviwfrey/projects/graphics/include/glad.c > CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.i
+
+CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/leviwfrey/projects/graphics/include/glad.c -o CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.s
 
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/main.cpp.o" \
-"CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.o"
+"CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o" \
+"CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
 main: CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/main.cpp.o
-main: CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.o
+main: CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o
+main: CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.o
 main: CMakeFiles/main.dir/build.make
 main: /usr/lib/x86_64-linux-gnu/libGLX.so
 main: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/leviwfrey/projects/graphics/src/glad.c" "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.o" "gcc" "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.o.d"
+  "/home/leviwfrey/projects/graphics/include/glad.c" "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.o" "gcc" "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.o.d"
+  "/home/leviwfrey/projects/graphics/src/Shader.cpp" "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o" "gcc" "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o.d"
   "/home/leviwfrey/projects/graphics/src/main.cpp" "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/main.cpp.o" "gcc" "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/main.cpp.o.d"
   )
 

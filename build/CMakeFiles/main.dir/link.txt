@@ -1,1 +1,1 @@
-/usr/bin/c++ -rdynamic CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/main.cpp.o CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.o -o main  -lglfw /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so 
+/usr/bin/c++ -rdynamic CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/main.cpp.o CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.o -o main  -lglfw /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so 

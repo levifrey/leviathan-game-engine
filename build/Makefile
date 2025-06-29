@@ -129,29 +129,53 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-home/leviwfrey/projects/graphics/src/glad.o: home/leviwfrey/projects/graphics/src/glad.c.o
-.PHONY : home/leviwfrey/projects/graphics/src/glad.o
+home/leviwfrey/projects/graphics/include/glad.o: home/leviwfrey/projects/graphics/include/glad.c.o
+.PHONY : home/leviwfrey/projects/graphics/include/glad.o
 
 # target to build an object file
-home/leviwfrey/projects/graphics/src/glad.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.o
-.PHONY : home/leviwfrey/projects/graphics/src/glad.c.o
+home/leviwfrey/projects/graphics/include/glad.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.o
+.PHONY : home/leviwfrey/projects/graphics/include/glad.c.o
 
-home/leviwfrey/projects/graphics/src/glad.i: home/leviwfrey/projects/graphics/src/glad.c.i
-.PHONY : home/leviwfrey/projects/graphics/src/glad.i
+home/leviwfrey/projects/graphics/include/glad.i: home/leviwfrey/projects/graphics/include/glad.c.i
+.PHONY : home/leviwfrey/projects/graphics/include/glad.i
 
 # target to preprocess a source file
-home/leviwfrey/projects/graphics/src/glad.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.i
-.PHONY : home/leviwfrey/projects/graphics/src/glad.c.i
+home/leviwfrey/projects/graphics/include/glad.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.i
+.PHONY : home/leviwfrey/projects/graphics/include/glad.c.i
 
-home/leviwfrey/projects/graphics/src/glad.s: home/leviwfrey/projects/graphics/src/glad.c.s
-.PHONY : home/leviwfrey/projects/graphics/src/glad.s
+home/leviwfrey/projects/graphics/include/glad.s: home/leviwfrey/projects/graphics/include/glad.c.s
+.PHONY : home/leviwfrey/projects/graphics/include/glad.s
 
 # target to generate assembly for a file
-home/leviwfrey/projects/graphics/src/glad.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/glad.c.s
-.PHONY : home/leviwfrey/projects/graphics/src/glad.c.s
+home/leviwfrey/projects/graphics/include/glad.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.s
+.PHONY : home/leviwfrey/projects/graphics/include/glad.c.s
+
+home/leviwfrey/projects/graphics/src/Shader.o: home/leviwfrey/projects/graphics/src/Shader.cpp.o
+.PHONY : home/leviwfrey/projects/graphics/src/Shader.o
+
+# target to build an object file
+home/leviwfrey/projects/graphics/src/Shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o
+.PHONY : home/leviwfrey/projects/graphics/src/Shader.cpp.o
+
+home/leviwfrey/projects/graphics/src/Shader.i: home/leviwfrey/projects/graphics/src/Shader.cpp.i
+.PHONY : home/leviwfrey/projects/graphics/src/Shader.i
+
+# target to preprocess a source file
+home/leviwfrey/projects/graphics/src/Shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.i
+.PHONY : home/leviwfrey/projects/graphics/src/Shader.cpp.i
+
+home/leviwfrey/projects/graphics/src/Shader.s: home/leviwfrey/projects/graphics/src/Shader.cpp.s
+.PHONY : home/leviwfrey/projects/graphics/src/Shader.s
+
+# target to generate assembly for a file
+home/leviwfrey/projects/graphics/src/Shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.s
+.PHONY : home/leviwfrey/projects/graphics/src/Shader.cpp.s
 
 home/leviwfrey/projects/graphics/src/main.o: home/leviwfrey/projects/graphics/src/main.cpp.o
 .PHONY : home/leviwfrey/projects/graphics/src/main.o
@@ -186,9 +210,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
-	@echo "... home/leviwfrey/projects/graphics/src/glad.o"
-	@echo "... home/leviwfrey/projects/graphics/src/glad.i"
-	@echo "... home/leviwfrey/projects/graphics/src/glad.s"
+	@echo "... home/leviwfrey/projects/graphics/include/glad.o"
+	@echo "... home/leviwfrey/projects/graphics/include/glad.i"
+	@echo "... home/leviwfrey/projects/graphics/include/glad.s"
+	@echo "... home/leviwfrey/projects/graphics/src/Shader.o"
+	@echo "... home/leviwfrey/projects/graphics/src/Shader.i"
+	@echo "... home/leviwfrey/projects/graphics/src/Shader.s"
 	@echo "... home/leviwfrey/projects/graphics/src/main.o"
 	@echo "... home/leviwfrey/projects/graphics/src/main.i"
 	@echo "... home/leviwfrey/projects/graphics/src/main.s"

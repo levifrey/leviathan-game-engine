@@ -1,52 +1,36 @@
 #include <iostream>
-#include "glad.h"
+#include "../include/glad.h"
 #include <GLFW/glfw3.h>
 #include <cmath>
 #define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include "../include/stb_image.h"
+#include "../include/glm/glm.hpp"
+#include "../include/glm/gtc/matrix_transform.hpp"
+#include "../include/glm/gtc/type_ptr.hpp"
+#include "Shader.h"
 
-const char *vertexShaderSource = "#version 330 core\n"
-    "layout (location = 0) in vec3 aPos;\n"
-	"layout (location = 1) in vec3 aColor;\n"
-	"out vec3 ourColor;\n"
-    "void main()\n"
-    "{\n"
-    "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-	"   ourColor = aColor;\n"
-    "}\0";
 
-const char *fragmentShaderSource = "#version 330 core\n"
-    "out vec4 FragColor;\n"
-    "in vec3 ourColor;"
-    "void main() {\n"
-    "	FragColor = vec4(ourColor, 1.0);\n"
-    "}\0";
+glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);	
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
-}
-
-void key_callback(GLFWwindow* window, int key, int scandcode, int action, int mods) {
-    if(key == GLFW_KEY_W && action == GLFW_PRESS) {
-        GLint val[2];
-        glGetIntegerv(GL_POLYGON_MODE, val);
-        if(val[1] == GL_FILL) {
-            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-            GLint value[2];
-            glGetIntegerv(GL_POLYGON_MODE, value);
-        } else {
-            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-        }
-    }
 }
 
 void processInput(GLFWwindow* window) {
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, true);
     }
-    
-    
-
+	const float cameraSpeed = 0.5f;
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+		cameraPos += cameraSpeed * cameraFront;
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		cameraPos -= cameraSpeed * cameraFront;
+	if (glfwGetKey(window,GLFW_KEY_A) == GLFW_PRESS)
+		cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+		cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 }
 
 void createElement(
@@ -97,11 +81,10 @@ int main(int, char**) {
     //lock version to > 3.0
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-    const int WINDOW_WIDTH = 800;
-    const int WINDOW_HEIGHT = 800;
-
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);	
+    const int WINDOW_WIDTH = 1000;
+    const int WINDOW_HEIGHT = 1000;
+	
     // create window    
     GLFWwindow* window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "window", NULL, NULL);
     if (window == NULL) {
@@ -118,104 +101,148 @@ int main(int, char**) {
 
     glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-    glfwSetKeyCallback(window, key_callback);
-
+	glEnable(GL_DEPTH_TEST);
     glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
 
 	// Test using new functions:
 	float test_vertices[] = {
-		// positions     // colors
-		-0.5,  0.5, 0.0, 1.0, 0.0, 0.0, // top left
-		 0.5,  0.5, 0.0, 0.0, 1.0, 0.0, // top right
-		 0.5, -0.5, 0.0, 0.0, 0.0, 1.0, // bottom right
-		-0.5, -0.5, 0.0, 1.0, 1.0, 1.0  // bottom left
+		// positions     // colors      // tex coords
+		-0.5,  0.5, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, // top left
+		 0.5,  0.5, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, // top right
+		 0.5, -0.5, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, // bottom right
+		-0.5, -0.5, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0 // bottom left
 	};
 
 	unsigned int test_indices[] = {
 		0, 1, 2, // upper right triangle
 		0, 2, 3  // lower left triangle
 	};
-
 	unsigned int test_VBO, test_VAO, test_EBO;
 
 	createElement(test_vertices, sizeof(test_vertices), test_indices, sizeof(test_indices), test_VAO, test_VBO, test_EBO);
-	attributePointer(test_VAO, test_VBO, 0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-	attributePointer(test_VAO, test_VBO, 1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3*sizeof(float)));
-		 	
+	attributePointer(test_VAO, test_VBO, 0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+	attributePointer(test_VAO, test_VBO, 1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3*sizeof(float)));
+	attributePointer(test_VAO, test_VBO, 2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6*sizeof(float)));
 
-    //create new vertex shader
-    unsigned int vertexShader;
-    vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-    glCompileShader(vertexShader);
+	float cube_vertices[] = {
+		// FRONT
+		-0.5f,  0.5f, -0.5f, 0.0f, 1.0f, // top left
+		 0.5f,  0.5f, -0.5f, 1.0f, 1.0f, // top right
+		 0.5f, -0.5f, -0.5f, 1.0f, 0.0f, // bottom right
+		-0.5f,  0.5f, -0.5f, 0.0f, 1.0f, // top left
+		 0.5f, -0.5f, -0.5f, 1.0f, 0.0f, // bottom right
+		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, // bottom left
 
-    //test if vertex shader compilation was successful
-    int success;
-    char infoLog[512];
-    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-
-    if(!success) {
-        glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED" << infoLog << std::endl;
-    }
-
-    //create new frag shader
-    unsigned int fragmentShader;
-    fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-    glCompileShader(fragmentShader);
-
-    //test if fragment shader compilation was successful
-    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-
-    if(!success) {
-        glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED" << infoLog << std::endl;
-    }
-
-    //create shader program with the vertex and fragment shader
-    unsigned int shaderProgram;
-    shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-    glLinkProgram(shaderProgram);
-
-    //check if linking was successful
-    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-    if(!success) {
-        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::PROGRAM::LINK_ERROR" << infoLog << std::endl;
-    }
-
-    glUseProgram(shaderProgram);
-
-    //remove shaders after linking
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
-
-    // Textures
+		// BACK
+		 0.5f,  0.5f,  0.5f, 0.0f, 1.0f, // top left
+		-0.5f,  0.5f,  0.5f, 1.0f, 1.0f, // top right
+		-0.5f, -0.5f,  0.5f, 1.0f, 0.0f, // bottom right
+		 0.5f,  0.5f,  0.5f, 0.0f, 1.0f, // top left
+		-0.5f, -0.5f,  0.5f, 1.0f, 0.0f, // bottom right
+		 0.5f, -0.5f,  0.5f, 0.0f, 0.0f,  // bottom left	
+		
+		// TOP
+		-0.5f, 0.5f,  0.5f, 0.0f, 1.0f, // top left
+		 0.5f, 0.5f,  0.5f, 1.0f, 1.0f, // top right
+		 0.5f, 0.5f, -0.5f, 1.0f, 0.0f, // bottom right
+		-0.5f, 0.5f,  0.5f, 0.0f, 1.0f, // top left
+		 0.5f, 0.5f, -0.5f, 1.0f, 0.0f, // bottom right
+		-0.5f, 0.5f, -0.5f, 0.0f, 0.0f,  // bottom left
+		
+		// BOTTOM  	
+		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f, // top left
+		 0.5f, -0.5f, -0.5f, 1.0f, 1.0f, // top right
+		 0.5f, -0.5f,  0.5f, 1.0f, 0.0f, // bottom right
+		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f, // top left
+		 0.5f, -0.5f,  0.5f, 1.0f, 0.0f, // bottom right
+		-0.5f, -0.5f,  0.5f, 0.0f, 0.0f,  // bottom left
+		
+		// LEFT	
+		-0.5f,  0.5f,  0.5f, 0.0f, 1.0f, // top left
+		-0.5f,  0.5f, -0.5f, 1.0f, 1.0f, // top right
+		-0.5f, -0.5f, -0.5f, 1.0f, 0.0f, // bottom right
+		-0.5f,  0.5f,  0.5f, 0.0f, 1.0f, // top left
+		-0.5f, -0.5f, -0.5f, 1.0f, 0.0f, // bottom right
+		-0.5f, -0.5f,  0.5f, 0.0f, 0.0f,  // bottom left
+		
+		// RIGHT	
+		0.5f,  0.5f, -0.5f, 0.0f, 1.0f, // top left
+		0.5f,  0.5f,  0.5f, 1.0f, 1.0f, // top right
+		0.5f, -0.5f,  0.5f, 1.0f, 0.0f, // bottom right
+		0.5f,  0.5f, -0.5f, 0.0f, 1.0f, // top left
+		0.5f, -0.5f,  0.5f, 1.0f, 0.0f, // bottom right
+		0.5f, -0.5f, -0.5f, 0.0f, 0.0f  // bottom left
+		
+	};
+	unsigned int cube_indices[] = {
+		0, 1, 2,
+		3, 4, 5,
+		6, 7, 8,
+		9, 10, 11,
+		12, 13, 14,
+		15, 16, 17,
+		18, 19, 20,
+		21, 22, 23,
+		24, 25, 26, 
+		27, 28, 29,
+		30, 31, 32,
+		33, 34, 35
+	};
+	unsigned int cube_VBO, cube_VAO, cube_EBO;
+	
+	createElement(cube_vertices, sizeof(cube_vertices), cube_indices, sizeof(cube_indices), cube_VAO, cube_VBO, cube_EBO);
+	attributePointer(cube_VAO, cube_VBO, 0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+	attributePointer(cube_VAO, cube_VBO, 1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3*sizeof(float)));
+ 	
+	Shader myShader("../resources/shaders/test.vert", "../resources/shaders/test.frag");
+    
+	// Textures
     int width, height, nrChannels;
-    unsigned char *data = stbi_load("container.jpg", &width, &height, &nrChannels, 0);
+    unsigned char *data = stbi_load("../resources/textures/container.jpg", &width, &height, &nrChannels, 0);
     unsigned int texture;
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-    glGenerateMipmap(GL_TEXTURE_2D);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	if (data) {
+    	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+    	glGenerateMipmap(GL_TEXTURE_2D);
+	} else {
+		std::cout << "Failed to load texture" << std::endl;
+	}
     stbi_image_free(data);
 
-
+	glm::mat4 model = glm::mat4(1.0f);
+	glm::mat4 view = glm::mat4(1.0f);
+	view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+	
+	glm::mat4 projection;
+	projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);			
     while(!glfwWindowShouldClose(window)) {
-        glClear(GL_COLOR_BUFFER_BIT);
-        //input 
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		
+        // input 
         processInput(window);
+		
+		// logic
+		view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+		model = glm::rotate(model, glm::radians(1.0f), glm::vec3(0.5f, 1.0f, 0.0f));
 
-        //rendering 
+        // rendering 
+        glUseProgram(myShader.ID);
+		int modelLoc = glGetUniformLocation(myShader.ID, "model");
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));	    
+		int viewLoc = glGetUniformLocation(myShader.ID, "view");
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+		int projLoc = glGetUniformLocation(myShader.ID, "projection");
+		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 
-        glUseProgram(shaderProgram);
-
-		glBindVertexArray(test_VAO);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, test_EBO);
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		glBindTexture(GL_TEXTURE_2D, texture);
+		glBindVertexArray(cube_VAO);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, cube_EBO);
+		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
         //check events & swap buffers
         glfwSwapBuffers(window);
@@ -225,4 +252,3 @@ int main(int, char**) {
     glfwTerminate();
     return 0;
 }
-
