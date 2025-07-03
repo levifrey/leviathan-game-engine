@@ -9,10 +9,16 @@
 #include "../include/glm/gtc/type_ptr.hpp"
 #include "Shader.h"
 
-
+// Globals
 glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);	
+float yaw = -90.0f;
+float pitch = 0.0f;
+
+
+float deltaTime = 0.0f;
+float lastFrame = 0.0f;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
@@ -22,7 +28,7 @@ void processInput(GLFWwindow* window) {
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, true);
     }
-	const float cameraSpeed = 0.5f;
+	const float cameraSpeed = 2.5f * deltaTime;
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 		cameraPos += cameraSpeed * cameraFront;
 	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
@@ -31,6 +37,10 @@ void processInput(GLFWwindow* window) {
 		cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+}
+
+void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
+	std::cout << xpos << std::endl;
 }
 
 void createElement(
@@ -98,12 +108,13 @@ int main(int, char**) {
         std::cout << "Failed to intialize GLAD" << std::endl;
         return -1;
     }
-
+	
     glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 	glEnable(GL_DEPTH_TEST);
     glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
-
+	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetCursorPosCallback(window, mouse_callback);
 	// Test using new functions:
 	float test_vertices[] = {
 		// positions     // colors      // tex coords
@@ -227,9 +238,11 @@ int main(int, char**) {
         processInput(window);
 		
 		// logic
+		deltaTime = glfwGetTime() - lastFrame;
+		lastFrame = glfwGetTime();
 		view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
-		model = glm::rotate(model, glm::radians(1.0f), glm::vec3(0.5f, 1.0f, 0.0f));
-
+		model = glm::rotate(model, glm::radians(70.0f * deltaTime), glm::vec3(1.0f, 1.0f, 0.0f));	
+	
         // rendering 
         glUseProgram(myShader.ID);
 		int modelLoc = glGetUniformLocation(myShader.ID, "model");
@@ -244,8 +257,10 @@ int main(int, char**) {
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, cube_EBO);
 		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
+		int mode = glfwGetInputMode(window, GLFW_CURSOR);
         //check events & swap buffers
         glfwSwapBuffers(window);
+		//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
         glfwPollEvents();
     }
 
