@@ -1,6 +1,9 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/main.dir/link.d"
   "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.o"
   "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/include/glad.c.o.d"
+  "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Model.cpp.o"
+  "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Model.cpp.o.d"
   "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o"
   "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o.d"
   "CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/main.cpp.o"

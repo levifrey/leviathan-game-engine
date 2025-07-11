@@ -1,6 +1,6 @@
-CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o: \
- /home/leviwfrey/projects/graphics/src/Shader.cpp \
- /usr/include/stdc-predef.h \
+CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Model.cpp.o: \
+ /home/leviwfrey/projects/graphics/src/Model.cpp \
+ /usr/include/stdc-predef.h /home/leviwfrey/projects/graphics/src/Model.h \
  /home/leviwfrey/projects/graphics/src/Shader.h \
  /home/leviwfrey/projects/graphics/src/../include/glad.h \
  /usr/include/KHR/khrplatform.h \
@@ -379,4 +379,6 @@ CMakeFiles/main.dir/home/leviwfrey/projects/graphics/src/Shader.cpp.o: \
  /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/c++io.h \
  /usr/include/c++/15.1.1/bits/fstream.tcc /usr/include/c++/15.1.1/sstream \
  /usr/include/c++/15.1.1/bits/sstream.tcc \
- /usr/include/c++/15.1.1/iostream
+ /usr/include/c++/15.1.1/iostream \
+ /home/leviwfrey/projects/graphics/src/../include/stb_image.h \
+ /usr/include/c++/15.1.1/stdlib.h
