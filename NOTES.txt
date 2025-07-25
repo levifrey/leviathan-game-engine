@@ -1,0 +1,7 @@
+Working on moving keyboard/mouse information to seperate classes so not stored in main function, because tthats stupid.
+
+- need to make an App class that stores handelers and uses WindowUserPointer to direct events to a mouse handler and keyboard handler.
+
+- need to create Mouse Handler
+- need to create Keyboard Handler
+- need to somehow attach handlers to camera, maybe it just takes a pointer to the World/App/Game class

@@ -2,8 +2,10 @@
 #include <iostream>
 #include <stdexcept>
 
-bool uniformFound(int location) {
- return location != -1;
+void uniformFound( const std::string& name, int location) {
+    if (location == -1) {
+        throw std::runtime_error("ENGINE ERROR: could not set uniform: " + name); 
+    }
 }
 
 Shader::Shader(const char* vertexPath, const char* fragmentPath) {
@@ -74,6 +76,7 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath) {
 
     glDeleteShader(vertex);
     glDeleteShader(fragment);
+    use();
 }
 
 void Shader::use() {
@@ -102,5 +105,10 @@ void Shader::setVec3(const std::string &name, glm::vec3 value) const {
 
 void Shader::setMat4(const std::string &name, glm::mat4 value) const {
     int location = glGetUniformLocation(ID, name.c_str());
+    if (location == -1) { std::cout << "Error setting variable: " << name << std::endl; }
     glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(value));
+}
+
+void Shader::reserveTexture(const std::string &var_name, int texture_num) {
+    setInt(var_name, texture_num);
 }
