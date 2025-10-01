@@ -1,0 +1,52 @@
+#ifndef POINTLIGHT_H
+#define POINTLIGHT_H
+
+#include <glm/glm.hpp>
+#include "Components/LightSource.h"
+#include "Shader.h"
+#include "Components/Transform.h"
+
+class PointLight : public LightSource {
+    public:
+        PointLight(float constant, float linear, float quadratic,
+            glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular)
+            : LightSource (ambient, diffuse, specular) 
+        {
+            constant_ = constant;
+            linear_ = linear;
+            quadratic_ = quadratic;
+        }
+
+        PointLight(float constant, float linear, float quadratic)
+            : LightSource() 
+        {
+            constant_ = constant;
+            linear_ = linear;
+            quadratic_ = quadratic;
+        }
+
+        PointLight() : LightSource() {
+            constant_ = 1.0f;
+            linear_ = 0.1f;
+            quadratic_ = 0.03f;
+        }
+
+        void applyUniforms(Shader* shader) override {
+            LightSource::applyUniforms(shader);
+            shader->setFloat("light.constant", constant_);
+            shader->setFloat("light.linear", linear_);
+            shader->setFloat("light.qudratic", quadratic_);
+            Transform* t = getGameObject()->getComponent<Transform>();
+            if(!t) {
+                std::cout << "ERROR>PointLight>ApplyUniforms: No transform component found for parent game object." << std::endl;
+            }
+            shader->setVec3("light.position", t->getWorldPosition());
+        }
+
+    private:
+        float constant_;
+        float linear_;
+        float quadratic_;
+};
+
+#endif

@@ -1,0 +1,18 @@
+#ifndef COMPONENT_H
+#define COMPONENT_H
+class GameObject;
+class Component {
+    public:
+        Component() {}
+        Component(GameObject* game_object) { game_object_ = game_object; }
+        virtual ~Component() = default;
+        virtual void update() {}
+        virtual void init() {}
+        void setGameObject(GameObject* obj) { game_object_ = obj; }
+        GameObject* getGameObject() { return game_object_; }
+        
+    private:
+        GameObject* game_object_;
+};
+
+#endif

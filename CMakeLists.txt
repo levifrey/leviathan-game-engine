@@ -1,26 +1,28 @@
-cmake_minimum_required(VERSION 3.5)
-project(graphics_project VERSION 0.1.0)
-cmake_policy(SET  CMP0072 NEW)
+cmake_minimum_required(VERSION 3.16)
+project(MyGame LANGUAGES CXX)
 
-find_package(OpenGL REQUIRED)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Include Glad, GLM, STB (I have the headers)
-include_directories(external)
-set(CMAKE_BUILD_TYPE Debug)
-# Fetch GLFW
-include(FetchContent)
-FetchContent_Declare(
-    glfw
-    GIT_REPOSITORY https://github.com/glfw/glfw.git
-    GIT_TAG latest
-)
-FetchContent_MakeAvailable(glfw)
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-add_library(glad STATIC external/glad/glad.c)
-target_include_directories(glad PUBLIC include)
+add_subdirectory(Engine)
 
-file(GLOB_RECURSE SOURCES src/*.cpp)
+file(GLOB_RECURSE USER_SOURCES 
+    "${CMAKE_CURRENT_SOURCE_DIR}/games/*.cpp")
 
-add_executable(main ${SOURCES})
+file(GLOB_RECURSE USER_BEHAVIORS 
+    "${CMAKE_CURRENT_SOURCE_DIR}/behaviors/*.cpp" 
+    "${CMAKE_CURRENT_SOURCE_DIR}/behaviors/*.h")
 
-target_link_libraries(main PRIVATE OpenGL::GL glfw glad)
+foreach(GAME_FILE ${USER_SOURCES})
+    get_filename_component(GAME_NAME ${GAME_FILE} NAME_WE)
+
+    add_executable(${GAME_NAME} ${GAME_FILE})
+
+    target_include_directories(${GAME_NAME} PRIVATE 
+        "${CMAKE_CURRENT_SOURCE_DIR}/behaviors"
+    )
+    
+    target_link_libraries(${GAME_NAME} PRIVATE Engine)
+endforeach()

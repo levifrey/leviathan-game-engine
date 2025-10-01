@@ -5,3 +5,11 @@ Working on moving keyboard/mouse information to seperate classes so not stored i
 - need to create Mouse Handler
 - need to create Keyboard Handler
 - need to somehow attach handlers to camera, maybe it just takes a pointer to the World/App/Game class
+
+
+8/12/2025
+
+- getComponent is not finding parent class components when a game object is fed an object of a child class typem giving bad stuff
+
+9/29/2025
+- Need to implement lists of lights efficiently that will allow for multiple types of lights!?

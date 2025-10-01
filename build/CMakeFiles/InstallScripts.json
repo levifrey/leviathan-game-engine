@@ -2,9 +2,7 @@
 	"InstallScripts" : 
 	[
 		"/home/leviwfrey/projects/graphics/build/cmake_install.cmake",
-		"/home/leviwfrey/projects/graphics/build/_deps/glfw-build/cmake_install.cmake",
-		"/home/leviwfrey/projects/graphics/build/_deps/glfw-build/src/cmake_install.cmake",
-		"/home/leviwfrey/projects/graphics/build/_deps/glfw-build/docs/cmake_install.cmake"
+		"/home/leviwfrey/projects/graphics/build/Engine/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

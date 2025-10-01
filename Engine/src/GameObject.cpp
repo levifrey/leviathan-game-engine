@@ -1,0 +1,39 @@
+#include "GameObject.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include "Game.h"
+#include <memory>
+#include <typeinfo>
+#include <typeindex>
+
+GameObject::GameObject(Game* game) {
+    game_ = game;
+}
+
+Game* GameObject::getGame() {
+    return game_;
+}
+
+GameObject* GameObject::getParent() {
+    return parent_;
+}
+
+std::unordered_set<GameObject*>& GameObject::getChildren() {
+    return children_;
+}
+
+void GameObject::update() {
+    for (auto& [type, component] : components_) {
+        component->update();
+    }
+}
+
+void GameObject::addChild(GameObject* obj) {
+    if (!obj || obj == this) { return; }
+    if(obj->getParent()) {
+        obj->getParent()->children_.erase(obj);
+    }
+    children_.insert(obj);
+    obj->parent_ = this;
+}
