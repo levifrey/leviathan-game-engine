@@ -13,13 +13,21 @@ class AreaLight : public LightSource {
 
         AreaLight() : LightSource() {}
 
-        void applyUniforms(Shader* shader) override {
-            LightSource::applyUniforms(shader);
+        LightData packLightData() override {
+            LightData data;
+            data.ambient_ = ambient_;
+            data.diffuse_ = diffuse_;
+            data.specular_ = specular_;
+            data.type = LightType::AREA;
+
+
             Transform* t = getGameObject()->getComponent<Transform>();
             if (!t) {
-                std::cout << "ERROR>AreaLight>ApplyUniforms: No transform component found for parent game object." << std::endl;
+            } else {
+                data.position_ = t->getWorldPosition();
             }
-            shader->setVec3("light.position",  t->getWorldPosition());
+
+            return data;
         }
 };
 

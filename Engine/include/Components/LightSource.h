@@ -3,6 +3,7 @@
 #include <glm/glm.hpp>
 #include "Component.h"
 #include "Shader.h"
+#include "Components/Lights/LightData.h"
 
 class LightSource : public Component {
     public:
@@ -18,12 +19,7 @@ class LightSource : public Component {
             specular_ = glm::vec3(1.0f, 1.0f, 1.0f);
         }
 
-        virtual void applyUniforms(Shader* shader) {
-            shader->setVec3("light.ambient", getAmbient());
-            shader->setVec3("light.diffuse", getDiffuse());
-            shader->setVec3("light.specular", getSpecular());
-            shader->setFloat("material.shininess", 32);
-        }
+        virtual LightData packLightData();
 
         glm::vec3 getAmbient() { return ambient_; }
         glm::vec3 getDiffuse() { return diffuse_; }
