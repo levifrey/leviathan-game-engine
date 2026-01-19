@@ -31,7 +31,8 @@ class SpotLight : public LightSource {
             innerCutoff_ = 12.5f;
             outerCutoff_ = 17.5f;
         }
-
+        
+        /*
         void applyUniforms(Shader* shader) override {
             LightSource::applyUniforms(shader);
             shader->setFloat("light.innerCutoff", glm::cos(glm::radians(innerCutoff_)));
@@ -42,6 +43,24 @@ class SpotLight : public LightSource {
                 std::cout << "ERROR>SpotLight>applyUniforms: No transform component found for parent game object." << std::endl;
             }
             shader->setVec3("light.position", t->getWorldPosition());
+        }
+        */
+
+        LightData packLightData() override {
+            LightData data;
+            data.ambient_ = glm::vec4(getAmbient(), 1.0f);
+            data.diffuse_ = glm::vec4(getDiffuse(), 1.0f);
+            data.specular_ = glm::vec4(getSpecular(), 1.0f);
+            data.spotlight_ = glm::vec4(innerCutoff_, outerCutoff_, 1.0f, 1.0f);
+            data.direction_ = glm::vec4(direction_, 1.0f);
+
+            Transform* t = getGameObject()->getComponent<Transform>();
+            if (t) {
+                data.position_type_ = glm::vec4(t->getWorldPosition(), 1.0f);
+            }
+            data.position_type_[3]  = LightType::SPOT;
+
+            return data;
         }
 
         glm::vec3 getDirection() { return direction_; }

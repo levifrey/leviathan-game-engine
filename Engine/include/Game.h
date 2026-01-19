@@ -10,6 +10,8 @@
 #include "Components/LightSource.h"
 #include <vector>
 #include <functional>
+#include "LightData.h"
+const int MAX_LIGHTS = 128;
 
 class Game {
     public:
@@ -40,6 +42,7 @@ class Game {
         KeyboardHandler keyboard_handler_;
         std::vector<GameObject*> game_objects_;
         std::vector<LightSource*> light_sources_;
+        GLuint lightUBO_;
         std::function<void(Game&)> debugFunction_;
 };
 

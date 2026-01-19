@@ -3,7 +3,7 @@
 #include <glm/glm.hpp>
 #include "Component.h"
 #include "Shader.h"
-#include "Components/Lights/LightData.h"
+#include "LightData.h"
 
 class LightSource : public Component {
     public:

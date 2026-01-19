@@ -15,17 +15,15 @@ class AreaLight : public LightSource {
 
         LightData packLightData() override {
             LightData data;
-            data.ambient_ = ambient_;
-            data.diffuse_ = diffuse_;
-            data.specular_ = specular_;
-            data.type = LightType::AREA;
-
+            data.ambient_ = glm::vec4(getAmbient(), 1.0f);
+            data.diffuse_ = glm::vec4(getDiffuse(), 1.0f);
+            data.specular_ = glm::vec4(getSpecular(), 1.0f);
 
             Transform* t = getGameObject()->getComponent<Transform>();
-            if (!t) {
-            } else {
-                data.position_ = t->getWorldPosition();
+            if (t) {
+                data.position_type_ = glm::vec4(t->getWorldPosition(), 1.0f);
             }
+            data.position_type_[3] = LightType::AREA;
 
             return data;
         }

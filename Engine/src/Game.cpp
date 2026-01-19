@@ -100,6 +100,13 @@ Game::Game(int window_width, int window_height) {
     // Create important game objects:
     mouse_handler_ = MouseHandler();
     keyboard_handler_ = KeyboardHandler(); 
+
+    // generate light UBO
+    glGenBuffers(1, &lightUBO_);
+    glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
+    glBufferData(GL_UNIFORM_BUFFER, sizeof(LightData) * MAX_LIGHTS + sizeof(int), nullptr, GL_DYNAMIC_DRAW);
+    glBindBufferBase(GL_UNIFORM_BUFFER, 0, lightUBO_);
+
 }
 
 /*
@@ -121,7 +128,21 @@ void Game::Loop() {
         for (GameObject* obj : game_objects_) {
             obj->update();
         }
+        
+        // send light data to GPU
+        struct alignas(16) LightBlock {
+            LightData light_data[MAX_LIGHTS];
+            glm::vec4 lightCount;
+        };
+        struct LightBlock light_block;
+        for (int i = 0; i < light_sources_.size(); i++) {
+            light_block.light_data[i] = light_sources_[i]->packLightData();
+        }
+        light_block.lightCount[0] = light_sources_.size();
 
+        glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
+        glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(LightBlock), &light_block);
+    
         for (GameObject* obj : game_objects_) {
             if(obj->hasComponent<Renderer>()) {
                 Renderer* r = obj->getComponent<Renderer>();
@@ -145,7 +166,4 @@ void Game::applyGlobalUniforms(Shader* shader) {
     shader->setMat4("view", getCamera()->getView());
     shader->setMat4("projection", getCamera()->getProjection());
     shader->setVec3("viewPos", getCamera()->getPosition());
-    for (LightSource* light : light_sources_) {
-        light->applyUniforms(shader);
-    }
 }

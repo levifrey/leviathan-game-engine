@@ -30,7 +30,7 @@ class PointLight : public LightSource {
             linear_ = 0.1f;
             quadratic_ = 0.03f;
         }
-
+        /*
         void applyUniforms(Shader* shader) override {
             LightSource::applyUniforms(shader);
             shader->setFloat("light.constant", constant_);
@@ -41,6 +41,23 @@ class PointLight : public LightSource {
                 std::cout << "ERROR>PointLight>ApplyUniforms: No transform component found for parent game object." << std::endl;
             }
             shader->setVec3("light.position", t->getWorldPosition());
+        }
+        */
+
+        LightData packLightData() override {
+            LightData data;
+            data.ambient_ = glm::vec4(getAmbient(), 1.0f);
+            data.diffuse_ = glm::vec4(getDiffuse(), 1.0f);
+            data.specular_ = glm::vec4(getSpecular(), 1.0f);
+            data.attenuation_ = glm::vec4(constant_, linear_, quadratic_, 1.0f); 
+            
+            Transform* t = getGameObject()->getComponent<Transform>();
+            if (t) {
+                data.position_type_ = glm::vec4(t->getWorldPosition(), 1.0f);
+            }
+            data.position_type_[3] = LightType::POINT;
+            return data;
+
         }
 
     private:
