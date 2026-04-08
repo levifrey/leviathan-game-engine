@@ -1,5 +1,4 @@
 /home/leviwfrey/projects/graphics/build/CMakeFiles/mult.dir
-/home/leviwfrey/projects/graphics/build/CMakeFiles/spot.dir
 /home/leviwfrey/projects/graphics/build/CMakeFiles/test.dir
 /home/leviwfrey/projects/graphics/build/CMakeFiles/edit_cache.dir
 /home/leviwfrey/projects/graphics/build/CMakeFiles/rebuild_cache.dir

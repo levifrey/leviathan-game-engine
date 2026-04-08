@@ -3,7 +3,7 @@ project(graphics_project VERSION 0.1.0)
 cmake_policy(SET  CMP0072 NEW)
 
 file(GLOB_RECURSE ENGINE_SOURCES CONFIGURE_DEPENDS 
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/core/src/*.cpp"
 )
 
 list(APPEND ENGINE_SOURCES  
@@ -13,12 +13,12 @@ list(APPEND ENGINE_SOURCES
 add_library(Engine STATIC ${ENGINE_SOURCES})
 
 target_include_directories(Engine PUBLIC 
-    "${CMAKE_CURRENT_SOURCE_DIR}/include"
+    "${CMAKE_CURRENT_SOURCE_DIR}/core/include"
 )
 
 # Include external headers (GLAD, STB)
 target_include_directories(Engine PUBLIC 
-    "${CMAKE_CURRENT_SOURCE_DIR}/include"
+    "${CMAKE_CURRENT_SOURCE_DIR}/core/include"
     "${CMAKE_CURRENT_SOURCE_DIR}/external/stb_image" 
     "${CMAKE_CURRENT_SOURCE_DIR}/external/glad/include"
 )

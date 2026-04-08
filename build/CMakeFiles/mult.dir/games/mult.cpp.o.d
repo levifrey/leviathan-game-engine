@@ -15,12 +15,11 @@ CMakeFiles/mult.dir/games/mult.cpp.o: \
  /usr/include/c++/15.2.1/bits/version.h \
  /usr/include/c++/15.2.1/type_traits \
  /usr/include/c++/15.2.1/ext/type_traits.h /usr/include/math.h \
- /usr/include/bits/libc-header-start.h /usr/include/bits/types.h \
- /usr/include/bits/typesizes.h /usr/include/bits/time64.h \
- /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
- /usr/include/bits/floatn.h /usr/include/bits/floatn-common.h \
- /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
- /usr/include/bits/fp-fast.h /usr/include/bits/mathcalls-macros.h \
+ /usr/include/bits/libc-header-start.h /usr/include/bits/math-vector.h \
+ /usr/include/bits/libm-simd-decl-stubs.h /usr/include/bits/floatn.h \
+ /usr/include/bits/floatn-common.h /usr/include/bits/flt-eval-method.h \
+ /usr/include/bits/fp-logb.h /usr/include/bits/fp-fast.h \
+ /usr/include/bits/mathcalls-macros.h \
  /usr/include/bits/mathcalls-helper-functions.h \
  /usr/include/bits/mathcalls.h /usr/include/bits/mathcalls-narrow.h \
  /usr/include/bits/iscanonical.h /usr/include/c++/15.2.1/bits/std_abs.h \
@@ -28,14 +27,15 @@ CMakeFiles/mult.dir/games/mult.cpp.o: \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
  /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
  /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
- /usr/include/sys/types.h /usr/include/bits/types/clock_t.h \
- /usr/include/bits/types/clockid_t.h /usr/include/bits/types/time_t.h \
- /usr/include/bits/types/timer_t.h /usr/include/bits/stdint-intn.h \
- /usr/include/endian.h /usr/include/bits/endian.h \
- /usr/include/bits/endianness.h /usr/include/bits/byteswap.h \
- /usr/include/bits/uintn-identity.h /usr/include/sys/select.h \
- /usr/include/bits/select.h /usr/include/bits/types/sigset_t.h \
- /usr/include/bits/types/__sigset_t.h \
+ /usr/include/sys/types.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h /usr/include/bits/time64.h \
+ /usr/include/bits/types/clock_t.h /usr/include/bits/types/clockid_t.h \
+ /usr/include/bits/types/time_t.h /usr/include/bits/types/timer_t.h \
+ /usr/include/bits/stdint-intn.h /usr/include/endian.h \
+ /usr/include/bits/endian.h /usr/include/bits/endianness.h \
+ /usr/include/bits/byteswap.h /usr/include/bits/uintn-identity.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/types/sigset_t.h /usr/include/bits/types/__sigset_t.h \
  /usr/include/bits/types/struct_timeval.h \
  /usr/include/bits/types/struct_timespec.h \
  /usr/include/bits/pthreadtypes.h /usr/include/bits/thread-shared-types.h \
@@ -233,16 +233,16 @@ CMakeFiles/mult.dir/games/mult.cpp.o: \
  /usr/include/glm/detail/type_half.hpp \
  /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
  /usr/include/glm/detail/func_integer.inl \
- /home/leviwfrey/projects/graphics/Engine/include/Engine.h \
- /home/leviwfrey/projects/graphics/Engine/include/Game.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Engine.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Game.h \
  /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
  /usr/include/KHR/khrplatform.h /usr/include/GLFW/glfw3.h \
- /home/leviwfrey/projects/graphics/Engine/include/Input/MouseHandler.h \
- /home/leviwfrey/projects/graphics/Engine/include/Input/KeyboardHandler.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Input/MouseHandler.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Input/KeyboardHandler.h \
  /usr/include/c++/15.2.1/map /usr/include/c++/15.2.1/bits/stl_tree.h \
  /usr/include/c++/15.2.1/bits/stl_map.h \
  /usr/include/c++/15.2.1/bits/stl_multimap.h \
- /home/leviwfrey/projects/graphics/Engine/include/GameObject.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/GameObject.h \
  /usr/include/c++/15.2.1/typeindex /usr/include/c++/15.2.1/memory \
  /usr/include/c++/15.2.1/bits/stl_tempbuf.h \
  /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h \
@@ -286,12 +286,12 @@ CMakeFiles/mult.dir/games/mult.cpp.o: \
  /usr/include/c++/15.2.1/backward/auto_ptr.h \
  /usr/include/c++/15.2.1/pstl/glue_memory_defs.h \
  /usr/include/c++/15.2.1/pstl/execution_defs.h \
- /home/leviwfrey/projects/graphics/Engine/include/Components/Component.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/Component.h \
  /usr/include/c++/15.2.1/unordered_set \
  /usr/include/c++/15.2.1/bits/unordered_set.h \
- /home/leviwfrey/projects/graphics/Engine/include/Components/Camera.h \
- /home/leviwfrey/projects/graphics/Engine/include/Components/Component.h \
- /home/leviwfrey/projects/graphics/Engine/include/Shader.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/Camera.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/Component.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h \
  /usr/include/glm/gtc/matrix_transform.hpp \
  /usr/include/glm/ext/matrix_projection.hpp \
  /usr/include/glm/gtc/constants.hpp \
@@ -387,20 +387,35 @@ CMakeFiles/mult.dir/games/mult.cpp.o: \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++io.h \
  /usr/include/c++/15.2.1/bits/fstream.tcc /usr/include/c++/15.2.1/sstream \
  /usr/include/c++/15.2.1/bits/sstream.tcc \
- /usr/include/c++/15.2.1/iostream \
- /home/leviwfrey/projects/graphics/Engine/include/Components/LightSource.h \
- /home/leviwfrey/projects/graphics/Engine/include/Components/Component.h \
- /home/leviwfrey/projects/graphics/Engine/include/Shader.h \
- /home/leviwfrey/projects/graphics/Engine/include/LightData.h \
- /home/leviwfrey/projects/graphics/Engine/include/Model.h \
- /home/leviwfrey/projects/graphics/Engine/include/Texture.h \
- /home/leviwfrey/projects/graphics/Engine/include/Shapes.h \
- /home/leviwfrey/projects/graphics/Engine/include/DeltaClock.h \
- /home/leviwfrey/projects/graphics/Engine/include/Components/Components.h \
- /home/leviwfrey/projects/graphics/Engine/include/Components/Renderer.h \
- /home/leviwfrey/projects/graphics/Engine/include/Model.h \
- /home/leviwfrey/projects/graphics/Engine/include/Texture.h \
- /home/leviwfrey/projects/graphics/Engine/include/Components/Transform.h \
+ /usr/include/c++/15.2.1/iostream /usr/include/c++/15.2.1/filesystem \
+ /usr/include/c++/15.2.1/bits/fs_fwd.h \
+ /usr/include/c++/15.2.1/bits/chrono.h /usr/include/c++/15.2.1/ratio \
+ /usr/include/c++/15.2.1/ctime \
+ /usr/include/c++/15.2.1/bits/parse_numbers.h \
+ /usr/include/c++/15.2.1/bits/fs_path.h /usr/include/c++/15.2.1/locale \
+ /usr/include/c++/15.2.1/bits/locale_facets_nonio.h \
+ /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/time_members.h \
+ /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/messages_members.h \
+ /usr/include/libintl.h \
+ /usr/include/c++/15.2.1/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/15.2.1/bits/locale_conv.h \
+ /usr/include/c++/15.2.1/iomanip \
+ /usr/include/c++/15.2.1/bits/quoted_string.h \
+ /usr/include/c++/15.2.1/codecvt /usr/include/c++/15.2.1/bits/fs_dir.h \
+ /usr/include/c++/15.2.1/bits/fs_ops.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/LightSource.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/Component.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/LightData.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Model.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Shapes.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/DeltaClock.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/AllComponents.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/Renderer.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Model.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/Transform.h \
  /usr/include/glm/gtx/quaternion.hpp \
  /usr/include/glm/ext/quaternion_exponential.hpp \
  /usr/include/glm/ext/quaternion_exponential.inl \
@@ -410,14 +425,17 @@ CMakeFiles/mult.dir/games/mult.cpp.o: \
  /usr/include/glm/ext/scalar_common.hpp \
  /usr/include/glm/ext/scalar_common.inl /usr/include/glm/gtx/norm.inl \
  /usr/include/glm/gtx/quaternion.inl \
- /home/leviwfrey/projects/graphics/Engine/include/Components/LightSource.h \
- /home/leviwfrey/projects/graphics/Engine/include/Components/Camera.h \
- /home/leviwfrey/projects/graphics/Engine/include/Components/Flashlight.h \
- /home/leviwfrey/projects/graphics/Engine/include/Components/Lights/SpotLight.h \
- /home/leviwfrey/projects/graphics/Engine/include/Components/Lights/Lights.h \
- /home/leviwfrey/projects/graphics/Engine/include/Components/Lights/AreaLight.h \
- /home/leviwfrey/projects/graphics/Engine/include/Components/Lights/DirectionalLight.h \
- /home/leviwfrey/projects/graphics/Engine/include/Components/Lights/PointLight.h \
- /home/leviwfrey/projects/graphics/Engine/include/Objects/Objects.h \
- /home/leviwfrey/projects/graphics/Engine/include/Objects/PlayerCamera.h \
- /home/leviwfrey/projects/graphics/Engine/include/GameObject.h
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/LightSource.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/Camera.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/lights/AllLights.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/lights/AreaLight.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/lights/DirectionalLight.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/lights/PointLight.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/lights/SpotLight.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Objects/AllObjects.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Objects/PlayerCamera.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/GameObject.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Objects/LightCubes.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/AssetManager.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Objects/ContainerObject.h \
+ /home/leviwfrey/projects/graphics/behaviors/Flashlight.h

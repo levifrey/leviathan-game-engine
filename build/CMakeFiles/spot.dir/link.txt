@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/spot.dir/link.d CMakeFiles/spot.dir/games/spot.cpp.o -o spot  Engine/libEngine.a /usr/lib/libglfw.so.3.4 /usr/lib/libGLX.so /usr/lib/libOpenGL.so /usr/lib/libglm.a
