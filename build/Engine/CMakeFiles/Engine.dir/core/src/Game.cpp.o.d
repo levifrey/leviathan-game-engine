@@ -13,7 +13,8 @@ Engine/CMakeFiles/Engine.dir/core/src/Game.cpp.o: \
  /usr/include/bits/types.h /usr/include/bits/typesizes.h \
  /usr/include/bits/time64.h /usr/include/bits/wchar.h \
  /usr/include/bits/stdint-intn.h /usr/include/bits/stdint-uintn.h \
- /usr/include/bits/stdint-least.h /usr/include/GLFW/glfw3.h \
+ /usr/include/bits/stdint-least.h \
+ /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Input/MouseHandler.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Input/KeyboardHandler.h \

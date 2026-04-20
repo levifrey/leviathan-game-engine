@@ -1,10 +1,7 @@
 #!/bin/bash
 rm -rf build
-mkdir build
-cd build
-cmake ..
-make
+cmake -S . -B build
+cmake --build build
 rm compile_commands.json
 ln -s compile_commands.json .
-cd ..
 

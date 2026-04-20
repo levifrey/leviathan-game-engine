@@ -520,7 +520,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Camera.cpp.o: /home/leviwfrey/projects/gra
   /home/leviwfrey/projects/graphics/Engine/core/include/LightData.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h \
   /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -1030,9 +1030,9 @@ Engine/CMakeFiles/Engine.dir/core/src/Camera.cpp.o: /home/leviwfrey/projects/gra
 
 Engine/CMakeFiles/Engine.dir/core/src/DeltaClock.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/DeltaClock.cpp \
   /home/leviwfrey/projects/graphics/Engine/core/include/DeltaClock.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/GL/gl.h \
   /usr/include/GL/glext.h \
-  /usr/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/bits/libc-header-start.h \
   /usr/include/bits/long-double.h \
@@ -1072,7 +1072,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Game.cpp.o: /home/leviwfrey/projects/graph
   /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
   /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -1589,7 +1589,7 @@ Engine/CMakeFiles/Engine.dir/core/src/GameObject.cpp.o: /home/leviwfrey/projects
   /home/leviwfrey/projects/graphics/Engine/core/include/LightData.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h \
   /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -2090,7 +2090,7 @@ Engine/CMakeFiles/Engine.dir/core/src/GameObject.cpp.o: /home/leviwfrey/projects
 Engine/CMakeFiles/Engine.dir/core/src/KeyboardHandler.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/KeyboardHandler.cpp \
   /home/leviwfrey/projects/graphics/Engine/core/include/Input/KeyboardHandler.h \
   /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/bits/libc-header-start.h \
   /usr/include/bits/long-double.h \
@@ -2170,7 +2170,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Model.cpp.o: /home/leviwfrey/projects/grap
   /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
   /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -2653,9 +2653,9 @@ Engine/CMakeFiles/Engine.dir/core/src/Model.cpp.o: /home/leviwfrey/projects/grap
 
 Engine/CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/MouseHandler.cpp \
   /home/leviwfrey/projects/graphics/Engine/core/include/Input/MouseHandler.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/GL/gl.h \
   /usr/include/GL/glext.h \
-  /usr/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -2877,7 +2877,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o: /home/leviwfrey/projects/g
   /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
   /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -4357,8 +4357,8 @@ Engine/CMakeFiles/Engine.dir/core/src/Shapes.cpp.o: /home/leviwfrey/projects/gra
 Engine/CMakeFiles/Engine.dir/core/src/Texture.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/Texture.cpp \
   /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
   /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /home/leviwfrey/projects/graphics/Engine/external/stb_image/stb_image.h \
-  /usr/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -5797,6 +5797,8 @@ Engine/CMakeFiles/Engine.dir/external/glad/src/glad.c.o: /home/leviwfrey/project
 
 /usr/include/glm/gtx/component_wise.inl:
 
+/home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h:
+
 /usr/include/linux/close_range.h:
 
 /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h:
@@ -6208,8 +6210,6 @@ Engine/CMakeFiles/Engine.dir/external/glad/src/glad.c.o: /home/leviwfrey/project
 /home/leviwfrey/projects/graphics/Engine/core/include/Components/Transform.h:
 
 /home/leviwfrey/projects/graphics/Engine/core/include/Game.h:
-
-/usr/include/GLFW/glfw3.h:
 
 /usr/include/c++/15.2.1/bits/stl_tree.h:
 

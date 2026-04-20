@@ -382,4 +382,4 @@ Engine/CMakeFiles/Engine.dir/core/src/Model.cpp.o: \
  /usr/include/c++/15.2.1/bits/fs_dir.h \
  /usr/include/c++/15.2.1/bits/fs_ops.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
- /usr/include/GLFW/glfw3.h
+ /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h

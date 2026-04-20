@@ -97,9 +97,14 @@ mult: CMakeFiles/mult.dir/games/mult.cpp.o
 mult: CMakeFiles/mult.dir/build.make
 mult: CMakeFiles/mult.dir/compiler_depend.ts
 mult: Engine/libEngine.a
-mult: /usr/lib/libglfw.so.3.4
+mult: Engine/external/glfw/src/libglfw3.a
+mult: /usr/lib/librt.a
+mult: /usr/lib/libm.so
 mult: /usr/lib/libGLX.so
 mult: /usr/lib/libOpenGL.so
+mult: Engine/external/assimp/lib/libassimp.a
+mult: /usr/lib/libz.so
+mult: /usr/lib/libminizip.so
 mult: /usr/lib/libglm.a
 mult: CMakeFiles/mult.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable mult"

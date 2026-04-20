@@ -30,8 +30,8 @@ CMakeFiles/mult.dir/games/mult.cpp.o: /home/leviwfrey/projects/graphics/games/mu
   /home/leviwfrey/projects/graphics/Engine/core/include/Shapes.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
   /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /home/leviwfrey/projects/graphics/behaviors/Flashlight.h \
-  /usr/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -543,9 +543,11 @@ mult: /usr/lib/Scrt1.o \
   /usr/lib/crti.o \
   /usr/lib/crtn.o \
   /usr/lib/libc.so \
+  /usr/lib/libdl.a \
   /usr/lib/libgcc_s.so \
   /usr/lib/libgcc_s.so.1 \
   /usr/lib/libm.so \
+  /usr/lib/librt.a \
   /usr/lib/libstdc++.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o \
@@ -559,24 +561,30 @@ mult: /usr/lib/Scrt1.o \
   /usr/lib/libXdmcp.so.6 \
   /usr/lib/libc.so.6 \
   /usr/lib/libc_nonshared.a \
-  /usr/lib/libglfw.so.3.4 \
   /usr/lib/libglm.a \
   /usr/lib/libm.so.6 \
+  /usr/lib/libminizip.so \
   /usr/lib/libmvec.so.1 \
+  /usr/lib/librt.a \
   /usr/lib/libxcb.so.1 \
+  /usr/lib/libz.so \
   CMakeFiles/mult.dir/games/mult.cpp.o \
+  Engine/external/assimp/lib/libassimp.a \
+  Engine/external/glfw/src/libglfw3.a \
   Engine/libEngine.a
 
 
 Engine/libEngine.a:
+
+Engine/external/glfw/src/libglfw3.a:
+
+Engine/external/assimp/lib/libassimp.a:
 
 CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/lib/libxcb.so.1:
 
 /usr/lib/libm.so.6:
-
-/usr/lib/libglfw.so.3.4:
 
 /usr/lib/libc_nonshared.a:
 
@@ -590,11 +598,17 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
 
+/usr/lib/librt.a:
+
 /usr/lib/libm.so:
 
 /usr/lib/libgcc_s.so.1:
 
+/usr/lib/libdl.a:
+
 /usr/include/bits/mathcalls.h:
+
+/usr/lib/libz.so:
 
 /usr/include/c++/15.2.1/iosfwd:
 
@@ -788,10 +802,6 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/glm/ext/matrix_double3x3.hpp:
 
-/usr/include/bits/libc-header-start.h:
-
-/usr/include/glm/ext/vector_uint3.hpp:
-
 /usr/include/bits/posix1_lim.h:
 
 /usr/include/bits/iscanonical.h:
@@ -888,6 +898,10 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/glm/ext/vector_relational.hpp:
 
+/usr/include/bits/libc-header-start.h:
+
+/usr/include/glm/ext/vector_uint3.hpp:
+
 /usr/include/c++/15.2.1/bits/hashtable_policy.h:
 
 /usr/lib/libstdc++.so:
@@ -901,6 +915,24 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 /home/leviwfrey/projects/graphics/Engine/core/include/GameObject.h:
 
 /usr/include/glm/ext/matrix_float2x3_precision.hpp:
+
+/usr/include/c++/15.2.1/ext/aligned_buffer.h:
+
+/usr/include/c++/15.2.1/locale:
+
+/usr/include/c++/15.2.1/ctime:
+
+/usr/include/bits/timex.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Components/Camera.h:
+
+/usr/include/c++/15.2.1/bits/new_allocator.h:
+
+/usr/include/glm/mat4x2.hpp:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Model.h:
+
+/usr/include/glm/ext/vector_float1_precision.hpp:
 
 /usr/include/bits/stdint-intn.h:
 
@@ -940,6 +972,8 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/glm/detail/type_mat3x4.inl:
 
+/home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h:
+
 /usr/include/glm/gtx/component_wise.inl:
 
 /usr/include/asm-generic/errno-base.h:
@@ -966,31 +1000,11 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/glm/ext/scalar_int_sized.hpp:
 
-/usr/include/c++/15.2.1/ext/aligned_buffer.h:
-
-/usr/include/c++/15.2.1/locale:
-
-/usr/include/c++/15.2.1/ctime:
-
-/usr/include/bits/timex.h:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Model.h:
-
-/usr/include/glm/ext/vector_float1_precision.hpp:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Components/Camera.h:
-
-/usr/include/c++/15.2.1/bits/new_allocator.h:
-
-/usr/include/glm/mat4x2.hpp:
-
 /usr/include/c++/15.2.1/debug/debug.h:
 
 /home/leviwfrey/projects/graphics/Engine/core/include/Components/AllComponents.h:
 
 /home/leviwfrey/projects/graphics/Engine/core/include/Components/Component.h:
-
-/usr/include/GLFW/glfw3.h:
 
 /usr/include/bits/flt-eval-method.h:
 
@@ -1229,6 +1243,8 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 /usr/include/glm/ext/matrix_float3x4_precision.hpp:
 
 /usr/include/c++/15.2.1/tr1/bessel_function.tcc:
+
+/usr/lib/libminizip.so:
 
 /usr/include/glm/ext/matrix_double2x3.hpp:
 

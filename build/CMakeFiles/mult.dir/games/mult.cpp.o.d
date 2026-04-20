@@ -236,7 +236,8 @@ CMakeFiles/mult.dir/games/mult.cpp.o: \
  /home/leviwfrey/projects/graphics/Engine/core/include/Engine.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Game.h \
  /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
- /usr/include/KHR/khrplatform.h /usr/include/GLFW/glfw3.h \
+ /usr/include/KHR/khrplatform.h \
+ /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Input/MouseHandler.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Input/KeyboardHandler.h \
  /usr/include/c++/15.2.1/map /usr/include/c++/15.2.1/bits/stl_tree.h \

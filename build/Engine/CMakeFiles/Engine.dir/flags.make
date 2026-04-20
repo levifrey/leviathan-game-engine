@@ -5,13 +5,13 @@
 # compile CXX with /usr/bin/c++
 C_DEFINES = 
 
-C_INCLUDES = -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -I/home/leviwfrey/projects/graphics/Engine/external/glad/include
+C_INCLUDES = -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/assimp/code/../include -I/home/leviwfrey/projects/graphics/build/Engine/external/assimp/code/../include
 
 C_FLAGS = 
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -I/home/leviwfrey/projects/graphics/Engine/external/glad/include
+CXX_INCLUDES = -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/assimp/code/../include -I/home/leviwfrey/projects/graphics/build/Engine/external/assimp/code/../include
 
 CXX_FLAGS = -std=gnu++17
 

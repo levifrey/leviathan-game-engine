@@ -411,7 +411,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o: \
  /usr/include/c++/15.2.1/unordered_set \
  /usr/include/c++/15.2.1/bits/unordered_set.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Game.h \
- /usr/include/GLFW/glfw3.h \
+ /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Input/MouseHandler.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Input/KeyboardHandler.h \
  /usr/include/c++/15.2.1/map /usr/include/c++/15.2.1/bits/stl_tree.h \

@@ -1,1 +1,1 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/mult.dir/link.d CMakeFiles/mult.dir/games/mult.cpp.o -o mult  Engine/libEngine.a /usr/lib/libglfw.so.3.4 /usr/lib/libGLX.so /usr/lib/libOpenGL.so /usr/lib/libglm.a
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/mult.dir/link.d CMakeFiles/mult.dir/games/mult.cpp.o -o mult  Engine/libEngine.a Engine/external/glfw/src/libglfw3.a /usr/lib/librt.a -lm -ldl /usr/lib/libGLX.so /usr/lib/libOpenGL.so Engine/external/assimp/lib/libassimp.a /usr/lib/libz.so /usr/lib/libminizip.so -lrt /usr/lib/libglm.a

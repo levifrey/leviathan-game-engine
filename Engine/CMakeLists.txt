@@ -28,9 +28,32 @@ target_include_directories(Engine PUBLIC
 find_package(OpenGL REQUIRED)
 
 # ----- GLFW -----
-find_package(glfw3 3.3 REQUIRED)
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+add_subdirectory(external/glfw)
+#find_package(glfw3 3.3 REQUIRED)
 
-target_link_libraries(Engine PUBLIC glfw OpenGL::GL)
+# ----- ASSIMP ----
+set(ASSIMP_BUILD_ALL_IMPORTERS_BY_DEFAULT OFF CACHE BOOL "" FORCE)
+set(ASSIMP_BUILD_ALL_EXPORTERS_BY_DEFAULT OFF CACHE BOOL "" FORCE)
+
+set(ASSIMP_BUILD_OBJ_IMPORTER ON CACHE BOOL "" FORCE)
+set(ASSIMP_BUILD_FBX_IMPORTER ON CACHE BOOL "" FORCE)
+
+set(ASSIMP_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(ASSIMP_BUILD_ASSIMP_TOOLS OFF CACHE BOOL "" FORCE)
+set(ASSIMP_NO_EXPORT ON CACHE BOOL "" FORCE)
+
+set(ASSIMP_BUILD_ZLIB OFF CACHE BOOL "" FORCE)
+set(ASSIMP_USE_ZLIB OFF CACHE BOOL "" FORCE)
+
+add_subdirectory(external/assimp)
+
+target_link_libraries(Engine PUBLIC 
+    glfw 
+    OpenGL::GL
+    assimp)
 
 # ----- GLM -----
 find_package(glm QUIET)

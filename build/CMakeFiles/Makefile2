@@ -89,33 +89,120 @@ clean: Engine/clean
 
 # Recursive "all" directory target.
 Engine/all: Engine/CMakeFiles/Engine.dir/all
+Engine/all: Engine/external/glfw/all
+Engine/all: Engine/external/assimp/all
 .PHONY : Engine/all
 
 # Recursive "codegen" directory target.
 Engine/codegen: Engine/CMakeFiles/Engine.dir/codegen
+Engine/codegen: Engine/external/glfw/codegen
+Engine/codegen: Engine/external/assimp/codegen
 .PHONY : Engine/codegen
 
 # Recursive "preinstall" directory target.
-Engine/preinstall:
+Engine/preinstall: Engine/external/glfw/preinstall
+Engine/preinstall: Engine/external/assimp/preinstall
 .PHONY : Engine/preinstall
 
 # Recursive "clean" directory target.
 Engine/clean: Engine/CMakeFiles/Engine.dir/clean
+Engine/clean: Engine/external/glfw/clean
+Engine/clean: Engine/external/assimp/clean
 .PHONY : Engine/clean
+
+#=============================================================================
+# Directory level rules for directory Engine/external/assimp
+
+# Recursive "all" directory target.
+Engine/external/assimp/all: Engine/external/assimp/code/all
+.PHONY : Engine/external/assimp/all
+
+# Recursive "codegen" directory target.
+Engine/external/assimp/codegen: Engine/external/assimp/code/codegen
+.PHONY : Engine/external/assimp/codegen
+
+# Recursive "preinstall" directory target.
+Engine/external/assimp/preinstall: Engine/external/assimp/code/preinstall
+.PHONY : Engine/external/assimp/preinstall
+
+# Recursive "clean" directory target.
+Engine/external/assimp/clean: Engine/external/assimp/code/clean
+.PHONY : Engine/external/assimp/clean
+
+#=============================================================================
+# Directory level rules for directory Engine/external/assimp/code
+
+# Recursive "all" directory target.
+Engine/external/assimp/code/all: Engine/external/assimp/code/CMakeFiles/assimp.dir/all
+.PHONY : Engine/external/assimp/code/all
+
+# Recursive "codegen" directory target.
+Engine/external/assimp/code/codegen: Engine/external/assimp/code/CMakeFiles/assimp.dir/codegen
+.PHONY : Engine/external/assimp/code/codegen
+
+# Recursive "preinstall" directory target.
+Engine/external/assimp/code/preinstall:
+.PHONY : Engine/external/assimp/code/preinstall
+
+# Recursive "clean" directory target.
+Engine/external/assimp/code/clean: Engine/external/assimp/code/CMakeFiles/assimp.dir/clean
+.PHONY : Engine/external/assimp/code/clean
+
+#=============================================================================
+# Directory level rules for directory Engine/external/glfw
+
+# Recursive "all" directory target.
+Engine/external/glfw/all: Engine/external/glfw/src/all
+.PHONY : Engine/external/glfw/all
+
+# Recursive "codegen" directory target.
+Engine/external/glfw/codegen: Engine/external/glfw/src/codegen
+.PHONY : Engine/external/glfw/codegen
+
+# Recursive "preinstall" directory target.
+Engine/external/glfw/preinstall: Engine/external/glfw/src/preinstall
+.PHONY : Engine/external/glfw/preinstall
+
+# Recursive "clean" directory target.
+Engine/external/glfw/clean: Engine/external/glfw/CMakeFiles/uninstall.dir/clean
+Engine/external/glfw/clean: Engine/external/glfw/src/clean
+.PHONY : Engine/external/glfw/clean
+
+#=============================================================================
+# Directory level rules for directory Engine/external/glfw/src
+
+# Recursive "all" directory target.
+Engine/external/glfw/src/all: Engine/external/glfw/src/CMakeFiles/glfw.dir/all
+.PHONY : Engine/external/glfw/src/all
+
+# Recursive "codegen" directory target.
+Engine/external/glfw/src/codegen: Engine/external/glfw/src/CMakeFiles/glfw.dir/codegen
+.PHONY : Engine/external/glfw/src/codegen
+
+# Recursive "preinstall" directory target.
+Engine/external/glfw/src/preinstall:
+.PHONY : Engine/external/glfw/src/preinstall
+
+# Recursive "clean" directory target.
+Engine/external/glfw/src/clean: Engine/external/glfw/src/CMakeFiles/glfw.dir/clean
+Engine/external/glfw/src/clean: Engine/external/glfw/src/CMakeFiles/update_mappings.dir/clean
+.PHONY : Engine/external/glfw/src/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/mult.dir
 
 # All Build rule for target.
 CMakeFiles/mult.dir/all: Engine/CMakeFiles/Engine.dir/all
+CMakeFiles/mult.dir/all: Engine/external/glfw/src/CMakeFiles/glfw.dir/all
+CMakeFiles/mult.dir/all: Engine/external/assimp/code/CMakeFiles/assimp.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mult.dir/build.make CMakeFiles/mult.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mult.dir/build.make CMakeFiles/mult.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=16,17 "Built target mult"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=98 "Built target mult"
 .PHONY : CMakeFiles/mult.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/mult.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 98
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mult.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 0
 .PHONY : CMakeFiles/mult.dir/rule
@@ -127,7 +214,7 @@ mult: CMakeFiles/mult.dir/rule
 # codegen rule for target.
 CMakeFiles/mult.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mult.dir/build.make CMakeFiles/mult.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=16,17 "Finished codegen for target mult"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=98 "Finished codegen for target mult"
 .PHONY : CMakeFiles/mult.dir/codegen
 
 # clean rule for target.
@@ -140,14 +227,16 @@ CMakeFiles/mult.dir/clean:
 
 # All Build rule for target.
 CMakeFiles/test.dir/all: Engine/CMakeFiles/Engine.dir/all
+CMakeFiles/test.dir/all: Engine/external/glfw/src/CMakeFiles/glfw.dir/all
+CMakeFiles/test.dir/all: Engine/external/assimp/code/CMakeFiles/assimp.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=18,19 "Built target test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=99 "Built target test"
 .PHONY : CMakeFiles/test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 98
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 0
 .PHONY : CMakeFiles/test.dir/rule
@@ -159,7 +248,7 @@ test: CMakeFiles/test.dir/rule
 # codegen rule for target.
 CMakeFiles/test.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=18,19 "Finished codegen for target test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=99 "Finished codegen for target test"
 .PHONY : CMakeFiles/test.dir/codegen
 
 # clean rule for target.
@@ -171,15 +260,16 @@ CMakeFiles/test.dir/clean:
 # Target rules for target Engine/CMakeFiles/Engine.dir
 
 # All Build rule for target.
-Engine/CMakeFiles/Engine.dir/all:
+Engine/CMakeFiles/Engine.dir/all: Engine/external/glfw/src/CMakeFiles/glfw.dir/all
+Engine/CMakeFiles/Engine.dir/all: Engine/external/assimp/code/CMakeFiles/assimp.dir/all
 	$(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/depend
 	$(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Built target Engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target Engine"
 .PHONY : Engine/CMakeFiles/Engine.dir/all
 
 # Build rule for subdir invocation for target.
 Engine/CMakeFiles/Engine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 97
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Engine/CMakeFiles/Engine.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 0
 .PHONY : Engine/CMakeFiles/Engine.dir/rule
@@ -191,13 +281,141 @@ Engine: Engine/CMakeFiles/Engine.dir/rule
 # codegen rule for target.
 Engine/CMakeFiles/Engine.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Finished codegen for target Engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Finished codegen for target Engine"
 .PHONY : Engine/CMakeFiles/Engine.dir/codegen
 
 # clean rule for target.
 Engine/CMakeFiles/Engine.dir/clean:
 	$(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/clean
 .PHONY : Engine/CMakeFiles/Engine.dir/clean
+
+#=============================================================================
+# Target rules for target Engine/external/glfw/CMakeFiles/uninstall.dir
+
+# All Build rule for target.
+Engine/external/glfw/CMakeFiles/uninstall.dir/all:
+	$(MAKE) $(MAKESILENT) -f Engine/external/glfw/CMakeFiles/uninstall.dir/build.make Engine/external/glfw/CMakeFiles/uninstall.dir/depend
+	$(MAKE) $(MAKESILENT) -f Engine/external/glfw/CMakeFiles/uninstall.dir/build.make Engine/external/glfw/CMakeFiles/uninstall.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num= "Built target uninstall"
+.PHONY : Engine/external/glfw/CMakeFiles/uninstall.dir/all
+
+# Build rule for subdir invocation for target.
+Engine/external/glfw/CMakeFiles/uninstall.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Engine/external/glfw/CMakeFiles/uninstall.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 0
+.PHONY : Engine/external/glfw/CMakeFiles/uninstall.dir/rule
+
+# Convenience name for target.
+uninstall: Engine/external/glfw/CMakeFiles/uninstall.dir/rule
+.PHONY : uninstall
+
+# codegen rule for target.
+Engine/external/glfw/CMakeFiles/uninstall.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f Engine/external/glfw/CMakeFiles/uninstall.dir/build.make Engine/external/glfw/CMakeFiles/uninstall.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num= "Finished codegen for target uninstall"
+.PHONY : Engine/external/glfw/CMakeFiles/uninstall.dir/codegen
+
+# clean rule for target.
+Engine/external/glfw/CMakeFiles/uninstall.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Engine/external/glfw/CMakeFiles/uninstall.dir/build.make Engine/external/glfw/CMakeFiles/uninstall.dir/clean
+.PHONY : Engine/external/glfw/CMakeFiles/uninstall.dir/clean
+
+#=============================================================================
+# Target rules for target Engine/external/glfw/src/CMakeFiles/glfw.dir
+
+# All Build rule for target.
+Engine/external/glfw/src/CMakeFiles/glfw.dir/all:
+	$(MAKE) $(MAKESILENT) -f Engine/external/glfw/src/CMakeFiles/glfw.dir/build.make Engine/external/glfw/src/CMakeFiles/glfw.dir/depend
+	$(MAKE) $(MAKESILENT) -f Engine/external/glfw/src/CMakeFiles/glfw.dir/build.make Engine/external/glfw/src/CMakeFiles/glfw.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97 "Built target glfw"
+.PHONY : Engine/external/glfw/src/CMakeFiles/glfw.dir/all
+
+# Build rule for subdir invocation for target.
+Engine/external/glfw/src/CMakeFiles/glfw.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 27
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Engine/external/glfw/src/CMakeFiles/glfw.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 0
+.PHONY : Engine/external/glfw/src/CMakeFiles/glfw.dir/rule
+
+# Convenience name for target.
+glfw: Engine/external/glfw/src/CMakeFiles/glfw.dir/rule
+.PHONY : glfw
+
+# codegen rule for target.
+Engine/external/glfw/src/CMakeFiles/glfw.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f Engine/external/glfw/src/CMakeFiles/glfw.dir/build.make Engine/external/glfw/src/CMakeFiles/glfw.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97 "Finished codegen for target glfw"
+.PHONY : Engine/external/glfw/src/CMakeFiles/glfw.dir/codegen
+
+# clean rule for target.
+Engine/external/glfw/src/CMakeFiles/glfw.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Engine/external/glfw/src/CMakeFiles/glfw.dir/build.make Engine/external/glfw/src/CMakeFiles/glfw.dir/clean
+.PHONY : Engine/external/glfw/src/CMakeFiles/glfw.dir/clean
+
+#=============================================================================
+# Target rules for target Engine/external/glfw/src/CMakeFiles/update_mappings.dir
+
+# All Build rule for target.
+Engine/external/glfw/src/CMakeFiles/update_mappings.dir/all:
+	$(MAKE) $(MAKESILENT) -f Engine/external/glfw/src/CMakeFiles/update_mappings.dir/build.make Engine/external/glfw/src/CMakeFiles/update_mappings.dir/depend
+	$(MAKE) $(MAKESILENT) -f Engine/external/glfw/src/CMakeFiles/update_mappings.dir/build.make Engine/external/glfw/src/CMakeFiles/update_mappings.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=100 "Built target update_mappings"
+.PHONY : Engine/external/glfw/src/CMakeFiles/update_mappings.dir/all
+
+# Build rule for subdir invocation for target.
+Engine/external/glfw/src/CMakeFiles/update_mappings.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 1
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Engine/external/glfw/src/CMakeFiles/update_mappings.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 0
+.PHONY : Engine/external/glfw/src/CMakeFiles/update_mappings.dir/rule
+
+# Convenience name for target.
+update_mappings: Engine/external/glfw/src/CMakeFiles/update_mappings.dir/rule
+.PHONY : update_mappings
+
+# codegen rule for target.
+Engine/external/glfw/src/CMakeFiles/update_mappings.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f Engine/external/glfw/src/CMakeFiles/update_mappings.dir/build.make Engine/external/glfw/src/CMakeFiles/update_mappings.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=100 "Finished codegen for target update_mappings"
+.PHONY : Engine/external/glfw/src/CMakeFiles/update_mappings.dir/codegen
+
+# clean rule for target.
+Engine/external/glfw/src/CMakeFiles/update_mappings.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Engine/external/glfw/src/CMakeFiles/update_mappings.dir/build.make Engine/external/glfw/src/CMakeFiles/update_mappings.dir/clean
+.PHONY : Engine/external/glfw/src/CMakeFiles/update_mappings.dir/clean
+
+#=============================================================================
+# Target rules for target Engine/external/assimp/code/CMakeFiles/assimp.dir
+
+# All Build rule for target.
+Engine/external/assimp/code/CMakeFiles/assimp.dir/all:
+	$(MAKE) $(MAKESILENT) -f Engine/external/assimp/code/CMakeFiles/assimp.dir/build.make Engine/external/assimp/code/CMakeFiles/assimp.dir/depend
+	$(MAKE) $(MAKESILENT) -f Engine/external/assimp/code/CMakeFiles/assimp.dir/build.make Engine/external/assimp/code/CMakeFiles/assimp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70 "Built target assimp"
+.PHONY : Engine/external/assimp/code/CMakeFiles/assimp.dir/all
+
+# Build rule for subdir invocation for target.
+Engine/external/assimp/code/CMakeFiles/assimp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 62
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Engine/external/assimp/code/CMakeFiles/assimp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 0
+.PHONY : Engine/external/assimp/code/CMakeFiles/assimp.dir/rule
+
+# Convenience name for target.
+assimp: Engine/external/assimp/code/CMakeFiles/assimp.dir/rule
+.PHONY : assimp
+
+# codegen rule for target.
+Engine/external/assimp/code/CMakeFiles/assimp.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f Engine/external/assimp/code/CMakeFiles/assimp.dir/build.make Engine/external/assimp/code/CMakeFiles/assimp.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70 "Finished codegen for target assimp"
+.PHONY : Engine/external/assimp/code/CMakeFiles/assimp.dir/codegen
+
+# clean rule for target.
+Engine/external/assimp/code/CMakeFiles/assimp.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Engine/external/assimp/code/CMakeFiles/assimp.dir/build.make Engine/external/assimp/code/CMakeFiles/assimp.dir/clean
+.PHONY : Engine/external/assimp/code/CMakeFiles/assimp.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
