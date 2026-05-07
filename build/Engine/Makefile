@@ -275,6 +275,30 @@ core/src/KeyboardHandler.cpp.s:
 	cd /home/leviwfrey/projects/graphics/build && $(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/core/src/KeyboardHandler.cpp.s
 .PHONY : core/src/KeyboardHandler.cpp.s
 
+core/src/Mesh.o: core/src/Mesh.cpp.o
+.PHONY : core/src/Mesh.o
+
+# target to build an object file
+core/src/Mesh.cpp.o:
+	cd /home/leviwfrey/projects/graphics/build && $(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/core/src/Mesh.cpp.o
+.PHONY : core/src/Mesh.cpp.o
+
+core/src/Mesh.i: core/src/Mesh.cpp.i
+.PHONY : core/src/Mesh.i
+
+# target to preprocess a source file
+core/src/Mesh.cpp.i:
+	cd /home/leviwfrey/projects/graphics/build && $(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/core/src/Mesh.cpp.i
+.PHONY : core/src/Mesh.cpp.i
+
+core/src/Mesh.s: core/src/Mesh.cpp.s
+.PHONY : core/src/Mesh.s
+
+# target to generate assembly for a file
+core/src/Mesh.cpp.s:
+	cd /home/leviwfrey/projects/graphics/build && $(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/core/src/Mesh.cpp.s
+.PHONY : core/src/Mesh.cpp.s
+
 core/src/Model.o: core/src/Model.cpp.o
 .PHONY : core/src/Model.o
 
@@ -443,30 +467,6 @@ core/src/Transform.cpp.s:
 	cd /home/leviwfrey/projects/graphics/build && $(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/core/src/Transform.cpp.s
 .PHONY : core/src/Transform.cpp.s
 
-external/glad/src/glad.o: external/glad/src/glad.c.o
-.PHONY : external/glad/src/glad.o
-
-# target to build an object file
-external/glad/src/glad.c.o:
-	cd /home/leviwfrey/projects/graphics/build && $(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/external/glad/src/glad.c.o
-.PHONY : external/glad/src/glad.c.o
-
-external/glad/src/glad.i: external/glad/src/glad.c.i
-.PHONY : external/glad/src/glad.i
-
-# target to preprocess a source file
-external/glad/src/glad.c.i:
-	cd /home/leviwfrey/projects/graphics/build && $(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/external/glad/src/glad.c.i
-.PHONY : external/glad/src/glad.c.i
-
-external/glad/src/glad.s: external/glad/src/glad.c.s
-.PHONY : external/glad/src/glad.s
-
-# target to generate assembly for a file
-external/glad/src/glad.c.s:
-	cd /home/leviwfrey/projects/graphics/build && $(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/external/glad/src/glad.c.s
-.PHONY : external/glad/src/glad.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -494,6 +494,9 @@ help:
 	@echo "... core/src/KeyboardHandler.o"
 	@echo "... core/src/KeyboardHandler.i"
 	@echo "... core/src/KeyboardHandler.s"
+	@echo "... core/src/Mesh.o"
+	@echo "... core/src/Mesh.i"
+	@echo "... core/src/Mesh.s"
 	@echo "... core/src/Model.o"
 	@echo "... core/src/Model.i"
 	@echo "... core/src/Model.s"
@@ -515,9 +518,6 @@ help:
 	@echo "... core/src/Transform.o"
 	@echo "... core/src/Transform.i"
 	@echo "... core/src/Transform.s"
-	@echo "... external/glad/src/glad.o"
-	@echo "... external/glad/src/glad.i"
-	@echo "... external/glad/src/glad.s"
 .PHONY : help
 
 

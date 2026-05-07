@@ -1,8 +1,6 @@
 #!/bin/bash
+cmake --build build
 cd build
-cmake ..
-make
-
 TARGET="$1"
 
 if [[ -z "$TARGET" ]]; then

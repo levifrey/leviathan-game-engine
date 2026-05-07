@@ -97,10 +97,10 @@ test: CMakeFiles/test.dir/games/test.cpp.o
 test: CMakeFiles/test.dir/build.make
 test: CMakeFiles/test.dir/compiler_depend.ts
 test: Engine/libEngine.a
-test: /usr/lib/libglfw.so.3.4
-test: /usr/lib/libGLX.so
+test: Engine/external/libglad.a
+test: /usr/lib/libassimp.so.6.0.4
+test: /usr/lib/libz.so
 test: /usr/lib/libOpenGL.so
-test: /usr/lib/libglm.a
 test: CMakeFiles/test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test.dir/link.txt --verbose=$(VERBOSE)

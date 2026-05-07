@@ -56,7 +56,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Shapes.cpp.o: \
  /usr/include/c++/15.2.1/bits/uses_allocator.h \
  /usr/include/c++/15.2.1/bits/uses_allocator_args.h \
  /usr/include/c++/15.2.1/tuple \
- /home/leviwfrey/projects/graphics/Engine/core/include/Model.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Mesh.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h \
  /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
  /usr/include/KHR/khrplatform.h \
@@ -383,5 +383,15 @@ Engine/CMakeFiles/Engine.dir/core/src/Shapes.cpp.o: \
  /usr/include/c++/15.2.1/bits/fs_dir.h \
  /usr/include/c++/15.2.1/bits/fs_ops.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
+ /usr/include/c++/15.2.1/memory \
+ /usr/include/c++/15.2.1/bits/stl_tempbuf.h \
+ /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/15.2.1/bits/align.h \
+ /usr/include/c++/15.2.1/bits/shared_ptr_atomic.h \
+ /usr/include/c++/15.2.1/bits/atomic_base.h \
+ /usr/include/c++/15.2.1/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/15.2.1/backward/auto_ptr.h \
+ /usr/include/c++/15.2.1/pstl/glue_memory_defs.h \
+ /usr/include/c++/15.2.1/pstl/execution_defs.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Shapes.h \
- /home/leviwfrey/projects/graphics/Engine/core/include/Model.h
+ /home/leviwfrey/projects/graphics/Engine/core/include/Mesh.h

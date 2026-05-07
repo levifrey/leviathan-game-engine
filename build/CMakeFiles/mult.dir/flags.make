@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/leviwfrey/projects/graphics/behaviors -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -I/home/leviwfrey/projects/graphics/Engine/external/glad/include
+CXX_INCLUDES = -I/home/leviwfrey/projects/graphics/behaviors -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image
 
 CXX_FLAGS = -std=gnu++17
 

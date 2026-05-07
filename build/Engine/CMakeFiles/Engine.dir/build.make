@@ -156,10 +156,24 @@ Engine/CMakeFiles/Engine.dir/core/src/KeyboardHandler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/core/src/KeyboardHandler.cpp.s"
 	cd /home/leviwfrey/projects/graphics/build/Engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leviwfrey/projects/graphics/Engine/core/src/KeyboardHandler.cpp -o CMakeFiles/Engine.dir/core/src/KeyboardHandler.cpp.s
 
+Engine/CMakeFiles/Engine.dir/core/src/Mesh.cpp.o: Engine/CMakeFiles/Engine.dir/flags.make
+Engine/CMakeFiles/Engine.dir/core/src/Mesh.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/Mesh.cpp
+Engine/CMakeFiles/Engine.dir/core/src/Mesh.cpp.o: Engine/CMakeFiles/Engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object Engine/CMakeFiles/Engine.dir/core/src/Mesh.cpp.o"
+	cd /home/leviwfrey/projects/graphics/build/Engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Engine/CMakeFiles/Engine.dir/core/src/Mesh.cpp.o -MF CMakeFiles/Engine.dir/core/src/Mesh.cpp.o.d -o CMakeFiles/Engine.dir/core/src/Mesh.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Mesh.cpp
+
+Engine/CMakeFiles/Engine.dir/core/src/Mesh.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Engine.dir/core/src/Mesh.cpp.i"
+	cd /home/leviwfrey/projects/graphics/build/Engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leviwfrey/projects/graphics/Engine/core/src/Mesh.cpp > CMakeFiles/Engine.dir/core/src/Mesh.cpp.i
+
+Engine/CMakeFiles/Engine.dir/core/src/Mesh.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/core/src/Mesh.cpp.s"
+	cd /home/leviwfrey/projects/graphics/build/Engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leviwfrey/projects/graphics/Engine/core/src/Mesh.cpp -o CMakeFiles/Engine.dir/core/src/Mesh.cpp.s
+
 Engine/CMakeFiles/Engine.dir/core/src/Model.cpp.o: Engine/CMakeFiles/Engine.dir/flags.make
 Engine/CMakeFiles/Engine.dir/core/src/Model.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/Model.cpp
 Engine/CMakeFiles/Engine.dir/core/src/Model.cpp.o: Engine/CMakeFiles/Engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object Engine/CMakeFiles/Engine.dir/core/src/Model.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object Engine/CMakeFiles/Engine.dir/core/src/Model.cpp.o"
 	cd /home/leviwfrey/projects/graphics/build/Engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Engine/CMakeFiles/Engine.dir/core/src/Model.cpp.o -MF CMakeFiles/Engine.dir/core/src/Model.cpp.o.d -o CMakeFiles/Engine.dir/core/src/Model.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Model.cpp
 
 Engine/CMakeFiles/Engine.dir/core/src/Model.cpp.i: cmake_force
@@ -173,7 +187,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Model.cpp.s: cmake_force
 Engine/CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.o: Engine/CMakeFiles/Engine.dir/flags.make
 Engine/CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/MouseHandler.cpp
 Engine/CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.o: Engine/CMakeFiles/Engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object Engine/CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object Engine/CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.o"
 	cd /home/leviwfrey/projects/graphics/build/Engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Engine/CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.o -MF CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.o.d -o CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/MouseHandler.cpp
 
 Engine/CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.i: cmake_force
@@ -187,7 +201,7 @@ Engine/CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.s: cmake_force
 Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o: Engine/CMakeFiles/Engine.dir/flags.make
 Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/Renderer.cpp
 Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o: Engine/CMakeFiles/Engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o"
 	cd /home/leviwfrey/projects/graphics/build/Engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o -MF CMakeFiles/Engine.dir/core/src/Renderer.cpp.o.d -o CMakeFiles/Engine.dir/core/src/Renderer.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Renderer.cpp
 
 Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.i: cmake_force
@@ -201,7 +215,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.s: cmake_force
 Engine/CMakeFiles/Engine.dir/core/src/Shader.cpp.o: Engine/CMakeFiles/Engine.dir/flags.make
 Engine/CMakeFiles/Engine.dir/core/src/Shader.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/Shader.cpp
 Engine/CMakeFiles/Engine.dir/core/src/Shader.cpp.o: Engine/CMakeFiles/Engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object Engine/CMakeFiles/Engine.dir/core/src/Shader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object Engine/CMakeFiles/Engine.dir/core/src/Shader.cpp.o"
 	cd /home/leviwfrey/projects/graphics/build/Engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Engine/CMakeFiles/Engine.dir/core/src/Shader.cpp.o -MF CMakeFiles/Engine.dir/core/src/Shader.cpp.o.d -o CMakeFiles/Engine.dir/core/src/Shader.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Shader.cpp
 
 Engine/CMakeFiles/Engine.dir/core/src/Shader.cpp.i: cmake_force
@@ -215,7 +229,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Shader.cpp.s: cmake_force
 Engine/CMakeFiles/Engine.dir/core/src/Shapes.cpp.o: Engine/CMakeFiles/Engine.dir/flags.make
 Engine/CMakeFiles/Engine.dir/core/src/Shapes.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/Shapes.cpp
 Engine/CMakeFiles/Engine.dir/core/src/Shapes.cpp.o: Engine/CMakeFiles/Engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object Engine/CMakeFiles/Engine.dir/core/src/Shapes.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object Engine/CMakeFiles/Engine.dir/core/src/Shapes.cpp.o"
 	cd /home/leviwfrey/projects/graphics/build/Engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Engine/CMakeFiles/Engine.dir/core/src/Shapes.cpp.o -MF CMakeFiles/Engine.dir/core/src/Shapes.cpp.o.d -o CMakeFiles/Engine.dir/core/src/Shapes.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Shapes.cpp
 
 Engine/CMakeFiles/Engine.dir/core/src/Shapes.cpp.i: cmake_force
@@ -229,7 +243,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Shapes.cpp.s: cmake_force
 Engine/CMakeFiles/Engine.dir/core/src/Texture.cpp.o: Engine/CMakeFiles/Engine.dir/flags.make
 Engine/CMakeFiles/Engine.dir/core/src/Texture.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/Texture.cpp
 Engine/CMakeFiles/Engine.dir/core/src/Texture.cpp.o: Engine/CMakeFiles/Engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object Engine/CMakeFiles/Engine.dir/core/src/Texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object Engine/CMakeFiles/Engine.dir/core/src/Texture.cpp.o"
 	cd /home/leviwfrey/projects/graphics/build/Engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Engine/CMakeFiles/Engine.dir/core/src/Texture.cpp.o -MF CMakeFiles/Engine.dir/core/src/Texture.cpp.o.d -o CMakeFiles/Engine.dir/core/src/Texture.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Texture.cpp
 
 Engine/CMakeFiles/Engine.dir/core/src/Texture.cpp.i: cmake_force
@@ -243,7 +257,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Texture.cpp.s: cmake_force
 Engine/CMakeFiles/Engine.dir/core/src/Transform.cpp.o: Engine/CMakeFiles/Engine.dir/flags.make
 Engine/CMakeFiles/Engine.dir/core/src/Transform.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/Transform.cpp
 Engine/CMakeFiles/Engine.dir/core/src/Transform.cpp.o: Engine/CMakeFiles/Engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object Engine/CMakeFiles/Engine.dir/core/src/Transform.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object Engine/CMakeFiles/Engine.dir/core/src/Transform.cpp.o"
 	cd /home/leviwfrey/projects/graphics/build/Engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Engine/CMakeFiles/Engine.dir/core/src/Transform.cpp.o -MF CMakeFiles/Engine.dir/core/src/Transform.cpp.o.d -o CMakeFiles/Engine.dir/core/src/Transform.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Transform.cpp
 
 Engine/CMakeFiles/Engine.dir/core/src/Transform.cpp.i: cmake_force
@@ -254,20 +268,6 @@ Engine/CMakeFiles/Engine.dir/core/src/Transform.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/core/src/Transform.cpp.s"
 	cd /home/leviwfrey/projects/graphics/build/Engine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leviwfrey/projects/graphics/Engine/core/src/Transform.cpp -o CMakeFiles/Engine.dir/core/src/Transform.cpp.s
 
-Engine/CMakeFiles/Engine.dir/external/glad/src/glad.c.o: Engine/CMakeFiles/Engine.dir/flags.make
-Engine/CMakeFiles/Engine.dir/external/glad/src/glad.c.o: /home/leviwfrey/projects/graphics/Engine/external/glad/src/glad.c
-Engine/CMakeFiles/Engine.dir/external/glad/src/glad.c.o: Engine/CMakeFiles/Engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object Engine/CMakeFiles/Engine.dir/external/glad/src/glad.c.o"
-	cd /home/leviwfrey/projects/graphics/build/Engine && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT Engine/CMakeFiles/Engine.dir/external/glad/src/glad.c.o -MF CMakeFiles/Engine.dir/external/glad/src/glad.c.o.d -o CMakeFiles/Engine.dir/external/glad/src/glad.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glad/src/glad.c
-
-Engine/CMakeFiles/Engine.dir/external/glad/src/glad.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Engine.dir/external/glad/src/glad.c.i"
-	cd /home/leviwfrey/projects/graphics/build/Engine && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/leviwfrey/projects/graphics/Engine/external/glad/src/glad.c > CMakeFiles/Engine.dir/external/glad/src/glad.c.i
-
-Engine/CMakeFiles/Engine.dir/external/glad/src/glad.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Engine.dir/external/glad/src/glad.c.s"
-	cd /home/leviwfrey/projects/graphics/build/Engine && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/leviwfrey/projects/graphics/Engine/external/glad/src/glad.c -o CMakeFiles/Engine.dir/external/glad/src/glad.c.s
-
 # Object files for target Engine
 Engine_OBJECTS = \
 "CMakeFiles/Engine.dir/core/src/AssetManager.cpp.o" \
@@ -276,14 +276,14 @@ Engine_OBJECTS = \
 "CMakeFiles/Engine.dir/core/src/Game.cpp.o" \
 "CMakeFiles/Engine.dir/core/src/GameObject.cpp.o" \
 "CMakeFiles/Engine.dir/core/src/KeyboardHandler.cpp.o" \
+"CMakeFiles/Engine.dir/core/src/Mesh.cpp.o" \
 "CMakeFiles/Engine.dir/core/src/Model.cpp.o" \
 "CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.o" \
 "CMakeFiles/Engine.dir/core/src/Renderer.cpp.o" \
 "CMakeFiles/Engine.dir/core/src/Shader.cpp.o" \
 "CMakeFiles/Engine.dir/core/src/Shapes.cpp.o" \
 "CMakeFiles/Engine.dir/core/src/Texture.cpp.o" \
-"CMakeFiles/Engine.dir/core/src/Transform.cpp.o" \
-"CMakeFiles/Engine.dir/external/glad/src/glad.c.o"
+"CMakeFiles/Engine.dir/core/src/Transform.cpp.o"
 
 # External object files for target Engine
 Engine_EXTERNAL_OBJECTS =
@@ -294,6 +294,7 @@ Engine/libEngine.a: Engine/CMakeFiles/Engine.dir/core/src/DeltaClock.cpp.o
 Engine/libEngine.a: Engine/CMakeFiles/Engine.dir/core/src/Game.cpp.o
 Engine/libEngine.a: Engine/CMakeFiles/Engine.dir/core/src/GameObject.cpp.o
 Engine/libEngine.a: Engine/CMakeFiles/Engine.dir/core/src/KeyboardHandler.cpp.o
+Engine/libEngine.a: Engine/CMakeFiles/Engine.dir/core/src/Mesh.cpp.o
 Engine/libEngine.a: Engine/CMakeFiles/Engine.dir/core/src/Model.cpp.o
 Engine/libEngine.a: Engine/CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.o
 Engine/libEngine.a: Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o
@@ -301,7 +302,6 @@ Engine/libEngine.a: Engine/CMakeFiles/Engine.dir/core/src/Shader.cpp.o
 Engine/libEngine.a: Engine/CMakeFiles/Engine.dir/core/src/Shapes.cpp.o
 Engine/libEngine.a: Engine/CMakeFiles/Engine.dir/core/src/Texture.cpp.o
 Engine/libEngine.a: Engine/CMakeFiles/Engine.dir/core/src/Transform.cpp.o
-Engine/libEngine.a: Engine/CMakeFiles/Engine.dir/external/glad/src/glad.c.o
 Engine/libEngine.a: Engine/CMakeFiles/Engine.dir/build.make
 Engine/libEngine.a: Engine/CMakeFiles/Engine.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX static library libEngine.a"

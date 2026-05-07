@@ -64,12 +64,14 @@ CMAKE_BINARY_DIR = /home/leviwfrey/projects/graphics/build
 
 # The main recursive "all" target.
 all: CMakeFiles/mult.dir/all
+all: CMakeFiles/object.dir/all
 all: CMakeFiles/test.dir/all
 all: Engine/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/mult.dir/codegen
+codegen: CMakeFiles/object.dir/codegen
 codegen: CMakeFiles/test.dir/codegen
 codegen: Engine/codegen
 .PHONY : codegen
@@ -80,6 +82,7 @@ preinstall: Engine/preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/mult.dir/clean
+clean: CMakeFiles/object.dir/clean
 clean: CMakeFiles/test.dir/clean
 clean: Engine/clean
 .PHONY : clean
@@ -89,33 +92,56 @@ clean: Engine/clean
 
 # Recursive "all" directory target.
 Engine/all: Engine/CMakeFiles/Engine.dir/all
+Engine/all: Engine/external/all
 .PHONY : Engine/all
 
 # Recursive "codegen" directory target.
 Engine/codegen: Engine/CMakeFiles/Engine.dir/codegen
+Engine/codegen: Engine/external/codegen
 .PHONY : Engine/codegen
 
 # Recursive "preinstall" directory target.
-Engine/preinstall:
+Engine/preinstall: Engine/external/preinstall
 .PHONY : Engine/preinstall
 
 # Recursive "clean" directory target.
 Engine/clean: Engine/CMakeFiles/Engine.dir/clean
+Engine/clean: Engine/external/clean
 .PHONY : Engine/clean
+
+#=============================================================================
+# Directory level rules for directory Engine/external
+
+# Recursive "all" directory target.
+Engine/external/all: Engine/external/CMakeFiles/glad.dir/all
+.PHONY : Engine/external/all
+
+# Recursive "codegen" directory target.
+Engine/external/codegen: Engine/external/CMakeFiles/glad.dir/codegen
+.PHONY : Engine/external/codegen
+
+# Recursive "preinstall" directory target.
+Engine/external/preinstall:
+.PHONY : Engine/external/preinstall
+
+# Recursive "clean" directory target.
+Engine/external/clean: Engine/external/CMakeFiles/glad.dir/clean
+.PHONY : Engine/external/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/mult.dir
 
 # All Build rule for target.
 CMakeFiles/mult.dir/all: Engine/CMakeFiles/Engine.dir/all
+CMakeFiles/mult.dir/all: Engine/external/CMakeFiles/glad.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mult.dir/build.make CMakeFiles/mult.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mult.dir/build.make CMakeFiles/mult.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=16,17 "Built target mult"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=18,19 "Built target mult"
 .PHONY : CMakeFiles/mult.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/mult.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 19
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mult.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 0
 .PHONY : CMakeFiles/mult.dir/rule
@@ -127,7 +153,7 @@ mult: CMakeFiles/mult.dir/rule
 # codegen rule for target.
 CMakeFiles/mult.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mult.dir/build.make CMakeFiles/mult.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=16,17 "Finished codegen for target mult"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=18,19 "Finished codegen for target mult"
 .PHONY : CMakeFiles/mult.dir/codegen
 
 # clean rule for target.
@@ -136,18 +162,52 @@ CMakeFiles/mult.dir/clean:
 .PHONY : CMakeFiles/mult.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/object.dir
+
+# All Build rule for target.
+CMakeFiles/object.dir/all: Engine/CMakeFiles/Engine.dir/all
+CMakeFiles/object.dir/all: Engine/external/CMakeFiles/glad.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/object.dir/build.make CMakeFiles/object.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/object.dir/build.make CMakeFiles/object.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=20,21 "Built target object"
+.PHONY : CMakeFiles/object.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/object.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 19
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/object.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 0
+.PHONY : CMakeFiles/object.dir/rule
+
+# Convenience name for target.
+object: CMakeFiles/object.dir/rule
+.PHONY : object
+
+# codegen rule for target.
+CMakeFiles/object.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/object.dir/build.make CMakeFiles/object.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=20,21 "Finished codegen for target object"
+.PHONY : CMakeFiles/object.dir/codegen
+
+# clean rule for target.
+CMakeFiles/object.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/object.dir/build.make CMakeFiles/object.dir/clean
+.PHONY : CMakeFiles/object.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/test.dir
 
 # All Build rule for target.
 CMakeFiles/test.dir/all: Engine/CMakeFiles/Engine.dir/all
+CMakeFiles/test.dir/all: Engine/external/CMakeFiles/glad.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=18,19 "Built target test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=22,23 "Built target test"
 .PHONY : CMakeFiles/test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 19
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 0
 .PHONY : CMakeFiles/test.dir/rule
@@ -159,7 +219,7 @@ test: CMakeFiles/test.dir/rule
 # codegen rule for target.
 CMakeFiles/test.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=18,19 "Finished codegen for target test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=22,23 "Finished codegen for target test"
 .PHONY : CMakeFiles/test.dir/codegen
 
 # clean rule for target.
@@ -171,7 +231,7 @@ CMakeFiles/test.dir/clean:
 # Target rules for target Engine/CMakeFiles/Engine.dir
 
 # All Build rule for target.
-Engine/CMakeFiles/Engine.dir/all:
+Engine/CMakeFiles/Engine.dir/all: Engine/external/CMakeFiles/glad.dir/all
 	$(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/depend
 	$(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Built target Engine"
@@ -179,7 +239,7 @@ Engine/CMakeFiles/Engine.dir/all:
 
 # Build rule for subdir invocation for target.
 Engine/CMakeFiles/Engine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Engine/CMakeFiles/Engine.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 0
 .PHONY : Engine/CMakeFiles/Engine.dir/rule
@@ -198,6 +258,38 @@ Engine/CMakeFiles/Engine.dir/codegen:
 Engine/CMakeFiles/Engine.dir/clean:
 	$(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/clean
 .PHONY : Engine/CMakeFiles/Engine.dir/clean
+
+#=============================================================================
+# Target rules for target Engine/external/CMakeFiles/glad.dir
+
+# All Build rule for target.
+Engine/external/CMakeFiles/glad.dir/all:
+	$(MAKE) $(MAKESILENT) -f Engine/external/CMakeFiles/glad.dir/build.make Engine/external/CMakeFiles/glad.dir/depend
+	$(MAKE) $(MAKESILENT) -f Engine/external/CMakeFiles/glad.dir/build.make Engine/external/CMakeFiles/glad.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=16,17 "Built target glad"
+.PHONY : Engine/external/CMakeFiles/glad.dir/all
+
+# Build rule for subdir invocation for target.
+Engine/external/CMakeFiles/glad.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Engine/external/CMakeFiles/glad.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles 0
+.PHONY : Engine/external/CMakeFiles/glad.dir/rule
+
+# Convenience name for target.
+glad: Engine/external/CMakeFiles/glad.dir/rule
+.PHONY : glad
+
+# codegen rule for target.
+Engine/external/CMakeFiles/glad.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f Engine/external/CMakeFiles/glad.dir/build.make Engine/external/CMakeFiles/glad.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=16,17 "Finished codegen for target glad"
+.PHONY : Engine/external/CMakeFiles/glad.dir/codegen
+
+# clean rule for target.
+Engine/external/CMakeFiles/glad.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Engine/external/CMakeFiles/glad.dir/build.make Engine/external/CMakeFiles/glad.dir/clean
+.PHONY : Engine/external/CMakeFiles/glad.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

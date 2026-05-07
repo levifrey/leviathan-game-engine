@@ -1,6 +1,7 @@
 #ifndef SHAPES_H
 #define SHAPES_H
-#include "Model.h"
-Model createCube(float size);
+#include "Mesh.h"
+Mesh createCube(float size);
+Mesh createFloor(float size);
 
 #endif

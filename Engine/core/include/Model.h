@@ -1,24 +1,32 @@
-#ifndef MODEL_H
-#define MODEL_H
+#pragma once
 #include "Shader.h"
-#include "Texture.h"
-#include <glm/glm.hpp>
+#include "Mesh.h"
 #include <vector>
+#include <string>
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
+#include <unordered_map>
+#include <filesystem>
+#include <Texture.h>
+using namespace std;
 
 class Model {
     public:
-        Model(float vertices[], size_t vertices_size, unsigned int indices[], size_t indices_size, int vertex_size);
-        void draw();
-        void makeVertexAttribute(float atribute_size);
+        Model(filesystem::path path, bool flipTextures = false) { 
+            flipTextures_ = flipTextures;
+            loadModel(path); 
+        }
+        Model() = default;
+        void draw(Shader& shader);
+        void addMesh(Mesh mesh);
     private:
-        unsigned int VBO_;
-        unsigned int VAO_;
-        unsigned int EBO_;
-        size_t current_pointer_ = 0;
-        unsigned int  current_id_ = 0;
-        int vertex_size_;
-        int vertex_count_;
-
+        vector<Mesh> meshes_;
+        filesystem::path directory_;
+        bool flipTextures_;
+        unordered_map<string, Texture> textures_loaded_;
+        void loadModel(filesystem::path path);
+        void processNode(aiNode* node, const aiScene* scene);
+        Mesh processMesh(aiMesh* mesh, const aiScene* scene);
+        vector<Texture> loadMaterialTextures(aiMaterial* mat, aiTextureType type, TextureType texType);
 };
-
-#endif

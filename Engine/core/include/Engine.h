@@ -10,3 +10,4 @@
 #include "DeltaClock.h"
 #include "Components/AllComponents.h"
 #include "Objects/AllObjects.h"
+#include "RenderEffects/AllRenderEffects.h"

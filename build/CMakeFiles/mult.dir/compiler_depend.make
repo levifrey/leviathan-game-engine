@@ -21,11 +21,16 @@ CMakeFiles/mult.dir/games/mult.cpp.o: /home/leviwfrey/projects/graphics/games/mu
   /home/leviwfrey/projects/graphics/Engine/core/include/Input/KeyboardHandler.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Input/MouseHandler.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/LightData.h \
+  /home/leviwfrey/projects/graphics/Engine/core/include/Mesh.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Model.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Objects/AllObjects.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Objects/ContainerObject.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Objects/LightCubes.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Objects/PlayerCamera.h \
+  /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/AllRenderEffects.h \
+  /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/BasicEffect.h \
+  /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/OutlineEffect.h \
+  /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/RenderEffect.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Shapes.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
@@ -46,6 +51,36 @@ CMakeFiles/mult.dir/games/mult.cpp.o: /home/leviwfrey/projects/graphics/games/mu
   /usr/include/asm/posix_types_64.h \
   /usr/include/asm/types.h \
   /usr/include/assert.h \
+  /usr/include/assimp/Compiler/poppack1.h \
+  /usr/include/assimp/Compiler/pushpack1.h \
+  /usr/include/assimp/Importer.hpp \
+  /usr/include/assimp/MathFunctions.h \
+  /usr/include/assimp/aabb.h \
+  /usr/include/assimp/anim.h \
+  /usr/include/assimp/camera.h \
+  /usr/include/assimp/color4.h \
+  /usr/include/assimp/color4.inl \
+  /usr/include/assimp/config.h \
+  /usr/include/assimp/defs.h \
+  /usr/include/assimp/light.h \
+  /usr/include/assimp/material.h \
+  /usr/include/assimp/material.inl \
+  /usr/include/assimp/matrix3x3.h \
+  /usr/include/assimp/matrix3x3.inl \
+  /usr/include/assimp/matrix4x4.h \
+  /usr/include/assimp/matrix4x4.inl \
+  /usr/include/assimp/mesh.h \
+  /usr/include/assimp/metadata.h \
+  /usr/include/assimp/postprocess.h \
+  /usr/include/assimp/quaternion.h \
+  /usr/include/assimp/quaternion.inl \
+  /usr/include/assimp/scene.h \
+  /usr/include/assimp/texture.h \
+  /usr/include/assimp/types.h \
+  /usr/include/assimp/vector2.h \
+  /usr/include/assimp/vector2.inl \
+  /usr/include/assimp/vector3.h \
+  /usr/include/assimp/vector3.inl \
   /usr/include/bits/atomic_wide_counter.h \
   /usr/include/bits/byteswap.h \
   /usr/include/bits/cpu-set.h \
@@ -122,10 +157,12 @@ CMakeFiles/mult.dir/games/mult.cpp.o: /home/leviwfrey/projects/graphics/games/mu
   /usr/include/bits/wctype-wchar.h \
   /usr/include/bits/wordsize.h \
   /usr/include/bits/xopen_lim.h \
+  /usr/include/c++/15.2.1/algorithm \
   /usr/include/c++/15.2.1/array \
   /usr/include/c++/15.2.1/backward/auto_ptr.h \
   /usr/include/c++/15.2.1/backward/binders.h \
   /usr/include/c++/15.2.1/bit \
+  /usr/include/c++/15.2.1/bits/algorithmfwd.h \
   /usr/include/c++/15.2.1/bits/align.h \
   /usr/include/c++/15.2.1/bits/alloc_traits.h \
   /usr/include/c++/15.2.1/bits/allocated_ptr.h \
@@ -194,10 +231,12 @@ CMakeFiles/mult.dir/games/mult.cpp.o: /home/leviwfrey/projects/graphics/games/mu
   /usr/include/c++/15.2.1/bits/sstream.tcc \
   /usr/include/c++/15.2.1/bits/std_abs.h \
   /usr/include/c++/15.2.1/bits/std_function.h \
+  /usr/include/c++/15.2.1/bits/stl_algo.h \
   /usr/include/c++/15.2.1/bits/stl_algobase.h \
   /usr/include/c++/15.2.1/bits/stl_bvector.h \
   /usr/include/c++/15.2.1/bits/stl_construct.h \
   /usr/include/c++/15.2.1/bits/stl_function.h \
+  /usr/include/c++/15.2.1/bits/stl_heap.h \
   /usr/include/c++/15.2.1/bits/stl_iterator.h \
   /usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/15.2.1/bits/stl_iterator_base_types.h \
@@ -213,6 +252,7 @@ CMakeFiles/mult.dir/games/mult.cpp.o: /home/leviwfrey/projects/graphics/games/mu
   /usr/include/c++/15.2.1/bits/streambuf_iterator.h \
   /usr/include/c++/15.2.1/bits/string_view.tcc \
   /usr/include/c++/15.2.1/bits/stringfwd.h \
+  /usr/include/c++/15.2.1/bits/uniform_int_dist.h \
   /usr/include/c++/15.2.1/bits/unique_ptr.h \
   /usr/include/c++/15.2.1/bits/unordered_map.h \
   /usr/include/c++/15.2.1/bits/unordered_set.h \
@@ -265,6 +305,7 @@ CMakeFiles/mult.dir/games/mult.cpp.o: /home/leviwfrey/projects/graphics/games/mu
   /usr/include/c++/15.2.1/new \
   /usr/include/c++/15.2.1/ostream \
   /usr/include/c++/15.2.1/pstl/execution_defs.h \
+  /usr/include/c++/15.2.1/pstl/glue_algorithm_defs.h \
   /usr/include/c++/15.2.1/pstl/glue_memory_defs.h \
   /usr/include/c++/15.2.1/pstl/pstl_config.h \
   /usr/include/c++/15.2.1/ratio \
@@ -545,90 +586,104 @@ mult: /usr/lib/Scrt1.o \
   /usr/lib/libc.so \
   /usr/lib/libgcc_s.so \
   /usr/lib/libgcc_s.so.1 \
+  /usr/lib/libglfw.so \
   /usr/lib/libm.so \
+  /usr/lib/librt.a \
   /usr/lib/libstdc++.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a \
   /usr/lib/ld-linux-x86-64.so.2 \
-  /usr/lib/libGLX.so \
   /usr/lib/libGLdispatch.so.0 \
   /usr/lib/libOpenGL.so \
-  /usr/lib/libX11.so.6 \
-  /usr/lib/libXau.so.6 \
-  /usr/lib/libXdmcp.so.6 \
+  /usr/lib/libassimp.so.6.0.4 \
   /usr/lib/libc.so.6 \
   /usr/lib/libc_nonshared.a \
-  /usr/lib/libglfw.so.3.4 \
-  /usr/lib/libglm.a \
   /usr/lib/libm.so.6 \
   /usr/lib/libmvec.so.1 \
-  /usr/lib/libxcb.so.1 \
+  /usr/lib/libz.so \
   CMakeFiles/mult.dir/games/mult.cpp.o \
+  Engine/external/libglad.a \
   Engine/libEngine.a
 
 
 Engine/libEngine.a:
 
-CMakeFiles/mult.dir/games/mult.cpp.o:
+Engine/external/libglad.a:
 
-/usr/lib/libxcb.so.1:
+CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/lib/libm.so.6:
 
-/usr/lib/libglfw.so.3.4:
-
 /usr/lib/libc_nonshared.a:
 
-/usr/lib/libXau.so.6:
-
-/usr/lib/libX11.so.6:
-
-/usr/lib/libGLX.so:
+/usr/lib/libassimp.so.6.0.4:
 
 /usr/lib/ld-linux-x86-64.so.2:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
 
+/usr/lib/librt.a:
+
 /usr/lib/libm.so:
 
 /usr/lib/libgcc_s.so.1:
 
-/usr/include/bits/mathcalls.h:
+/usr/lib/crti.o:
 
-/usr/include/c++/15.2.1/iosfwd:
+/usr/lib/Scrt1.o:
 
-/usr/include/c++/15.2.1/functional:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h:
 
-/usr/include/bits/types/struct_FILE.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h:
 
-/usr/include/c++/15.2.1/ext/type_traits.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h:
 
-/usr/include/c++/15.2.1/bits/cxxabi_forced.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h:
 
-/usr/include/c++/15.2.1/ext/alloc_traits.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/float.h:
 
-/usr/include/c++/15.2.1/cstdint:
+/usr/include/wchar.h:
 
-/usr/include/c++/15.2.1/concepts:
+/usr/include/time.h:
 
-/home/leviwfrey/projects/graphics/Engine/core/include/Components/lights/AreaLight.h:
+/usr/include/sys/types.h:
 
-/usr/include/c++/15.2.1/codecvt:
+/usr/include/strings.h:
+
+/usr/include/string.h:
+
+/usr/include/stdio.h:
 
 /usr/include/stdint.h:
 
-/usr/include/c++/15.2.1/clocale:
+/usr/include/stdc-predef.h:
 
-/usr/include/c++/15.2.1/cfloat:
+/usr/include/sched.h:
 
-/usr/include/c++/15.2.1/cassert:
+/usr/include/locale.h:
 
-/usr/include/c++/15.2.1/bits/vector.tcc:
+/usr/include/linux/sched/types.h:
 
-/usr/include/c++/15.2.1/bits/utility.h:
+/usr/lib/crtn.o:
 
-/usr/include/bits/types/FILE.h:
+/usr/include/linux/limits.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/limits.h:
+
+/usr/include/libintl.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/glm/vector_relational.hpp:
+
+/usr/include/glm/vec4.hpp:
+
+/usr/include/glm/vec3.hpp:
+
+/usr/include/glm/vec2.hpp:
 
 /usr/include/c++/15.2.1/bits/uses_allocator_args.h:
 
@@ -636,17 +691,19 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h:
 
-/usr/include/c++/15.2.1/bits/unordered_set.h:
-
 /usr/include/c++/15.2.1/bits/unordered_map.h:
 
 /usr/include/glm/ext/vector_int2_sized.hpp:
 
 /usr/include/c++/15.2.1/bits/unique_ptr.h:
 
-/usr/lib/libglm.a:
+/usr/include/c++/15.2.1/bits/uniform_int_dist.h:
 
-/usr/include/asm-generic/bitsperlong.h:
+/usr/include/c++/15.2.1/cwchar:
+
+/usr/include/sys/single_threaded.h:
+
+/usr/include/asm-generic/errno.h:
 
 /usr/include/c++/15.2.1/bits/stl_uninitialized.h:
 
@@ -654,19 +711,15 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/c++/15.2.1/bits/stl_tree.h:
 
+/usr/include/c++/15.2.1/pstl/glue_algorithm_defs.h:
+
 /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h:
 
 /usr/include/c++/15.2.1/bits/stl_iterator_base_types.h:
 
-/usr/include/c++/15.2.1/bits/stl_iterator.h:
-
 /usr/include/c++/15.2.1/bits/shared_ptr_atomic.h:
 
 /usr/include/c++/15.2.1/bits/shared_ptr.h:
-
-/usr/include/asm-generic/errno.h:
-
-/usr/include/sys/single_threaded.h:
 
 /usr/include/c++/15.2.1/bits/range_access.h:
 
@@ -676,26 +729,6 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /home/leviwfrey/projects/graphics/Engine/core/include/Objects/PlayerCamera.h:
 
-/usr/include/c++/15.2.1/cmath:
-
-/usr/include/c++/15.2.1/bits/stringfwd.h:
-
-/usr/include/bits/atomic_wide_counter.h:
-
-/usr/include/c++/15.2.1/bits/enable_special_members.h:
-
-/usr/include/glm/ext/quaternion_relational.inl:
-
-/usr/include/c++/15.2.1/bits/nested_exception.h:
-
-/usr/include/c++/15.2.1/bits/move.h:
-
-/usr/include/glm/detail/type_mat2x2.hpp:
-
-/usr/include/c++/15.2.1/bits/memory_resource.h:
-
-/usr/include/glm/ext/matrix_clip_space.hpp:
-
 /usr/include/c++/15.2.1/bits/localefwd.h:
 
 /usr/include/c++/15.2.1/bits/locale_facets_nonio.tcc:
@@ -704,33 +737,13 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/c++/15.2.1/bits/locale_conv.h:
 
-/usr/include/c++/15.2.1/bits/locale_classes.h:
-
 /usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h:
 
 /usr/include/c++/15.2.1/bits/ios_base.h:
 
 /usr/include/glm/ext/matrix_double3x3_precision.hpp:
 
-/usr/include/c++/15.2.1/ext/concurrence.h:
-
-/usr/include/c++/15.2.1/cctype:
-
-/usr/lib/libGLdispatch.so.0:
-
-/usr/include/c++/15.2.1/backward/binders.h:
-
-/usr/include/glm/vec2.hpp:
-
 /usr/include/c++/15.2.1/bits/hash_bytes.h:
-
-/usr/include/c++/15.2.1/bits/functional_hash.h:
-
-/usr/include/c++/15.2.1/bits/hashtable.h:
-
-/usr/include/c++/15.2.1/bits/fs_fwd.h:
-
-/usr/include/bits/pthreadtypes-arch.h:
 
 /usr/include/c++/15.2.1/bits/fs_dir.h:
 
@@ -746,9 +759,15 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/c++/15.2.1/bits/shared_ptr_base.h:
 
+/usr/include/assimp/texture.h:
+
+/usr/include/glm/ext/quaternion_relational.inl:
+
 /usr/include/c++/15.2.1/bits/cxxabi_init_exception.h:
 
 /usr/include/glm/fwd.hpp:
+
+/usr/include/c++/15.2.1/bits/cxxabi_forced.h:
 
 /usr/include/c++/15.2.1/bits/concept_check.h:
 
@@ -770,195 +789,37 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/c++/15.2.1/bits/atomic_base.h:
 
-/usr/include/c++/15.2.1/istream:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Components/Renderer.h:
-
-/usr/include/glm/ext/quaternion_geometric.inl:
-
-/usr/include/c++/15.2.1/cwctype:
-
-/usr/include/c++/15.2.1/compare:
-
-/usr/include/glm/detail/type_mat2x3.inl:
-
-/usr/include/glm/detail/type_vec2.hpp:
-
 /usr/include/c++/15.2.1/bits/allocated_ptr.h:
 
 /usr/include/glm/ext/matrix_double3x3.hpp:
 
-/usr/include/bits/libc-header-start.h:
+/usr/include/glm/ext/quaternion_common.inl:
 
-/usr/include/glm/ext/vector_uint3.hpp:
+/usr/include/glm/ext/vector_bool3_precision.hpp:
 
-/usr/include/bits/posix1_lim.h:
+/usr/include/c++/15.2.1/array:
 
-/usr/include/bits/iscanonical.h:
+/usr/lib/libGLdispatch.so.0:
 
-/usr/include/glm/mat3x2.hpp:
+/usr/include/c++/15.2.1/backward/binders.h:
 
-/usr/include/wchar.h:
+/usr/include/c++/15.2.1/ext/concurrence.h:
 
-/usr/include/bits/floatn.h:
+/usr/include/c++/15.2.1/cctype:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h:
+/usr/include/c++/15.2.1/backward/auto_ptr.h:
 
-/usr/include/c++/15.2.1/cerrno:
+/usr/include/c++/15.2.1/algorithm:
 
-/usr/include/glm/ext/matrix_double4x2.hpp:
+/usr/include/c++/15.2.1/bits/stl_pair.h:
 
-/usr/include/c++/15.2.1/bits/basic_ios.tcc:
-
-/usr/include/bits/endianness.h:
-
-/usr/include/libintl.h:
+/usr/include/bits/waitflags.h:
 
 /usr/include/c++/15.2.1/bits/locale_facets_nonio.h:
 
 /usr/include/bits/uintn-identity.h:
 
-/usr/include/asm-generic/posix_types.h:
-
-/usr/include/bits/byteswap.h:
-
-/usr/include/bits/types/clockid_t.h:
-
-/usr/include/c++/15.2.1/cstdio:
-
-/usr/include/c++/15.2.1/bits/istream.tcc:
-
-/usr/include/bits/struct_mutex.h:
-
-/usr/include/c++/15.2.1/limits:
-
-/usr/include/glm/ext/vector_int3_sized.hpp:
-
-/usr/include/asm/posix_types.h:
-
-/usr/include/c++/15.2.1/bits/stl_vector.h:
-
-/usr/include/bits/time.h:
-
-/usr/include/c++/15.2.1/fstream:
-
-/usr/include/asm/posix_types_64.h:
-
-/usr/include/bits/types.h:
-
-/usr/include/c++/15.2.1/bits/locale_facets.tcc:
-
-/usr/include/asm/errno.h:
-
-/usr/include/bits/stdint-uintn.h:
-
-/usr/include/c++/15.2.1/system_error:
-
-/usr/include/c++/15.2.1/ios:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Engine.h:
-
-/usr/include/bits/thread-shared-types.h:
-
-/usr/include/c++/15.2.1/bits/invoke.h:
-
-/usr/include/glm/gtc/type_ptr.inl:
-
-/usr/include/glm/common.hpp:
-
-/usr/include/bits/types/__sigset_t.h:
-
-/usr/include/glm/ext/matrix_float2x4_precision.hpp:
-
-/usr/include/glm/detail/compute_vector_relational.hpp:
-
-/usr/include/c++/15.2.1/bits/stl_construct.h:
-
-/usr/include/glm/ext/matrix_double4x4_precision.hpp:
-
-/usr/include/glm/ext/quaternion_common.inl:
-
-/usr/include/c++/15.2.1/bits/align.h:
-
-/usr/include/glm/ext/vector_bool3_precision.hpp:
-
-/usr/include/glm/ext/vector_float2_precision.hpp:
-
-/usr/include/c++/15.2.1/initializer_list:
-
-/usr/include/glm/ext/vector_relational.hpp:
-
-/usr/include/c++/15.2.1/bits/hashtable_policy.h:
-
-/usr/lib/libstdc++.so:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/AssetManager.h:
-
-/usr/include/c++/15.2.1/bits/stl_bvector.h:
-
-/usr/include/bits/posix2_lim.h:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/GameObject.h:
-
-/usr/include/glm/ext/matrix_float2x3_precision.hpp:
-
-/usr/include/bits/stdint-intn.h:
-
-/usr/include/bits/wctype-wchar.h:
-
-/usr/include/glm/ext/vector_float1.hpp:
-
-/usr/lib/libc.so.6:
-
-/usr/include/bits/fp-fast.h:
-
-/usr/include/sched.h:
-
-/usr/include/wctype.h:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Components/lights/DirectionalLight.h:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Objects/AllObjects.h:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Components/lights/AllLights.h:
-
-/usr/include/glm/ext/vector_double4_precision.hpp:
-
-/usr/include/c++/15.2.1/bits/exception_ptr.h:
-
-/usr/include/c++/15.2.1/bits/stl_multimap.h:
-
-/usr/include/bits/pthreadtypes.h:
-
-/usr/include/c++/15.2.1/tr1/beta_function.tcc:
-
-/usr/include/bits/timesize.h:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/DeltaClock.h:
-
-/usr/include/bits/waitstatus.h:
-
-/usr/include/glm/detail/type_mat3x4.inl:
-
-/usr/include/glm/gtx/component_wise.inl:
-
-/usr/include/asm-generic/errno-base.h:
-
-/usr/include/linux/types.h:
-
-/usr/include/c++/15.2.1/ext/string_conversions.h:
-
-/usr/include/c++/15.2.1/bits/predefined_ops.h:
-
-/usr/include/bits/types/struct_itimerspec.h:
-
-/usr/include/c++/15.2.1/bits/locale_facets.h:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Shapes.h:
-
-/usr/include/bits/types/mbstate_t.h:
-
-/usr/include/c++/15.2.1/cwchar:
+/usr/include/c++/15.2.1/bits/algorithmfwd.h:
 
 /usr/include/c++/15.2.1/bits/memoryfwd.h:
 
@@ -966,159 +827,15 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/glm/ext/scalar_int_sized.hpp:
 
-/usr/include/c++/15.2.1/ext/aligned_buffer.h:
+/usr/lib/libz.so:
 
-/usr/include/c++/15.2.1/locale:
+/usr/include/c++/15.2.1/iosfwd:
 
-/usr/include/c++/15.2.1/ctime:
+/usr/include/bits/types/struct_FILE.h:
 
-/usr/include/bits/timex.h:
+/usr/include/bits/types/mbstate_t.h:
 
-/home/leviwfrey/projects/graphics/Engine/core/include/Model.h:
-
-/usr/include/glm/ext/vector_float1_precision.hpp:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Components/Camera.h:
-
-/usr/include/c++/15.2.1/bits/new_allocator.h:
-
-/usr/include/glm/mat4x2.hpp:
-
-/usr/include/c++/15.2.1/debug/debug.h:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Components/AllComponents.h:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Components/Component.h:
-
-/usr/include/GLFW/glfw3.h:
-
-/usr/include/bits/flt-eval-method.h:
-
-/usr/include/bits/errno.h:
-
-/usr/lib/libOpenGL.so:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Texture.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++io.h:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Game.h:
-
-/usr/include/glm/gtx/quaternion.hpp:
-
-/usr/include/c++/15.2.1/bits/stl_map.h:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Input/KeyboardHandler.h:
-
-/usr/include/c++/15.2.1/array:
-
-/usr/include/c++/15.2.1/bits/streambuf.tcc:
-
-/usr/include/bits/cpu-set.h:
-
-/usr/include/c++/15.2.1/bits/refwrap.h:
-
-/usr/include/bits/setjmp.h:
-
-/usr/include/c++/15.2.1/bits/fstream.tcc:
-
-/usr/include/time.h:
-
-/usr/include/KHR/khrplatform.h:
-
-/usr/include/glm/ext/matrix_double4x3_precision.hpp:
-
-/usr/include/bits/types/__FILE.h:
-
-/usr/include/features.h:
-
-/usr/include/c++/15.2.1/cstring:
-
-/usr/include/glm/ext/matrix_projection.inl:
-
-/usr/include/c++/15.2.1/bits/ostream.h:
-
-/usr/lib/libXdmcp.so.6:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Objects/LightCubes.h:
-
-/usr/include/bits/types/struct___jmp_buf_tag.h:
-
-/usr/include/glm/ext/matrix_float3x4.hpp:
-
-/usr/include/bits/types/__fpos64_t.h:
-
-/usr/include/bits/uio_lim.h:
-
-/usr/include/c++/15.2.1/bits/ostream.tcc:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++config.h:
-
-/usr/include/glm/ext/matrix_double3x4_precision.hpp:
-
-/usr/include/bits/local_lim.h:
-
-/usr/include/c++/15.2.1/iomanip:
-
-/usr/include/bits/locale.h:
-
-/usr/include/bits/long-double.h:
-
-/usr/include/c++/15.2.1/bits/allocator.h:
-
-/usr/include/c++/15.2.1/ext/atomicity.h:
-
-/usr/include/c++/15.2.1/bits/char_traits.h:
-
-/home/leviwfrey/projects/graphics/Engine/core/include/Components/LightSource.h:
-
-/usr/include/bits/types/time_t.h:
-
-/usr/include/asm-generic/int-ll64.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h:
-
-/usr/include/bits/mathcalls-macros.h:
-
-/usr/include/c++/15.2.1/climits:
-
-/usr/include/bits/types/timer_t.h:
-
-/usr/include/c++/15.2.1/tr1/poly_hermite.tcc:
-
-/usr/include/bits/pthread_stack_min-dynamic.h:
-
-/usr/include/glm/detail/type_mat2x2.inl:
-
-/usr/include/c++/15.2.1/cstdlib:
-
-/usr/include/bits/types/cookie_io_functions_t.h:
-
-/usr/include/glm/detail/compute_vector_decl.hpp:
-
-/usr/include/bits/stdint-least.h:
-
-/usr/include/bits/types/__mbstate_t.h:
-
-/usr/include/bits/stdlib-float.h:
-
-/usr/include/bits/time64.h:
-
-/usr/include/c++/15.2.1/cstddef:
-
-/usr/include/c++/15.2.1/bits/fs_path.h:
-
-/usr/include/bits/types/__locale_t.h:
-
-/usr/include/c++/15.2.1/bits/string_view.tcc:
-
-/usr/include/bits/types/__fpos_t.h:
-
-/usr/include/c++/15.2.1/tr1/riemann_zeta.tcc:
-
-/usr/include/bits/types/clock_t.h:
-
-/usr/include/glm/ext/matrix_double3x4.hpp:
+/home/leviwfrey/projects/graphics/Engine/core/include/Shapes.h:
 
 /usr/include/c++/15.2.1/bits/parse_numbers.h:
 
@@ -1128,79 +845,541 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/bits/types/locale_t.h:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h:
+/usr/include/bits/types/clockid_t.h:
 
-/usr/include/bits/types/sigset_t.h:
+/usr/include/assimp/anim.h:
 
-/usr/include/c++/15.2.1/bits/erase_if.h:
+/usr/include/bits/types/__locale_t.h:
 
-/usr/include/bits/mathcalls-narrow.h:
+/usr/include/assimp/config.h:
 
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/messages_members.h:
+/usr/include/wctype.h:
 
-/usr/include/glm/ext/vector_bool4_precision.hpp:
+/usr/include/assimp/camera.h:
 
-/home/leviwfrey/projects/graphics/behaviors/Flashlight.h:
+/usr/include/glm/ext/matrix_float3x3_precision.hpp:
 
-/usr/include/c++/15.2.1/ostream:
+/usr/include/bits/posix1_lim.h:
 
-/usr/include/glm/gtc/matrix_transform.hpp:
+/usr/include/assimp/MathFunctions.h:
 
-/usr/include/bits/sched.h:
+/usr/include/bits/local_lim.h:
 
-/usr/include/bits/struct_rwlock.h:
+/usr/include/bits/struct_mutex.h:
 
-/home/leviwfrey/projects/graphics/Engine/core/include/Components/Transform.h:
+/usr/include/c++/15.2.1/bits/istream.tcc:
+
+/usr/include/glm/ext/matrix_double4x4_precision.hpp:
+
+/usr/include/c++/15.2.1/bits/stl_construct.h:
+
+/usr/include/c++/15.2.1/limits:
+
+/usr/include/bits/stdint-intn.h:
+
+/usr/include/bits/wctype-wchar.h:
+
+/usr/include/glm/ext/vector_float1.hpp:
 
 /usr/include/bits/types/struct_sched_param.h:
 
-/usr/include/c++/15.2.1/bits/stl_pair.h:
+/home/leviwfrey/projects/graphics/Engine/core/include/Components/Transform.h:
 
-/usr/include/bits/waitflags.h:
+/usr/include/glm/ext/vector_int3_sized.hpp:
 
-/usr/include/glm/detail/type_mat2x4.hpp:
+/usr/include/asm/posix_types.h:
 
-/home/leviwfrey/projects/graphics/Engine/core/include/Components/lights/SpotLight.h:
+/usr/include/c++/15.2.1/bits/stl_vector.h:
 
-/home/leviwfrey/projects/graphics/Engine/core/include/Input/MouseHandler.h:
+/usr/include/bits/time.h:
 
-/usr/include/glm/detail/_vectorize.hpp:
+/usr/include/c++/15.2.1/bits/memory_resource.h:
 
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/basic_file.h:
+/usr/include/glm/ext/matrix_clip_space.hpp:
 
-/usr/include/bits/types/struct_tm.h:
+/home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/BasicEffect.h:
 
-/usr/include/c++/15.2.1/bits/stl_tempbuf.h:
+/usr/include/asm/errno.h:
 
-/usr/include/glm/ext/quaternion_geometric.hpp:
+/usr/include/bits/stdint-uintn.h:
 
-/usr/include/glm/ext/matrix_float2x2_precision.hpp:
+/usr/include/c++/15.2.1/system_error:
 
-/usr/include/glm/gtc/epsilon.hpp:
+/usr/include/sys/select.h:
 
-/usr/include/stdc-predef.h:
+/usr/include/c++/15.2.1/bits/chrono.h:
 
-/usr/include/bits/wordsize.h:
+/usr/include/c++/15.2.1/bits/stl_function.h:
 
-/usr/include/stdio.h:
+/usr/include/c++/15.2.1/bits/invoke.h:
 
-/usr/include/c++/15.2.1/ext/numeric_traits.h:
+/usr/include/bits/waitstatus.h:
 
-/usr/include/bits/xopen_lim.h:
+/usr/include/glm/ext/vector_bool1.hpp:
 
-/usr/include/c++/15.2.1/tr1/ell_integral.tcc:
+/usr/include/bits/wchar.h:
 
-/usr/include/c++/15.2.1/backward/auto_ptr.h:
+/usr/include/glm/detail/type_mat3x4.inl:
 
-/usr/include/c++/15.2.1/bits/basic_ios.h:
+/usr/include/glm/gtx/component_wise.inl:
 
-/usr/include/asm/bitsperlong.h:
+/usr/include/bits/timesize.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/DeltaClock.h:
 
 /usr/include/c++/15.2.1/bits/alloc_traits.h:
 
 /usr/include/assert.h:
 
 /usr/include/glm/ext/quaternion_trigonometric.inl:
+
+/usr/include/c++/15.2.1/bits/basic_ios.h:
+
+/usr/include/asm/bitsperlong.h:
+
+/usr/include/assimp/color4.h:
+
+/usr/include/c++/15.2.1/bits/functional_hash.h:
+
+/usr/include/c++/15.2.1/bits/hashtable.h:
+
+/usr/include/c++/15.2.1/bits/fs_fwd.h:
+
+/usr/include/bits/pthreadtypes-arch.h:
+
+/usr/include/assimp/Compiler/pushpack1.h:
+
+/usr/include/assimp/vector3.inl:
+
+/usr/include/asm-generic/posix_types.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h:
+
+/usr/include/bits/types/sigset_t.h:
+
+/usr/include/assimp/material.inl:
+
+/usr/include/c++/15.2.1/bits/stl_tempbuf.h:
+
+/usr/include/glm/gtc/epsilon.hpp:
+
+/usr/include/asm-generic/bitsperlong.h:
+
+/usr/include/c++/15.2.1/bits/stl_heap.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/RenderEffect.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Objects/LightCubes.h:
+
+/usr/include/bits/types/struct___jmp_buf_tag.h:
+
+/usr/include/glm/ext/matrix_float3x4.hpp:
+
+/usr/include/glm/ext/matrix_float2x2_precision.hpp:
+
+/usr/include/glm/ext/quaternion_geometric.hpp:
+
+/usr/include/c++/15.2.1/bits/hashtable_policy.h:
+
+/usr/lib/libstdc++.so:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/AssetManager.h:
+
+/usr/include/bits/types/__sigset_t.h:
+
+/usr/include/glm/ext/matrix_float2x4_precision.hpp:
+
+/usr/include/glm/detail/compute_vector_relational.hpp:
+
+/usr/include/assimp/postprocess.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/gthr.h:
+
+/usr/include/c++/15.2.1/bits/stl_bvector.h:
+
+/usr/include/asm/posix_types_64.h:
+
+/usr/include/bits/posix2_lim.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/GameObject.h:
+
+/usr/include/glm/ext/matrix_float2x3_precision.hpp:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Components/Camera.h:
+
+/usr/include/c++/15.2.1/bits/new_allocator.h:
+
+/usr/include/glm/mat4x2.hpp:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Model.h:
+
+/usr/include/glm/ext/vector_float1_precision.hpp:
+
+/usr/include/c++/15.2.1/bits/align.h:
+
+/usr/include/assimp/aabb.h:
+
+/usr/lib/libc.so.6:
+
+/usr/include/bits/fp-fast.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Components/lights/DirectionalLight.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Objects/AllObjects.h:
+
+/usr/include/assimp/Compiler/poppack1.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Components/lights/AllLights.h:
+
+/usr/include/glm/ext/vector_double4_precision.hpp:
+
+/usr/include/c++/15.2.1/ostream:
+
+/usr/include/glm/gtc/matrix_transform.hpp:
+
+/usr/include/c++/15.2.1/bits/exception_ptr.h:
+
+/usr/include/c++/15.2.1/bits/stl_multimap.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/c++/15.2.1/tr1/beta_function.tcc:
+
+/usr/include/gnu/stubs-64.h:
+
+/usr/include/glm/ext/vector_bool1_precision.hpp:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/c++/15.2.1/bits/predefined_ops.h:
+
+/usr/include/bits/types/struct_itimerspec.h:
+
+/usr/include/c++/15.2.1/bits/locale_facets.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Components/lights/AreaLight.h:
+
+/usr/include/c++/15.2.1/concepts:
+
+/usr/include/bits/types/time_t.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Components/LightSource.h:
+
+/usr/include/bits/types/timer_t.h:
+
+/usr/include/c++/15.2.1/tr1/poly_hermite.tcc:
+
+/usr/include/c++/15.2.1/debug/debug.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Components/AllComponents.h:
+
+/usr/include/c++/15.2.1/bits/allocator.h:
+
+/usr/include/c++/15.2.1/ext/atomicity.h:
+
+/usr/include/c++/15.2.1/bits/stl_iterator.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/OutlineEffect.h:
+
+/usr/include/c++/15.2.1/bits/locale_classes.h:
+
+/home/leviwfrey/projects/graphics/behaviors/Flashlight.h:
+
+/usr/include/glm/ext/vector_bool4_precision.hpp:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Components/Component.h:
+
+/usr/include/GLFW/glfw3.h:
+
+/usr/include/bits/timex.h:
+
+/usr/include/c++/15.2.1/ctime:
+
+/usr/include/bits/errno.h:
+
+/usr/lib/libOpenGL.so:
+
+/usr/include/assimp/quaternion.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Texture.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++io.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Game.h:
+
+/usr/include/bits/types/struct_tm.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/time_members.h:
+
+/usr/include/glm/detail/type_vec1.hpp:
+
+/usr/include/glm/detail/type_mat2x4.hpp:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Components/lights/SpotLight.h:
+
+/usr/include/assimp/vector2.inl:
+
+/usr/include/c++/15.2.1/bits/streambuf.tcc:
+
+/usr/include/bits/cpu-set.h:
+
+/usr/include/c++/15.2.1/bits/refwrap.h:
+
+/usr/include/assimp/scene.h:
+
+/usr/include/bits/setjmp.h:
+
+/usr/include/c++/15.2.1/bits/stl_map.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Input/KeyboardHandler.h:
+
+/usr/include/bits/uio_lim.h:
+
+/usr/include/bits/wordsize.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Components/Renderer.h:
+
+/usr/include/c++/15.2.1/istream:
+
+/usr/include/glm/ext/quaternion_geometric.inl:
+
+/usr/include/assimp/matrix4x4.inl:
+
+/usr/include/c++/15.2.1/bits/unordered_set.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Mesh.h:
+
+/usr/include/bits/types/__FILE.h:
+
+/usr/include/features.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Engine.h:
+
+/usr/include/assimp/matrix3x3.h:
+
+/usr/include/bits/thread-shared-types.h:
+
+/usr/include/c++/15.2.1/ios:
+
+/usr/include/c++/15.2.1/bits/ostream.h:
+
+/usr/include/assimp/defs.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/AllRenderEffects.h:
+
+/usr/include/bits/types/__fpos64_t.h:
+
+/usr/include/asm-generic/int-ll64.h:
+
+/usr/include/bits/mathcalls-macros.h:
+
+/usr/include/assimp/light.h:
+
+/usr/include/c++/15.2.1/bits/basic_ios.tcc:
+
+/usr/include/c++/15.2.1/climits:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Input/MouseHandler.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/basic_file.h:
+
+/usr/include/glm/detail/_vectorize.hpp:
+
+/usr/include/bits/types/cookie_io_functions_t.h:
+
+/usr/include/glm/detail/compute_vector_decl.hpp:
+
+/usr/include/glm/ext/vector_float2_precision.hpp:
+
+/usr/include/assimp/matrix3x3.inl:
+
+/usr/include/bits/libc-header-start.h:
+
+/usr/include/glm/ext/vector_uint3.hpp:
+
+/usr/include/assimp/matrix4x4.h:
+
+/usr/lib/libmvec.so.1:
+
+/usr/include/linux/stddef.h:
+
+/usr/include/bits/fp-logb.h:
+
+/usr/include/glm/gtx/quaternion.hpp:
+
+/usr/include/assimp/mesh.h:
+
+/usr/include/glm/ext/vector_uint4.hpp:
+
+/usr/include/c++/15.2.1/tr1/ell_integral.tcc:
+
+/usr/include/assimp/metadata.h:
+
+/usr/include/c++/15.2.1/bits/move.h:
+
+/usr/include/c++/15.2.1/bits/locale_facets.tcc:
+
+/usr/include/bits/types.h:
+
+/usr/include/glm/detail/type_mat2x2.hpp:
+
+/usr/include/assimp/quaternion.inl:
+
+/usr/include/c++/15.2.1/bits/nested_exception.h:
+
+/usr/include/assimp/vector2.h:
+
+/usr/include/bits/stdint-least.h:
+
+/usr/include/assimp/Importer.hpp:
+
+/usr/include/c++/15.2.1/bits/enable_special_members.h:
+
+/usr/include/bits/atomic_wide_counter.h:
+
+/usr/include/c++/15.2.1/cfloat:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/c++/15.2.1/bits/fstream.tcc:
+
+/usr/include/KHR/khrplatform.h:
+
+/usr/include/assimp/material.h:
+
+/usr/include/glm/ext/matrix_double4x3_precision.hpp:
+
+/usr/include/bits/endianness.h:
+
+/usr/include/assimp/color4.inl:
+
+/usr/include/bits/floatn.h:
+
+/usr/include/bits/types/FILE.h:
+
+/usr/include/c++/15.2.1/bits/utility.h:
+
+/usr/include/bits/flt-eval-method.h:
+
+/usr/include/glm/mat3x2.hpp:
+
+/usr/include/bits/iscanonical.h:
+
+/usr/include/bits/long-double.h:
+
+/usr/include/c++/15.2.1/bits/char_traits.h:
+
+/usr/include/bits/types/clock_t.h:
+
+/usr/include/glm/ext/matrix_double3x4.hpp:
+
+/usr/include/bits/mathcalls.h:
+
+/usr/include/c++/15.2.1/bits/string_view.tcc:
+
+/usr/include/bits/types/__fpos_t.h:
+
+/usr/include/c++/15.2.1/tr1/riemann_zeta.tcc:
+
+/usr/include/bits/sched.h:
+
+/usr/include/bits/struct_rwlock.h:
+
+/usr/include/c++/15.2.1/bits/erase_if.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/messages_members.h:
+
+/usr/include/bits/mathcalls-narrow.h:
+
+/usr/include/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/glm/detail/type_mat2x2.inl:
+
+/usr/include/bits/types/__mbstate_t.h:
+
+/usr/include/bits/stdlib-float.h:
+
+/usr/include/bits/time64.h:
+
+/usr/include/c++/15.2.1/bits/vector.tcc:
+
+/usr/include/c++/15.2.1/cassert:
+
+/usr/include/c++/15.2.1/cerrno:
+
+/usr/include/glm/ext/matrix_double4x2.hpp:
+
+/usr/include/glm/common.hpp:
+
+/usr/include/glm/gtc/type_ptr.inl:
+
+/usr/include/c++/15.2.1/clocale:
+
+/usr/include/c++/15.2.1/bits/stringfwd.h:
+
+/usr/include/c++/15.2.1/cmath:
+
+/usr/include/c++/15.2.1/codecvt:
+
+/usr/include/c++/15.2.1/compare:
+
+/usr/include/c++/15.2.1/cwctype:
+
+/usr/include/glm/detail/type_mat2x3.inl:
+
+/usr/include/glm/detail/type_vec2.hpp:
+
+/usr/include/c++/15.2.1/bits/fs_path.h:
+
+/usr/include/c++/15.2.1/cstddef:
+
+/usr/include/c++/15.2.1/cstdint:
+
+/usr/include/c++/15.2.1/cstdio:
+
+/usr/include/c++/15.2.1/cstdlib:
+
+/usr/include/c++/15.2.1/cstring:
+
+/usr/include/glm/ext/matrix_projection.inl:
+
+/usr/include/c++/15.2.1/ext/aligned_buffer.h:
+
+/usr/include/c++/15.2.1/locale:
+
+/usr/include/c++/15.2.1/ext/alloc_traits.h:
+
+/usr/include/bits/xopen_lim.h:
+
+/usr/include/c++/15.2.1/ext/numeric_traits.h:
+
+/usr/include/c++/15.2.1/bits/ostream.tcc:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++config.h:
+
+/usr/include/glm/ext/matrix_double3x4_precision.hpp:
+
+/usr/include/linux/types.h:
+
+/usr/include/c++/15.2.1/ext/string_conversions.h:
+
+/usr/include/c++/15.2.1/ext/type_traits.h:
+
+/usr/include/c++/15.2.1/fstream:
+
+/usr/include/c++/15.2.1/functional:
+
+/usr/include/glm/ext/vector_uint3_sized.hpp:
+
+/usr/include/glm/ext/scalar_constants.inl:
+
+/usr/include/glm/ext/vector_relational.hpp:
+
+/usr/include/c++/15.2.1/initializer_list:
+
+/usr/include/bits/locale.h:
+
+/usr/include/c++/15.2.1/iomanip:
 
 /usr/include/c++/15.2.1/memory:
 
@@ -1224,6 +1403,8 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/c++/15.2.1/string:
 
+/usr/include/assimp/vector3.h:
+
 /usr/include/c++/15.2.1/string_view:
 
 /usr/include/glm/ext/matrix_float3x4_precision.hpp:
@@ -1236,19 +1417,19 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/c++/15.2.1/tr1/gamma.tcc:
 
-/home/leviwfrey/projects/graphics/Engine/core/include/Objects/ContainerObject.h:
-
 /usr/include/bits/types/struct_timespec.h:
+
+/home/leviwfrey/projects/graphics/Engine/core/include/Objects/ContainerObject.h:
 
 /usr/include/glm/ext/quaternion_trigonometric.hpp:
 
 /usr/include/c++/15.2.1/tr1/hypergeometric.tcc:
 
+/usr/lib/libc.so:
+
 /usr/include/c++/15.2.1/bits/basic_string.h:
 
 /usr/include/asm-generic/types.h:
-
-/usr/lib/libc.so:
 
 /usr/include/glm/mat2x4.hpp:
 
@@ -1257,8 +1438,6 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 /usr/include/c++/15.2.1/tr1/poly_laguerre.tcc:
 
 /usr/include/glm/detail/compute_common.hpp:
-
-/usr/include/strings.h:
 
 /usr/include/c++/15.2.1/tuple:
 
@@ -1294,13 +1473,7 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/gthr-default.h:
 
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/gthr.h:
-
 /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/os_defines.h:
-
-/usr/include/glm/detail/type_vec1.hpp:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/time_members.h:
 
 /usr/include/c++/15.2.1/bits/ptr_traits.h:
 
@@ -1330,9 +1503,9 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/glm/gtc/matrix_transform.inl:
 
-/usr/include/bits/types/struct_timeval.h:
-
 /usr/include/c++/15.2.1/bits/node_handle.h:
+
+/usr/include/bits/types/struct_timeval.h:
 
 /usr/include/glm/detail/setup.hpp:
 
@@ -1340,17 +1513,15 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/glm/detail/type_float.hpp:
 
-/usr/include/glm/vector_relational.hpp:
-
 /usr/lib/libgcc_s.so:
 
 /usr/include/glm/detail/type_half.hpp:
 
 /usr/include/glm/detail/type_mat2x4.inl:
 
-/usr/include/bits/libm-simd-decl-stubs.h:
-
 /usr/include/c++/15.2.1/bits/requires_hosted.h:
+
+/usr/include/bits/libm-simd-decl-stubs.h:
 
 /usr/include/glm/detail/type_mat3x2.hpp:
 
@@ -1396,6 +1567,10 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/glm/detail/type_vec1.inl:
 
+/usr/lib/libglfw.so:
+
+/usr/include/assimp/types.h:
+
 /usr/include/glm/detail/type_vec2.inl:
 
 /usr/include/c++/15.2.1/bits/postypes.h:
@@ -1408,8 +1583,6 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/glm/detail/type_vec4.hpp:
 
-/usr/include/locale.h:
-
 /usr/include/glm/ext/matrix_double2x2.hpp:
 
 /usr/include/glm/ext/matrix_double2x3_precision.hpp:
@@ -1418,31 +1591,27 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/glm/ext/matrix_double2x4.hpp:
 
-/usr/include/c++/15.2.1/iostream:
-
 /usr/include/features-time64.h:
+
+/usr/include/c++/15.2.1/iostream:
 
 /usr/include/glm/ext/matrix_double2x4_precision.hpp:
 
 /usr/include/glm/ext/quaternion_relational.hpp:
 
-/usr/include/glm/vec4.hpp:
-
 /usr/include/glm/ext/matrix_double3x2.hpp:
 
 /usr/include/glm/ext/matrix_double4x3.hpp:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h:
+/home/leviwfrey/projects/graphics/Engine/core/include/Shader.h:
 
 /usr/include/c++/15.2.1/filesystem:
 
-/home/leviwfrey/projects/graphics/Engine/core/include/Shader.h:
-
 /usr/include/glm/ext/matrix_double3x2_precision.hpp:
 
-/usr/include/alloca.h:
-
 /usr/include/glm/ext/scalar_common.hpp:
+
+/usr/include/alloca.h:
 
 /usr/include/glm/ext/matrix_double4x4.hpp:
 
@@ -1467,8 +1636,6 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 /usr/include/glm/ext/matrix_transform.inl:
 
 /usr/include/glm/ext/scalar_common.inl:
-
-/usr/include/glm/ext/matrix_float3x3_precision.hpp:
 
 /usr/include/glm/ext/matrix_float4x2.hpp:
 
@@ -1530,10 +1697,6 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/glm/ext/scalar_uint_sized.hpp:
 
-/usr/include/bits/wchar.h:
-
-/usr/include/glm/ext/vector_bool1.hpp:
-
 /usr/include/glm/ext/vector_bool2.hpp:
 
 /usr/include/asm/types.h:
@@ -1576,6 +1739,8 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/glm/ext/vector_int1_sized.hpp:
 
+/usr/include/c++/15.2.1/bits/stl_algo.h:
+
 /usr/include/glm/ext/vector_int2.hpp:
 
 /usr/include/glm/detail/type_quat.inl:
@@ -1591,12 +1756,6 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 /usr/include/glm/ext/vector_uint1.hpp:
 
 /usr/include/glm/ext/vector_uint2.hpp:
-
-/usr/include/glm/ext/scalar_constants.inl:
-
-/usr/include/glm/ext/vector_uint3_sized.hpp:
-
-/usr/include/glm/ext/vector_uint4.hpp:
 
 /usr/include/pthread.h:
 
@@ -1614,9 +1773,9 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 
 /usr/include/glm/gtc/epsilon.inl:
 
-/usr/include/endian.h:
-
 /usr/include/glm/ext/matrix_float4x3_precision.hpp:
+
+/usr/include/endian.h:
 
 /usr/include/glm/gtc/quaternion.hpp:
 
@@ -1653,45 +1812,3 @@ CMakeFiles/mult.dir/games/mult.cpp.o:
 /usr/include/glm/mat3x4.hpp:
 
 /usr/include/glm/trigonometric.hpp:
-
-/usr/lib/crti.o:
-
-/usr/include/glm/vec3.hpp:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h:
-
-/usr/include/glm/ext/vector_bool1_precision.hpp:
-
-/usr/include/gnu/stubs-64.h:
-
-/usr/include/gnu/stubs.h:
-
-/usr/include/limits.h:
-
-/usr/include/linux/errno.h:
-
-/usr/lib/crtn.o:
-
-/usr/include/linux/limits.h:
-
-/usr/include/linux/sched/types.h:
-
-/usr/lib/libmvec.so.1:
-
-/usr/include/bits/fp-logb.h:
-
-/usr/include/linux/stddef.h:
-
-/usr/include/string.h:
-
-/usr/include/c++/15.2.1/bits/chrono.h:
-
-/usr/include/c++/15.2.1/bits/stl_function.h:
-
-/usr/include/sys/select.h:
-
-/usr/include/sys/types.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/float.h:
-
-/usr/lib/Scrt1.o:

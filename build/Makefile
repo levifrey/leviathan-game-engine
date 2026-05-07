@@ -131,6 +131,19 @@ mult/fast:
 .PHONY : mult/fast
 
 #=============================================================================
+# Target rules for targets named object
+
+# Build rule for target.
+object: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 object
+.PHONY : object
+
+# fast build rule for target.
+object/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/object.dir/build.make CMakeFiles/object.dir/build
+.PHONY : object/fast
+
+#=============================================================================
 # Target rules for targets named test
 
 # Build rule for target.
@@ -156,6 +169,19 @@ Engine/fast:
 	$(MAKE) $(MAKESILENT) -f Engine/CMakeFiles/Engine.dir/build.make Engine/CMakeFiles/Engine.dir/build
 .PHONY : Engine/fast
 
+#=============================================================================
+# Target rules for targets named glad
+
+# Build rule for target.
+glad: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glad
+.PHONY : glad
+
+# fast build rule for target.
+glad/fast:
+	$(MAKE) $(MAKESILENT) -f Engine/external/CMakeFiles/glad.dir/build.make Engine/external/CMakeFiles/glad.dir/build
+.PHONY : glad/fast
+
 games/mult.o: games/mult.cpp.o
 .PHONY : games/mult.o
 
@@ -179,6 +205,30 @@ games/mult.s: games/mult.cpp.s
 games/mult.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mult.dir/build.make CMakeFiles/mult.dir/games/mult.cpp.s
 .PHONY : games/mult.cpp.s
+
+games/object.o: games/object.cpp.o
+.PHONY : games/object.o
+
+# target to build an object file
+games/object.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/object.dir/build.make CMakeFiles/object.dir/games/object.cpp.o
+.PHONY : games/object.cpp.o
+
+games/object.i: games/object.cpp.i
+.PHONY : games/object.i
+
+# target to preprocess a source file
+games/object.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/object.dir/build.make CMakeFiles/object.dir/games/object.cpp.i
+.PHONY : games/object.cpp.i
+
+games/object.s: games/object.cpp.s
+.PHONY : games/object.s
+
+# target to generate assembly for a file
+games/object.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/object.dir/build.make CMakeFiles/object.dir/games/object.cpp.s
+.PHONY : games/object.cpp.s
 
 games/test.o: games/test.cpp.o
 .PHONY : games/test.o
@@ -213,11 +263,16 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Engine"
+	@echo "... glad"
 	@echo "... mult"
+	@echo "... object"
 	@echo "... test"
 	@echo "... games/mult.o"
 	@echo "... games/mult.i"
 	@echo "... games/mult.s"
+	@echo "... games/object.o"
+	@echo "... games/object.i"
+	@echo "... games/object.s"
 	@echo "... games/test.o"
 	@echo "... games/test.i"
 	@echo "... games/test.s"

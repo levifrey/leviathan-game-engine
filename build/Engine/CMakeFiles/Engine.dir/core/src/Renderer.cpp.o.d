@@ -383,9 +383,47 @@ Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o: \
  /usr/include/c++/15.2.1/bits/unique_ptr.h \
  /usr/include/c++/15.2.1/bits/fs_dir.h \
  /usr/include/c++/15.2.1/bits/fs_ops.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Mesh.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
+ /usr/include/c++/15.2.1/memory \
+ /usr/include/c++/15.2.1/bits/stl_tempbuf.h \
+ /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/15.2.1/bits/align.h \
+ /usr/include/c++/15.2.1/bits/shared_ptr_atomic.h \
+ /usr/include/c++/15.2.1/bits/atomic_base.h \
+ /usr/include/c++/15.2.1/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/15.2.1/backward/auto_ptr.h \
+ /usr/include/c++/15.2.1/pstl/glue_memory_defs.h \
+ /usr/include/c++/15.2.1/pstl/execution_defs.h \
+ /usr/include/assimp/Importer.hpp /usr/include/assimp/types.h \
+ /usr/include/assimp/defs.h /usr/include/assimp/config.h \
+ /usr/include/assimp/vector2.h /usr/include/assimp/vector3.h \
+ /usr/include/assimp/color4.h /usr/include/assimp/matrix3x3.h \
+ /usr/include/assimp/matrix4x4.h /usr/include/assimp/quaternion.h \
+ /usr/include/assimp/vector2.inl /usr/include/assimp/vector3.inl \
+ /usr/include/assimp/color4.inl /usr/include/assimp/matrix3x3.inl \
+ /usr/include/c++/15.2.1/algorithm \
+ /usr/include/c++/15.2.1/bits/stl_algo.h \
+ /usr/include/c++/15.2.1/bits/algorithmfwd.h \
+ /usr/include/c++/15.2.1/bits/stl_heap.h \
+ /usr/include/c++/15.2.1/bits/uniform_int_dist.h \
+ /usr/include/c++/15.2.1/pstl/glue_algorithm_defs.h \
+ /usr/include/assimp/matrix4x4.inl /usr/include/assimp/MathFunctions.h \
+ /usr/include/assimp/quaternion.inl /usr/include/assimp/scene.h \
+ /usr/include/assimp/texture.h /usr/include/assimp/Compiler/pushpack1.h \
+ /usr/include/assimp/Compiler/poppack1.h /usr/include/assimp/mesh.h \
+ /usr/include/assimp/aabb.h /usr/include/c++/15.2.1/unordered_set \
+ /usr/include/c++/15.2.1/bits/unordered_set.h /usr/include/assimp/light.h \
+ /usr/include/assimp/camera.h /usr/include/assimp/material.h \
+ /usr/include/assimp/material.inl /usr/include/assimp/anim.h \
+ /usr/include/assimp/metadata.h /usr/include/assimp/postprocess.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h \
- /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/AllRenderEffects.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/RenderEffect.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/GameObject.h \
+ /usr/include/c++/15.2.1/typeindex \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/Component.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Components/Transform.h \
  /usr/include/glm/gtx/quaternion.hpp \
  /usr/include/glm/ext/quaternion_exponential.hpp \
@@ -396,20 +434,6 @@ Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o: \
  /usr/include/glm/ext/scalar_common.hpp \
  /usr/include/glm/ext/scalar_common.inl /usr/include/glm/gtx/norm.inl \
  /usr/include/glm/gtx/quaternion.inl \
- /home/leviwfrey/projects/graphics/Engine/core/include/GameObject.h \
- /usr/include/c++/15.2.1/typeindex /usr/include/c++/15.2.1/memory \
- /usr/include/c++/15.2.1/bits/stl_tempbuf.h \
- /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h \
- /usr/include/c++/15.2.1/bits/align.h \
- /usr/include/c++/15.2.1/bits/shared_ptr_atomic.h \
- /usr/include/c++/15.2.1/bits/atomic_base.h \
- /usr/include/c++/15.2.1/bits/atomic_lockfree_defines.h \
- /usr/include/c++/15.2.1/backward/auto_ptr.h \
- /usr/include/c++/15.2.1/pstl/glue_memory_defs.h \
- /usr/include/c++/15.2.1/pstl/execution_defs.h \
- /home/leviwfrey/projects/graphics/Engine/core/include/Components/Component.h \
- /usr/include/c++/15.2.1/unordered_set \
- /usr/include/c++/15.2.1/bits/unordered_set.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Game.h \
  /usr/include/GLFW/glfw3.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Input/MouseHandler.h \
@@ -422,4 +446,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o: \
  /home/leviwfrey/projects/graphics/Engine/core/include/Components/Component.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Components/LightSource.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/LightData.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/BasicEffect.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/OutlineEffect.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/AssetManager.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Components/LightSource.h

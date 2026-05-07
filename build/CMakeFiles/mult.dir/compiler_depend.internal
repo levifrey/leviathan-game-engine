@@ -22,11 +22,16 @@ CMakeFiles/mult.dir/games/mult.cpp.o
  /home/leviwfrey/projects/graphics/Engine/core/include/Input/KeyboardHandler.h
  /home/leviwfrey/projects/graphics/Engine/core/include/Input/MouseHandler.h
  /home/leviwfrey/projects/graphics/Engine/core/include/LightData.h
+ /home/leviwfrey/projects/graphics/Engine/core/include/Mesh.h
  /home/leviwfrey/projects/graphics/Engine/core/include/Model.h
  /home/leviwfrey/projects/graphics/Engine/core/include/Objects/AllObjects.h
  /home/leviwfrey/projects/graphics/Engine/core/include/Objects/ContainerObject.h
  /home/leviwfrey/projects/graphics/Engine/core/include/Objects/LightCubes.h
  /home/leviwfrey/projects/graphics/Engine/core/include/Objects/PlayerCamera.h
+ /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/AllRenderEffects.h
+ /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/BasicEffect.h
+ /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/OutlineEffect.h
+ /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/RenderEffect.h
  /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h
  /home/leviwfrey/projects/graphics/Engine/core/include/Shapes.h
  /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h
@@ -47,6 +52,36 @@ CMakeFiles/mult.dir/games/mult.cpp.o
  /usr/include/asm/posix_types_64.h
  /usr/include/asm/types.h
  /usr/include/assert.h
+ /usr/include/assimp/Compiler/poppack1.h
+ /usr/include/assimp/Compiler/pushpack1.h
+ /usr/include/assimp/Importer.hpp
+ /usr/include/assimp/MathFunctions.h
+ /usr/include/assimp/aabb.h
+ /usr/include/assimp/anim.h
+ /usr/include/assimp/camera.h
+ /usr/include/assimp/color4.h
+ /usr/include/assimp/color4.inl
+ /usr/include/assimp/config.h
+ /usr/include/assimp/defs.h
+ /usr/include/assimp/light.h
+ /usr/include/assimp/material.h
+ /usr/include/assimp/material.inl
+ /usr/include/assimp/matrix3x3.h
+ /usr/include/assimp/matrix3x3.inl
+ /usr/include/assimp/matrix4x4.h
+ /usr/include/assimp/matrix4x4.inl
+ /usr/include/assimp/mesh.h
+ /usr/include/assimp/metadata.h
+ /usr/include/assimp/postprocess.h
+ /usr/include/assimp/quaternion.h
+ /usr/include/assimp/quaternion.inl
+ /usr/include/assimp/scene.h
+ /usr/include/assimp/texture.h
+ /usr/include/assimp/types.h
+ /usr/include/assimp/vector2.h
+ /usr/include/assimp/vector2.inl
+ /usr/include/assimp/vector3.h
+ /usr/include/assimp/vector3.inl
  /usr/include/bits/atomic_wide_counter.h
  /usr/include/bits/byteswap.h
  /usr/include/bits/cpu-set.h
@@ -123,10 +158,12 @@ CMakeFiles/mult.dir/games/mult.cpp.o
  /usr/include/bits/wctype-wchar.h
  /usr/include/bits/wordsize.h
  /usr/include/bits/xopen_lim.h
+ /usr/include/c++/15.2.1/algorithm
  /usr/include/c++/15.2.1/array
  /usr/include/c++/15.2.1/backward/auto_ptr.h
  /usr/include/c++/15.2.1/backward/binders.h
  /usr/include/c++/15.2.1/bit
+ /usr/include/c++/15.2.1/bits/algorithmfwd.h
  /usr/include/c++/15.2.1/bits/align.h
  /usr/include/c++/15.2.1/bits/alloc_traits.h
  /usr/include/c++/15.2.1/bits/allocated_ptr.h
@@ -195,10 +232,12 @@ CMakeFiles/mult.dir/games/mult.cpp.o
  /usr/include/c++/15.2.1/bits/sstream.tcc
  /usr/include/c++/15.2.1/bits/std_abs.h
  /usr/include/c++/15.2.1/bits/std_function.h
+ /usr/include/c++/15.2.1/bits/stl_algo.h
  /usr/include/c++/15.2.1/bits/stl_algobase.h
  /usr/include/c++/15.2.1/bits/stl_bvector.h
  /usr/include/c++/15.2.1/bits/stl_construct.h
  /usr/include/c++/15.2.1/bits/stl_function.h
+ /usr/include/c++/15.2.1/bits/stl_heap.h
  /usr/include/c++/15.2.1/bits/stl_iterator.h
  /usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h
  /usr/include/c++/15.2.1/bits/stl_iterator_base_types.h
@@ -214,6 +253,7 @@ CMakeFiles/mult.dir/games/mult.cpp.o
  /usr/include/c++/15.2.1/bits/streambuf_iterator.h
  /usr/include/c++/15.2.1/bits/string_view.tcc
  /usr/include/c++/15.2.1/bits/stringfwd.h
+ /usr/include/c++/15.2.1/bits/uniform_int_dist.h
  /usr/include/c++/15.2.1/bits/unique_ptr.h
  /usr/include/c++/15.2.1/bits/unordered_map.h
  /usr/include/c++/15.2.1/bits/unordered_set.h
@@ -266,6 +306,7 @@ CMakeFiles/mult.dir/games/mult.cpp.o
  /usr/include/c++/15.2.1/new
  /usr/include/c++/15.2.1/ostream
  /usr/include/c++/15.2.1/pstl/execution_defs.h
+ /usr/include/c++/15.2.1/pstl/glue_algorithm_defs.h
  /usr/include/c++/15.2.1/pstl/glue_memory_defs.h
  /usr/include/c++/15.2.1/pstl/pstl_config.h
  /usr/include/c++/15.2.1/ratio
@@ -547,25 +588,23 @@ mult
  /usr/lib/libc.so
  /usr/lib/libgcc_s.so
  /usr/lib/libgcc_s.so.1
+ /usr/lib/libglfw.so
  /usr/lib/libm.so
+ /usr/lib/librt.a
  /usr/lib/libstdc++.so
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a
  /usr/lib/ld-linux-x86-64.so.2
- /usr/lib/libGLX.so
  /usr/lib/libGLdispatch.so.0
  /usr/lib/libOpenGL.so
- /usr/lib/libX11.so.6
- /usr/lib/libXau.so.6
- /usr/lib/libXdmcp.so.6
+ /usr/lib/libassimp.so.6.0.4
  /usr/lib/libc.so.6
  /usr/lib/libc_nonshared.a
- /usr/lib/libglfw.so.3.4
- /usr/lib/libglm.a
  /usr/lib/libm.so.6
  /usr/lib/libmvec.so.1
- /usr/lib/libxcb.so.1
+ /usr/lib/libz.so
  /home/leviwfrey/projects/graphics/build/CMakeFiles/mult.dir/games/mult.cpp.o
+ /home/leviwfrey/projects/graphics/build/Engine/external/libglad.a
  /home/leviwfrey/projects/graphics/build/Engine/libEngine.a
 

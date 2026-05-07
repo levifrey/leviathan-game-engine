@@ -411,15 +411,50 @@ Engine/CMakeFiles/Engine.dir/core/src/Game.cpp.o: \
  /home/leviwfrey/projects/graphics/Engine/core/include/LightData.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Components/Renderer.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Model.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Mesh.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
+ /usr/include/assimp/Importer.hpp /usr/include/assimp/types.h \
+ /usr/include/assimp/defs.h /usr/include/assimp/config.h \
+ /usr/include/assimp/vector2.h /usr/include/assimp/vector3.h \
+ /usr/include/assimp/color4.h /usr/include/assimp/matrix3x3.h \
+ /usr/include/assimp/matrix4x4.h /usr/include/assimp/quaternion.h \
+ /usr/include/assimp/vector2.inl /usr/include/assimp/vector3.inl \
+ /usr/include/assimp/color4.inl /usr/include/assimp/matrix3x3.inl \
+ /usr/include/c++/15.2.1/algorithm \
+ /usr/include/c++/15.2.1/bits/stl_algo.h \
+ /usr/include/c++/15.2.1/bits/algorithmfwd.h \
+ /usr/include/c++/15.2.1/bits/stl_heap.h \
+ /usr/include/c++/15.2.1/bits/uniform_int_dist.h \
+ /usr/include/c++/15.2.1/pstl/glue_algorithm_defs.h \
+ /usr/include/assimp/matrix4x4.inl /usr/include/assimp/MathFunctions.h \
+ /usr/include/assimp/quaternion.inl /usr/include/assimp/scene.h \
+ /usr/include/assimp/texture.h /usr/include/assimp/Compiler/pushpack1.h \
+ /usr/include/assimp/Compiler/poppack1.h /usr/include/assimp/mesh.h \
+ /usr/include/assimp/aabb.h /usr/include/assimp/light.h \
+ /usr/include/assimp/camera.h /usr/include/assimp/material.h \
+ /usr/include/assimp/material.inl /usr/include/assimp/anim.h \
+ /usr/include/assimp/metadata.h /usr/include/assimp/postprocess.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/AllRenderEffects.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/RenderEffect.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/GameObject.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/Components/Transform.h \
+ /usr/include/glm/gtx/quaternion.hpp \
+ /usr/include/glm/ext/quaternion_exponential.hpp \
+ /usr/include/glm/ext/quaternion_exponential.inl \
+ /usr/include/glm/gtx/norm.hpp /usr/include/glm/gtx/component_wise.hpp \
+ /usr/include/glm/detail/setup.hpp \
+ /usr/include/glm/gtx/component_wise.inl \
+ /usr/include/glm/ext/scalar_common.hpp \
+ /usr/include/glm/ext/scalar_common.inl /usr/include/glm/gtx/norm.inl \
+ /usr/include/glm/gtx/quaternion.inl \
+ /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/BasicEffect.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/RenderEffects/OutlineEffect.h \
+ /home/leviwfrey/projects/graphics/Engine/core/include/AssetManager.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/DeltaClock.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Components/LightSource.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/PathUtils.h \
  /usr/include/unistd.h /usr/include/bits/posix_opt.h \
  /usr/include/bits/environments.h /usr/include/bits/confname.h \
  /usr/include/bits/getopt_posix.h /usr/include/bits/getopt_core.h \
- /usr/include/bits/unistd_ext.h /usr/include/linux/close_range.h \
- /home/leviwfrey/projects/graphics/Engine/core/include/AssetManager.h \
- /home/leviwfrey/projects/graphics/Engine/core/include/Model.h
+ /usr/include/bits/unistd_ext.h /usr/include/linux/close_range.h

@@ -89,7 +89,11 @@ Game::Game(int window_width, int window_height) {
     }   
     
     glViewport(0, 0, window_width_, window_height_);
+
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_STENCIL_TEST);
+    glStencilMask(0x00);
+
     glClearColor(23.0f/255.0f, 19.0f/255.0f, 19.0f/255.0f, 1.0f);
     glfwSetInputMode(window_, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     
@@ -126,10 +130,11 @@ void Game::Loop() {
         }
 
         // Graphics stuff
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glStencilMask(0xFF);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
         mouse_handler_.update();  
         DeltaClock::tick();
-
+        
         // Update and render objects
         for (GameObject* obj : game_objects_) {
             obj->update();
@@ -144,7 +149,8 @@ void Game::Loop() {
 
         glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
         glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(LightBlock), &light_block);
-    
+        
+        glStencilMask(0x00);
         // call render function for each object 
         for (GameObject* obj : game_objects_) {
             if(obj->hasComponent<Renderer>()) {
