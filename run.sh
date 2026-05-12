@@ -11,5 +11,6 @@ fi
 if [[ -x "$TARGET" ]]; then
     ./"$TARGET"
 else
+
     echo "File not executable or not found: $TARGET"
 fi

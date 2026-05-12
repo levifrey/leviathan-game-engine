@@ -1,6 +1,10 @@
 #ifndef SHAPES_H
 #define SHAPES_H
-#include "Model.h"
-Model createCube(float size);
+#include "Mesh.h"
+
+namespace Shapes {
+Mesh createCube(float size);
+Mesh createPlane(float size);
+}
 
 #endif

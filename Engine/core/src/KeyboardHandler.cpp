@@ -1,16 +1,20 @@
 #include "Input/KeyboardHandler.h"
 #include <GLFW/glfw3.h>
+
+
 void KeyboardHandler::handleKeyPress(GLFWwindow* window, int key, int scancode, int action, int mods) {
     if (action == GLFW_PRESS) {
-        keys_[key] = true;
+        keys_[key].down_ = true;
+        keys_[key].pressed_ = true;
     } else if (action == GLFW_RELEASE) {
-        keys_[key] = false;
+        keys_[key].released_ = true;
+        keys_[key].pressed_ = false;
     }
 }
 
-bool KeyboardHandler::getKeyDown(int key) {
-    if (keys_.find(key) != keys_.end()) {
-        return keys_[key];
+void KeyboardHandler::clearStates() {
+    for (int i = 0; i <= GLFW_KEY_LAST; i++) {
+        keys_[i].down_ = false;
+        keys_[i].released_   = false;
     }
-    return false;
 }

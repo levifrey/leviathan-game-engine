@@ -1,32 +1,35 @@
 cmake_minimum_required(VERSION 3.5)
 project(graphics_project VERSION 0.1.0)
-cmake_policy(SET  CMP0072 NEW)
+cmake_policy(SET CMP0072 NEW)
+
 
 file(GLOB_RECURSE ENGINE_SOURCES CONFIGURE_DEPENDS 
     "${CMAKE_CURRENT_SOURCE_DIR}/core/src/*.cpp"
 )
 
-list(APPEND ENGINE_SOURCES  
-    "${CMAKE_CURRENT_SOURCE_DIR}/external/glad/src/glad.c"
-)
-
 add_library(Engine STATIC ${ENGINE_SOURCES})
 
+add_subdirectory(external)
+
 target_include_directories(Engine PUBLIC 
     "${CMAKE_CURRENT_SOURCE_DIR}/core/include"
 )
 
-# Include external headers (GLAD, STB)
-target_include_directories(Engine PUBLIC 
-    "${CMAKE_CURRENT_SOURCE_DIR}/core/include"
-    "${CMAKE_CURRENT_SOURCE_DIR}/external/stb_image" 
-    "${CMAKE_CURRENT_SOURCE_DIR}/external/glad/include"
+# external libraries
+target_link_libraries(Engine PUBLIC
+    glfw
+    glad
+    glm
+    stb_image
 )
 
+find_package(assimp REQUIRED)
+target_link_libraries(Engine PUBLIC assimp::assimp)
 
-# ----- OpenGL -----
+# OPENGL
 find_package(OpenGL REQUIRED)
 
+<<<<<<< HEAD
 # ----- GLFW -----
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
@@ -62,28 +65,13 @@ if(NOT glm_FOUND)
     target_include_directories(Engine PUBLIC 
         "${CMAKE_CURRENT_SOURCE_DIR}/external/glm"
     )
+=======
+if (TARGET OpenGL::OpenGL)
+    target_link_libraries(Engine PUBLIC OpenGL::OpenGL)
+elseif(TARGET OpenGL::GL)
+    target_link_libraries(Engine PUBLIC OpenGL::GL)
+>>>>>>> assimp
 else()
-    target_link_libraries(Engine PUBLIC glm::glm)
+    target_link_libraries(Engine PUBLIC ${OPENGL_LIBRARIES})
+    target_include_directories(Engine PUBLIC ${OPENGL_INCLUDE_DIR})
 endif()
-
-
-# Include Glad, GLM, STB (I have the headers)
-#include_directories(external)
-#set(CMAKE_BUILD_TYPE Debug)
-# Fetch GLFW
-#include(FetchContent)
-#FetchContent_Declare(
-#   glfw
-#   GIT_REPOSITORY https://github.com/glfw/glfw.git
-#   GIT_TAG latest
-#)
-#FetchContent_MakeAvailable(glfw)
-#
-#add_library(glad STATIC external/glad/glad.c)
-#target_include_directories(glad PUBLIC include)
-
-#file(GLOB_RECURSE SOURCES src/*.cpp)
-
-#add_executable(main ${SOURCES})
-
-#target_link_libraries(main PRIVATE OpenGL::GL glfw glad)

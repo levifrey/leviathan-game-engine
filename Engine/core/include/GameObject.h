@@ -41,6 +41,7 @@ class GameObject {
             auto comp = std::make_unique<T>(std::forward<Args>(args)...);
             comp->setGameObject(this);
             T* ptr = comp.get();
+            ptr->init();
             components_[std::type_index(typeid(T))] = std::move(comp);
             return ptr;
         }

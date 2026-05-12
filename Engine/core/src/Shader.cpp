@@ -110,6 +110,11 @@ void Shader::setMat4(const std::string &name, glm::mat4 value) const {
     glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(value));
 }
 
+void Shader::setVec4(const std::string &name, glm::vec4 value) const {
+    int location = glGetUniformLocation(ID, name.c_str());
+    glUniform4fv(location, 1, glm::value_ptr(value));
+}
+
 void Shader::reserveTexture(const std::string &var_name, int texture_num) {
     setInt(var_name, texture_num);
 }

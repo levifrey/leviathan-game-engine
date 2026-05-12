@@ -3,6 +3,7 @@
 
 #include "Game.h"
 #include "Model.h"
+#include "Mesh.h"
 #include "Shader.h"
 #include "Texture.h"
 #include "Shapes.h"
@@ -10,3 +11,4 @@
 #include "DeltaClock.h"
 #include "Components/AllComponents.h"
 #include "Objects/AllObjects.h"
+#include "RenderEffects/AllRenderEffects.h"

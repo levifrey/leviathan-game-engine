@@ -8,7 +8,7 @@ class AreaLightCube: public GameObject {
     public:
         explicit AreaLightCube(Game* game) : GameObject(game) {
             addComponent<Transform>();
-            Model* model = AssetManager::getModel("cube");
+            Model* model = AssetManager::getModel("default_box");
             Shader* shader = AssetManager::getShader("default_shader");
             addComponent<Renderer>(model, shader);
             addComponent<AreaLight>();
@@ -20,7 +20,7 @@ class SpotLightCube: public GameObject {
     public:
         explicit SpotLightCube(Game* game) : GameObject(game) {
             addComponent<Transform>();
-            Model* model = AssetManager::getModel("cube");
+            Model* model = AssetManager::getModel("default_box");
             Shader* shader = AssetManager::getShader("default_shader");
             addComponent<Renderer>(model, shader);
             addComponent<SpotLight>(glm::vec3(1.0f, 0.0f, 0.0f), 12.5f, 17.5f);
@@ -34,7 +34,7 @@ class PointLightCube: public GameObject {
     public:
         explicit PointLightCube(Game* game) : GameObject(game) {
             addComponent<Transform>();
-            Model* model = AssetManager::getModel("cube");
+            Model* model = AssetManager::getModel("default_box");
             Shader* shader = AssetManager::getShader("default_shader");
             addComponent<Renderer>(model, shader);
             addComponent<PointLight>();

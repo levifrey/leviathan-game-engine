@@ -76,7 +76,7 @@ Game::Game(int window_width, int window_height) {
 
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 
     window_ = glfwCreateWindow(window_width_, window_height_, "GAME START", NULL, NULL); 
     if (window_ == NULL) {
@@ -89,7 +89,13 @@ Game::Game(int window_width, int window_height) {
     }   
     
     glViewport(0, 0, window_width_, window_height_);
+
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_STENCIL_TEST);
+    glStencilMask(0x00);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     glClearColor(23.0f/255.0f, 19.0f/255.0f, 19.0f/255.0f, 1.0f);
     glfwSetInputMode(window_, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     
@@ -119,18 +125,30 @@ Game::Game(int window_width, int window_height) {
  * Only called once after all objects have been generated
  */
 void Game::Loop() {
+    for (GameObject* obj : game_objects_) {
+        obj->init();
+    }
+
     while(!glfwWindowShouldClose(window_)) {
+
+        // gather user input and update input handlers
+        glfwPollEvents();
+        mouse_handler_.update();  
+
         // check exit
         if (keyboard_handler_.getKeyDown(GLFW_KEY_ESCAPE)) {
             glfwSetWindowShouldClose(window_, true);
         }
 
-        // Graphics stuff
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        mouse_handler_.update();  
-        DeltaClock::tick();
+        // Reset Graphics buffers/masks for clean rendering
+        glStencilMask(0xFF);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+        glStencilMask(0x00);
 
-        // Update and render objects
+
+        DeltaClock::tick();
+        
+        // Update all game objects
         for (GameObject* obj : game_objects_) {
             obj->update();
         }
@@ -144,22 +162,24 @@ void Game::Loop() {
 
         glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
         glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(LightBlock), &light_block);
-    
-        // call render function for each object 
+        
+
+        // call render function for each object me
         for (GameObject* obj : game_objects_) {
             if(obj->hasComponent<Renderer>()) {
                 Renderer* r = obj->getComponent<Renderer>();
                 r->render();
             }
         }
-
+        
+        // call debug function
         if (debugFunction_) {
             debugFunction_(*this);
         }
         
         // Update screen
         glfwSwapBuffers(window_);
-        glfwPollEvents();
+        keyboard_handler_.clearStates();
     }
 }
 

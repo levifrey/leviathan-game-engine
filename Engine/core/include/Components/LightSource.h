@@ -24,6 +24,9 @@ class LightSource : public Component {
         glm::vec3 getAmbient() const { return ambient_; }
         glm::vec3 getDiffuse() const { return diffuse_; }
         glm::vec3 getSpecular() const { return specular_; }
+        void setAmbient(glm::vec3 ambient) { ambient_ = ambient; }
+        void setDiffuse(glm::vec3 diffuse) { diffuse_ = diffuse; }
+        void setSpecular(glm::vec3 specular) { specular_ = specular; }
 
         virtual ~LightSource() = default;
     private:
