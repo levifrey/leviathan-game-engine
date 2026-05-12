@@ -29,7 +29,6 @@ target_link_libraries(Engine PUBLIC assimp::assimp)
 # OPENGL
 find_package(OpenGL REQUIRED)
 
-<<<<<<< HEAD
 # ----- GLFW -----
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
@@ -65,12 +64,10 @@ if(NOT glm_FOUND)
     target_include_directories(Engine PUBLIC 
         "${CMAKE_CURRENT_SOURCE_DIR}/external/glm"
     )
-=======
 if (TARGET OpenGL::OpenGL)
     target_link_libraries(Engine PUBLIC OpenGL::OpenGL)
 elseif(TARGET OpenGL::GL)
     target_link_libraries(Engine PUBLIC OpenGL::GL)
->>>>>>> assimp
 else()
     target_link_libraries(Engine PUBLIC ${OPENGL_LIBRARIES})
     target_include_directories(Engine PUBLIC ${OPENGL_INCLUDE_DIR})
