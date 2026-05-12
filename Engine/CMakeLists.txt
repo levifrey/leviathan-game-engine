@@ -29,6 +29,7 @@ target_link_libraries(Engine PUBLIC assimp::assimp)
 # OPENGL
 find_package(OpenGL REQUIRED)
 
+#[[
 # ----- GLFW -----
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
@@ -74,3 +75,5 @@ else()
     target_link_libraries(Engine PUBLIC ${OPENGL_LIBRARIES})
     target_include_directories(Engine PUBLIC ${OPENGL_INCLUDE_DIR})
 endif()
+]]
+
