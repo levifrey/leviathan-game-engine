@@ -2,9 +2,11 @@ object: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o \
-  CMakeFiles/object.dir/games/object.cpp.o \
+  CMakeFiles/object.dir/games/test/object.cpp.o \
   Engine/libEngine.a \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libglfw.so \
+  Engine/external/glfw/src/libglfw3.a \
+  /usr/lib/librt.a \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libdl.a \
   Engine/external/libglad.a \
   /usr/lib/libassimp.so.6.0.4 \
   /usr/lib/libz.so \
@@ -45,11 +47,15 @@ object: \
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
 
-CMakeFiles/object.dir/games/object.cpp.o:
+CMakeFiles/object.dir/games/test/object.cpp.o:
 
 Engine/libEngine.a:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libglfw.so:
+Engine/external/glfw/src/libglfw3.a:
+
+/usr/lib/librt.a:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libdl.a:
 
 Engine/external/libglad.a:
 

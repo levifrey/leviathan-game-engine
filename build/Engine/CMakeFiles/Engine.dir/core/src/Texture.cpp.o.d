@@ -206,5 +206,6 @@ Engine/CMakeFiles/Engine.dir/core/src/Texture.cpp.o: \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mmintrin.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mm_malloc.h \
  /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
- /usr/include/KHR/khrplatform.h /usr/include/GLFW/glfw3.h \
+ /usr/include/KHR/khrplatform.h \
+ /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
  /usr/include/c++/15.2.1/iostream

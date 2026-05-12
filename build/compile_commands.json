@@ -1,103 +1,97 @@
 [
 {
   "directory": "/home/leviwfrey/projects/graphics/build",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/behaviors -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/mult.dir/games/mult.cpp.o -c /home/leviwfrey/projects/graphics/games/mult.cpp",
-  "file": "/home/leviwfrey/projects/graphics/games/mult.cpp",
-  "output": "CMakeFiles/mult.dir/games/mult.cpp.o"
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/behaviors -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/sample.dir/games/samples/sample.cpp.o -c /home/leviwfrey/projects/graphics/games/samples/sample.cpp",
+  "file": "/home/leviwfrey/projects/graphics/games/samples/sample.cpp",
+  "output": "CMakeFiles/sample.dir/games/samples/sample.cpp.o"
 },
 {
   "directory": "/home/leviwfrey/projects/graphics/build",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/behaviors -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/object.dir/games/object.cpp.o -c /home/leviwfrey/projects/graphics/games/object.cpp",
-  "file": "/home/leviwfrey/projects/graphics/games/object.cpp",
-  "output": "CMakeFiles/object.dir/games/object.cpp.o"
-},
-{
-  "directory": "/home/leviwfrey/projects/graphics/build",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/behaviors -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/test.dir/games/test.cpp.o -c /home/leviwfrey/projects/graphics/games/test.cpp",
-  "file": "/home/leviwfrey/projects/graphics/games/test.cpp",
-  "output": "CMakeFiles/test.dir/games/test.cpp.o"
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/behaviors -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/object.dir/games/test/object.cpp.o -c /home/leviwfrey/projects/graphics/games/test/object.cpp",
+  "file": "/home/leviwfrey/projects/graphics/games/test/object.cpp",
+  "output": "CMakeFiles/object.dir/games/test/object.cpp.o"
 },
 {
   "directory": "/home/leviwfrey/projects/graphics/build/Engine",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/AssetManager.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/AssetManager.cpp",
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/AssetManager.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/AssetManager.cpp",
   "file": "/home/leviwfrey/projects/graphics/Engine/core/src/AssetManager.cpp",
   "output": "Engine/CMakeFiles/Engine.dir/core/src/AssetManager.cpp.o"
 },
 {
   "directory": "/home/leviwfrey/projects/graphics/build/Engine",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Camera.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Camera.cpp",
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Camera.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Camera.cpp",
   "file": "/home/leviwfrey/projects/graphics/Engine/core/src/Camera.cpp",
   "output": "Engine/CMakeFiles/Engine.dir/core/src/Camera.cpp.o"
 },
 {
   "directory": "/home/leviwfrey/projects/graphics/build/Engine",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/DeltaClock.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/DeltaClock.cpp",
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/DeltaClock.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/DeltaClock.cpp",
   "file": "/home/leviwfrey/projects/graphics/Engine/core/src/DeltaClock.cpp",
   "output": "Engine/CMakeFiles/Engine.dir/core/src/DeltaClock.cpp.o"
 },
 {
   "directory": "/home/leviwfrey/projects/graphics/build/Engine",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Game.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Game.cpp",
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Game.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Game.cpp",
   "file": "/home/leviwfrey/projects/graphics/Engine/core/src/Game.cpp",
   "output": "Engine/CMakeFiles/Engine.dir/core/src/Game.cpp.o"
 },
 {
   "directory": "/home/leviwfrey/projects/graphics/build/Engine",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/GameObject.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/GameObject.cpp",
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/GameObject.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/GameObject.cpp",
   "file": "/home/leviwfrey/projects/graphics/Engine/core/src/GameObject.cpp",
   "output": "Engine/CMakeFiles/Engine.dir/core/src/GameObject.cpp.o"
 },
 {
   "directory": "/home/leviwfrey/projects/graphics/build/Engine",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/KeyboardHandler.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/KeyboardHandler.cpp",
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/KeyboardHandler.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/KeyboardHandler.cpp",
   "file": "/home/leviwfrey/projects/graphics/Engine/core/src/KeyboardHandler.cpp",
   "output": "Engine/CMakeFiles/Engine.dir/core/src/KeyboardHandler.cpp.o"
 },
 {
   "directory": "/home/leviwfrey/projects/graphics/build/Engine",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Mesh.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Mesh.cpp",
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Mesh.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Mesh.cpp",
   "file": "/home/leviwfrey/projects/graphics/Engine/core/src/Mesh.cpp",
   "output": "Engine/CMakeFiles/Engine.dir/core/src/Mesh.cpp.o"
 },
 {
   "directory": "/home/leviwfrey/projects/graphics/build/Engine",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Model.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Model.cpp",
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Model.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Model.cpp",
   "file": "/home/leviwfrey/projects/graphics/Engine/core/src/Model.cpp",
   "output": "Engine/CMakeFiles/Engine.dir/core/src/Model.cpp.o"
 },
 {
   "directory": "/home/leviwfrey/projects/graphics/build/Engine",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/MouseHandler.cpp",
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/MouseHandler.cpp",
   "file": "/home/leviwfrey/projects/graphics/Engine/core/src/MouseHandler.cpp",
   "output": "Engine/CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.o"
 },
 {
   "directory": "/home/leviwfrey/projects/graphics/build/Engine",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Renderer.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Renderer.cpp",
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Renderer.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Renderer.cpp",
   "file": "/home/leviwfrey/projects/graphics/Engine/core/src/Renderer.cpp",
   "output": "Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o"
 },
 {
   "directory": "/home/leviwfrey/projects/graphics/build/Engine",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Shader.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Shader.cpp",
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Shader.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Shader.cpp",
   "file": "/home/leviwfrey/projects/graphics/Engine/core/src/Shader.cpp",
   "output": "Engine/CMakeFiles/Engine.dir/core/src/Shader.cpp.o"
 },
 {
   "directory": "/home/leviwfrey/projects/graphics/build/Engine",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Shapes.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Shapes.cpp",
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Shapes.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Shapes.cpp",
   "file": "/home/leviwfrey/projects/graphics/Engine/core/src/Shapes.cpp",
   "output": "Engine/CMakeFiles/Engine.dir/core/src/Shapes.cpp.o"
 },
 {
   "directory": "/home/leviwfrey/projects/graphics/build/Engine",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Texture.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Texture.cpp",
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Texture.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Texture.cpp",
   "file": "/home/leviwfrey/projects/graphics/Engine/core/src/Texture.cpp",
   "output": "Engine/CMakeFiles/Engine.dir/core/src/Texture.cpp.o"
 },
 {
   "directory": "/home/leviwfrey/projects/graphics/build/Engine",
-  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Transform.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Transform.cpp",
+  "command": "/usr/bin/c++  -I/home/leviwfrey/projects/graphics/Engine/core/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glad/include -I/home/leviwfrey/projects/graphics/Engine/external/glm -I/home/leviwfrey/projects/graphics/Engine/external/stb_image -std=gnu++17 -o CMakeFiles/Engine.dir/core/src/Transform.cpp.o -c /home/leviwfrey/projects/graphics/Engine/core/src/Transform.cpp",
   "file": "/home/leviwfrey/projects/graphics/Engine/core/src/Transform.cpp",
   "output": "Engine/CMakeFiles/Engine.dir/core/src/Transform.cpp.o"
 },
@@ -106,5 +100,161 @@
   "command": "/usr/bin/cc  -I/home/leviwfrey/projects/graphics/Engine/external/glad/include  -o CMakeFiles/glad.dir/glad/src/glad.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glad/src/glad.c",
   "file": "/home/leviwfrey/projects/graphics/Engine/external/glad/src/glad.c",
   "output": "Engine/external/CMakeFiles/glad.dir/glad/src/glad.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/context.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/context.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/context.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/context.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/init.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/init.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/init.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/init.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/input.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/input.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/input.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/input.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/monitor.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/monitor.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/monitor.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/platform.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/platform.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/platform.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/platform.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/vulkan.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/vulkan.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/vulkan.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/window.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/window.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/window.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/window.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/egl_context.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/egl_context.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/egl_context.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/osmesa_context.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/osmesa_context.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/osmesa_context.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/null_init.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/null_init.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/null_init.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/null_monitor.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/null_monitor.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/null_monitor.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/null_window.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/null_window.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/null_window.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/null_joystick.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/null_joystick.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/null_joystick.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/posix_module.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/posix_module.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/posix_module.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/posix_time.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/posix_time.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/posix_time.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/posix_time.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/posix_thread.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/posix_thread.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/posix_thread.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/x11_init.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/x11_init.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/x11_init.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/x11_init.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/x11_monitor.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/x11_monitor.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/x11_monitor.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/x11_window.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/x11_window.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/x11_window.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/x11_window.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/xkb_unicode.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/xkb_unicode.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/xkb_unicode.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/glx_context.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/glx_context.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/glx_context.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/glx_context.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/wl_init.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/wl_init.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/wl_init.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/wl_init.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/wl_monitor.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/wl_monitor.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/wl_monitor.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/wl_monitor.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/wl_window.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/wl_window.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/wl_window.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/wl_window.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/linux_joystick.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/linux_joystick.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/linux_joystick.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o"
+},
+{
+  "directory": "/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src",
+  "command": "/usr/bin/cc -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11 -I/home/leviwfrey/projects/graphics/Engine/external/glfw/include -I/home/leviwfrey/projects/graphics/Engine/external/glfw/src -I/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/posix_poll.c.o -c /home/leviwfrey/projects/graphics/Engine/external/glfw/src/posix_poll.c",
+  "file": "/home/leviwfrey/projects/graphics/Engine/external/glfw/src/posix_poll.c",
+  "output": "Engine/external/glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o"
 }
 ]

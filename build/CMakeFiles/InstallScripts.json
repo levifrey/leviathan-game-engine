@@ -3,7 +3,10 @@
 	[
 		"/home/leviwfrey/projects/graphics/build/cmake_install.cmake",
 		"/home/leviwfrey/projects/graphics/build/Engine/cmake_install.cmake",
-		"/home/leviwfrey/projects/graphics/build/Engine/external/cmake_install.cmake"
+		"/home/leviwfrey/projects/graphics/build/Engine/external/cmake_install.cmake",
+		"/home/leviwfrey/projects/graphics/build/Engine/external/glfw/cmake_install.cmake",
+		"/home/leviwfrey/projects/graphics/build/Engine/external/glfw/src/cmake_install.cmake",
+		"/home/leviwfrey/projects/graphics/build/Engine/external/glfw/docs/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

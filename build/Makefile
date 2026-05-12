@@ -85,6 +85,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/leviwfrey/projects/graphics/build/CMakeFiles /home/leviwfrey/projects/graphics/build//CMakeFiles/progress.marks
@@ -118,17 +163,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named mult
+# Target rules for targets named sample
 
 # Build rule for target.
-mult: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mult
-.PHONY : mult
+sample: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sample
+.PHONY : sample
 
 # fast build rule for target.
-mult/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mult.dir/build.make CMakeFiles/mult.dir/build
-.PHONY : mult/fast
+sample/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sample.dir/build.make CMakeFiles/sample.dir/build
+.PHONY : sample/fast
 
 #=============================================================================
 # Target rules for targets named object
@@ -142,19 +187,6 @@ object: cmake_check_build_system
 object/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/object.dir/build.make CMakeFiles/object.dir/build
 .PHONY : object/fast
-
-#=============================================================================
-# Target rules for targets named test
-
-# Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
-.PHONY : test
-
-# fast build rule for target.
-test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
 
 #=============================================================================
 # Target rules for targets named Engine
@@ -182,77 +214,92 @@ glad/fast:
 	$(MAKE) $(MAKESILENT) -f Engine/external/CMakeFiles/glad.dir/build.make Engine/external/CMakeFiles/glad.dir/build
 .PHONY : glad/fast
 
-games/mult.o: games/mult.cpp.o
-.PHONY : games/mult.o
+#=============================================================================
+# Target rules for targets named uninstall
+
+# Build rule for target.
+uninstall: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 uninstall
+.PHONY : uninstall
+
+# fast build rule for target.
+uninstall/fast:
+	$(MAKE) $(MAKESILENT) -f Engine/external/glfw/CMakeFiles/uninstall.dir/build.make Engine/external/glfw/CMakeFiles/uninstall.dir/build
+.PHONY : uninstall/fast
+
+#=============================================================================
+# Target rules for targets named glfw
+
+# Build rule for target.
+glfw: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glfw
+.PHONY : glfw
+
+# fast build rule for target.
+glfw/fast:
+	$(MAKE) $(MAKESILENT) -f Engine/external/glfw/src/CMakeFiles/glfw.dir/build.make Engine/external/glfw/src/CMakeFiles/glfw.dir/build
+.PHONY : glfw/fast
+
+#=============================================================================
+# Target rules for targets named update_mappings
+
+# Build rule for target.
+update_mappings: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 update_mappings
+.PHONY : update_mappings
+
+# fast build rule for target.
+update_mappings/fast:
+	$(MAKE) $(MAKESILENT) -f Engine/external/glfw/src/CMakeFiles/update_mappings.dir/build.make Engine/external/glfw/src/CMakeFiles/update_mappings.dir/build
+.PHONY : update_mappings/fast
+
+games/samples/sample.o: games/samples/sample.cpp.o
+.PHONY : games/samples/sample.o
 
 # target to build an object file
-games/mult.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mult.dir/build.make CMakeFiles/mult.dir/games/mult.cpp.o
-.PHONY : games/mult.cpp.o
+games/samples/sample.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sample.dir/build.make CMakeFiles/sample.dir/games/samples/sample.cpp.o
+.PHONY : games/samples/sample.cpp.o
 
-games/mult.i: games/mult.cpp.i
-.PHONY : games/mult.i
+games/samples/sample.i: games/samples/sample.cpp.i
+.PHONY : games/samples/sample.i
 
 # target to preprocess a source file
-games/mult.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mult.dir/build.make CMakeFiles/mult.dir/games/mult.cpp.i
-.PHONY : games/mult.cpp.i
+games/samples/sample.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sample.dir/build.make CMakeFiles/sample.dir/games/samples/sample.cpp.i
+.PHONY : games/samples/sample.cpp.i
 
-games/mult.s: games/mult.cpp.s
-.PHONY : games/mult.s
+games/samples/sample.s: games/samples/sample.cpp.s
+.PHONY : games/samples/sample.s
 
 # target to generate assembly for a file
-games/mult.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mult.dir/build.make CMakeFiles/mult.dir/games/mult.cpp.s
-.PHONY : games/mult.cpp.s
+games/samples/sample.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sample.dir/build.make CMakeFiles/sample.dir/games/samples/sample.cpp.s
+.PHONY : games/samples/sample.cpp.s
 
-games/object.o: games/object.cpp.o
-.PHONY : games/object.o
+games/test/object.o: games/test/object.cpp.o
+.PHONY : games/test/object.o
 
 # target to build an object file
-games/object.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/object.dir/build.make CMakeFiles/object.dir/games/object.cpp.o
-.PHONY : games/object.cpp.o
+games/test/object.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/object.dir/build.make CMakeFiles/object.dir/games/test/object.cpp.o
+.PHONY : games/test/object.cpp.o
 
-games/object.i: games/object.cpp.i
-.PHONY : games/object.i
-
-# target to preprocess a source file
-games/object.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/object.dir/build.make CMakeFiles/object.dir/games/object.cpp.i
-.PHONY : games/object.cpp.i
-
-games/object.s: games/object.cpp.s
-.PHONY : games/object.s
-
-# target to generate assembly for a file
-games/object.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/object.dir/build.make CMakeFiles/object.dir/games/object.cpp.s
-.PHONY : games/object.cpp.s
-
-games/test.o: games/test.cpp.o
-.PHONY : games/test.o
-
-# target to build an object file
-games/test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/games/test.cpp.o
-.PHONY : games/test.cpp.o
-
-games/test.i: games/test.cpp.i
-.PHONY : games/test.i
+games/test/object.i: games/test/object.cpp.i
+.PHONY : games/test/object.i
 
 # target to preprocess a source file
-games/test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/games/test.cpp.i
-.PHONY : games/test.cpp.i
+games/test/object.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/object.dir/build.make CMakeFiles/object.dir/games/test/object.cpp.i
+.PHONY : games/test/object.cpp.i
 
-games/test.s: games/test.cpp.s
-.PHONY : games/test.s
+games/test/object.s: games/test/object.cpp.s
+.PHONY : games/test/object.s
 
 # target to generate assembly for a file
-games/test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/games/test.cpp.s
-.PHONY : games/test.cpp.s
+games/test/object.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/object.dir/build.make CMakeFiles/object.dir/games/test/object.cpp.s
+.PHONY : games/test/object.cpp.s
 
 # Help Target
 help:
@@ -261,21 +308,24 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... uninstall"
+	@echo "... update_mappings"
 	@echo "... Engine"
 	@echo "... glad"
-	@echo "... mult"
+	@echo "... glfw"
 	@echo "... object"
-	@echo "... test"
-	@echo "... games/mult.o"
-	@echo "... games/mult.i"
-	@echo "... games/mult.s"
-	@echo "... games/object.o"
-	@echo "... games/object.i"
-	@echo "... games/object.s"
-	@echo "... games/test.o"
-	@echo "... games/test.i"
-	@echo "... games/test.s"
+	@echo "... sample"
+	@echo "... games/samples/sample.o"
+	@echo "... games/samples/sample.i"
+	@echo "... games/samples/sample.s"
+	@echo "... games/test/object.o"
+	@echo "... games/test/object.i"
+	@echo "... games/test/object.s"
 .PHONY : help
 
 

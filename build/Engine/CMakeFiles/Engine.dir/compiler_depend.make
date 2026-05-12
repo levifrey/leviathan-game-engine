@@ -559,7 +559,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Camera.cpp.o: /home/leviwfrey/projects/gra
   /home/leviwfrey/projects/graphics/Engine/core/include/LightData.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h \
   /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -729,12 +729,9 @@ Engine/CMakeFiles/Engine.dir/core/src/Camera.cpp.o: /home/leviwfrey/projects/gra
   /usr/include/c++/15.2.1/bits/stl_iterator.h \
   /usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/15.2.1/bits/stl_iterator_base_types.h \
-  /usr/include/c++/15.2.1/bits/stl_map.h \
-  /usr/include/c++/15.2.1/bits/stl_multimap.h \
   /usr/include/c++/15.2.1/bits/stl_pair.h \
   /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h \
   /usr/include/c++/15.2.1/bits/stl_tempbuf.h \
-  /usr/include/c++/15.2.1/bits/stl_tree.h \
   /usr/include/c++/15.2.1/bits/stl_uninitialized.h \
   /usr/include/c++/15.2.1/bits/stl_vector.h \
   /usr/include/c++/15.2.1/bits/streambuf.tcc \
@@ -788,7 +785,6 @@ Engine/CMakeFiles/Engine.dir/core/src/Camera.cpp.o: /home/leviwfrey/projects/gra
   /usr/include/c++/15.2.1/istream \
   /usr/include/c++/15.2.1/limits \
   /usr/include/c++/15.2.1/locale \
-  /usr/include/c++/15.2.1/map \
   /usr/include/c++/15.2.1/memory \
   /usr/include/c++/15.2.1/new \
   /usr/include/c++/15.2.1/ostream \
@@ -1069,9 +1065,9 @@ Engine/CMakeFiles/Engine.dir/core/src/Camera.cpp.o: /home/leviwfrey/projects/gra
 
 Engine/CMakeFiles/Engine.dir/core/src/DeltaClock.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/DeltaClock.cpp \
   /home/leviwfrey/projects/graphics/Engine/core/include/DeltaClock.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/GL/gl.h \
   /usr/include/GL/glext.h \
-  /usr/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/bits/libc-header-start.h \
   /usr/include/bits/long-double.h \
@@ -1117,7 +1113,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Game.cpp.o: /home/leviwfrey/projects/graph
   /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
   /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -1327,12 +1323,9 @@ Engine/CMakeFiles/Engine.dir/core/src/Game.cpp.o: /home/leviwfrey/projects/graph
   /usr/include/c++/15.2.1/bits/stl_iterator.h \
   /usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/15.2.1/bits/stl_iterator_base_types.h \
-  /usr/include/c++/15.2.1/bits/stl_map.h \
-  /usr/include/c++/15.2.1/bits/stl_multimap.h \
   /usr/include/c++/15.2.1/bits/stl_pair.h \
   /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h \
   /usr/include/c++/15.2.1/bits/stl_tempbuf.h \
-  /usr/include/c++/15.2.1/bits/stl_tree.h \
   /usr/include/c++/15.2.1/bits/stl_uninitialized.h \
   /usr/include/c++/15.2.1/bits/stl_vector.h \
   /usr/include/c++/15.2.1/bits/streambuf.tcc \
@@ -1387,7 +1380,6 @@ Engine/CMakeFiles/Engine.dir/core/src/Game.cpp.o: /home/leviwfrey/projects/graph
   /usr/include/c++/15.2.1/istream \
   /usr/include/c++/15.2.1/limits \
   /usr/include/c++/15.2.1/locale \
-  /usr/include/c++/15.2.1/map \
   /usr/include/c++/15.2.1/memory \
   /usr/include/c++/15.2.1/new \
   /usr/include/c++/15.2.1/ostream \
@@ -1680,7 +1672,7 @@ Engine/CMakeFiles/Engine.dir/core/src/GameObject.cpp.o: /home/leviwfrey/projects
   /home/leviwfrey/projects/graphics/Engine/core/include/LightData.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h \
   /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -1850,12 +1842,9 @@ Engine/CMakeFiles/Engine.dir/core/src/GameObject.cpp.o: /home/leviwfrey/projects
   /usr/include/c++/15.2.1/bits/stl_iterator.h \
   /usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/15.2.1/bits/stl_iterator_base_types.h \
-  /usr/include/c++/15.2.1/bits/stl_map.h \
-  /usr/include/c++/15.2.1/bits/stl_multimap.h \
   /usr/include/c++/15.2.1/bits/stl_pair.h \
   /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h \
   /usr/include/c++/15.2.1/bits/stl_tempbuf.h \
-  /usr/include/c++/15.2.1/bits/stl_tree.h \
   /usr/include/c++/15.2.1/bits/stl_uninitialized.h \
   /usr/include/c++/15.2.1/bits/stl_vector.h \
   /usr/include/c++/15.2.1/bits/streambuf.tcc \
@@ -1909,7 +1898,6 @@ Engine/CMakeFiles/Engine.dir/core/src/GameObject.cpp.o: /home/leviwfrey/projects
   /usr/include/c++/15.2.1/istream \
   /usr/include/c++/15.2.1/limits \
   /usr/include/c++/15.2.1/locale \
-  /usr/include/c++/15.2.1/map \
   /usr/include/c++/15.2.1/memory \
   /usr/include/c++/15.2.1/new \
   /usr/include/c++/15.2.1/ostream \
@@ -2181,7 +2169,7 @@ Engine/CMakeFiles/Engine.dir/core/src/GameObject.cpp.o: /home/leviwfrey/projects
 Engine/CMakeFiles/Engine.dir/core/src/KeyboardHandler.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/KeyboardHandler.cpp \
   /home/leviwfrey/projects/graphics/Engine/core/include/Input/KeyboardHandler.h \
   /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/bits/libc-header-start.h \
   /usr/include/bits/long-double.h \
@@ -2194,55 +2182,32 @@ Engine/CMakeFiles/Engine.dir/core/src/KeyboardHandler.cpp.o: /home/leviwfrey/pro
   /usr/include/bits/typesizes.h \
   /usr/include/bits/wchar.h \
   /usr/include/bits/wordsize.h \
-  /usr/include/c++/15.2.1/backward/binders.h \
+  /usr/include/c++/15.2.1/array \
   /usr/include/c++/15.2.1/bit \
-  /usr/include/c++/15.2.1/bits/alloc_traits.h \
-  /usr/include/c++/15.2.1/bits/allocator.h \
   /usr/include/c++/15.2.1/bits/concept_check.h \
   /usr/include/c++/15.2.1/bits/cpp_type_traits.h \
-  /usr/include/c++/15.2.1/bits/erase_if.h \
-  /usr/include/c++/15.2.1/bits/exception.h \
   /usr/include/c++/15.2.1/bits/exception_defines.h \
   /usr/include/c++/15.2.1/bits/functexcept.h \
-  /usr/include/c++/15.2.1/bits/invoke.h \
-  /usr/include/c++/15.2.1/bits/memory_resource.h \
-  /usr/include/c++/15.2.1/bits/memoryfwd.h \
   /usr/include/c++/15.2.1/bits/move.h \
-  /usr/include/c++/15.2.1/bits/new_allocator.h \
-  /usr/include/c++/15.2.1/bits/node_handle.h \
   /usr/include/c++/15.2.1/bits/predefined_ops.h \
   /usr/include/c++/15.2.1/bits/ptr_traits.h \
   /usr/include/c++/15.2.1/bits/range_access.h \
-  /usr/include/c++/15.2.1/bits/requires_hosted.h \
   /usr/include/c++/15.2.1/bits/stl_algobase.h \
-  /usr/include/c++/15.2.1/bits/stl_construct.h \
-  /usr/include/c++/15.2.1/bits/stl_function.h \
   /usr/include/c++/15.2.1/bits/stl_iterator.h \
   /usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/15.2.1/bits/stl_iterator_base_types.h \
-  /usr/include/c++/15.2.1/bits/stl_map.h \
-  /usr/include/c++/15.2.1/bits/stl_multimap.h \
   /usr/include/c++/15.2.1/bits/stl_pair.h \
-  /usr/include/c++/15.2.1/bits/stl_tree.h \
-  /usr/include/c++/15.2.1/bits/uses_allocator.h \
-  /usr/include/c++/15.2.1/bits/uses_allocator_args.h \
   /usr/include/c++/15.2.1/bits/utility.h \
   /usr/include/c++/15.2.1/bits/version.h \
+  /usr/include/c++/15.2.1/compare \
   /usr/include/c++/15.2.1/concepts \
-  /usr/include/c++/15.2.1/cstddef \
   /usr/include/c++/15.2.1/debug/assertions.h \
   /usr/include/c++/15.2.1/debug/debug.h \
-  /usr/include/c++/15.2.1/ext/aligned_buffer.h \
-  /usr/include/c++/15.2.1/ext/alloc_traits.h \
   /usr/include/c++/15.2.1/ext/numeric_traits.h \
   /usr/include/c++/15.2.1/ext/type_traits.h \
   /usr/include/c++/15.2.1/initializer_list \
-  /usr/include/c++/15.2.1/map \
-  /usr/include/c++/15.2.1/new \
   /usr/include/c++/15.2.1/pstl/pstl_config.h \
-  /usr/include/c++/15.2.1/tuple \
   /usr/include/c++/15.2.1/type_traits \
-  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
@@ -2263,7 +2228,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Mesh.cpp.o: /home/leviwfrey/projects/graph
   /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
   /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -3330,9 +3295,9 @@ Engine/CMakeFiles/Engine.dir/core/src/Model.cpp.o: /home/leviwfrey/projects/grap
 
 Engine/CMakeFiles/Engine.dir/core/src/MouseHandler.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/MouseHandler.cpp \
   /home/leviwfrey/projects/graphics/Engine/core/include/Input/MouseHandler.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/GL/gl.h \
   /usr/include/GL/glext.h \
-  /usr/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -3560,7 +3525,7 @@ Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o: /home/leviwfrey/projects/g
   /home/leviwfrey/projects/graphics/Engine/core/include/Shader.h \
   /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
   /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -3764,12 +3729,9 @@ Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o: /home/leviwfrey/projects/g
   /usr/include/c++/15.2.1/bits/stl_iterator.h \
   /usr/include/c++/15.2.1/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/15.2.1/bits/stl_iterator_base_types.h \
-  /usr/include/c++/15.2.1/bits/stl_map.h \
-  /usr/include/c++/15.2.1/bits/stl_multimap.h \
   /usr/include/c++/15.2.1/bits/stl_pair.h \
   /usr/include/c++/15.2.1/bits/stl_raw_storage_iter.h \
   /usr/include/c++/15.2.1/bits/stl_tempbuf.h \
-  /usr/include/c++/15.2.1/bits/stl_tree.h \
   /usr/include/c++/15.2.1/bits/stl_uninitialized.h \
   /usr/include/c++/15.2.1/bits/stl_vector.h \
   /usr/include/c++/15.2.1/bits/streambuf.tcc \
@@ -3824,7 +3786,6 @@ Engine/CMakeFiles/Engine.dir/core/src/Renderer.cpp.o: /home/leviwfrey/projects/g
   /usr/include/c++/15.2.1/istream \
   /usr/include/c++/15.2.1/limits \
   /usr/include/c++/15.2.1/locale \
-  /usr/include/c++/15.2.1/map \
   /usr/include/c++/15.2.1/memory \
   /usr/include/c++/15.2.1/new \
   /usr/include/c++/15.2.1/ostream \
@@ -5086,8 +5047,8 @@ Engine/CMakeFiles/Engine.dir/core/src/Shapes.cpp.o: /home/leviwfrey/projects/gra
 Engine/CMakeFiles/Engine.dir/core/src/Texture.cpp.o: /home/leviwfrey/projects/graphics/Engine/core/src/Texture.cpp \
   /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
   /home/leviwfrey/projects/graphics/Engine/external/glad/include/glad/glad.h \
+  /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
   /home/leviwfrey/projects/graphics/Engine/external/stb_image/stb_image.h \
-  /usr/include/GLFW/glfw3.h \
   /usr/include/KHR/khrplatform.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -5824,14 +5785,6 @@ Engine/CMakeFiles/Engine.dir/core/src/Transform.cpp.o: /home/leviwfrey/projects/
 
 /usr/include/glm/ext/quaternion_exponential.hpp:
 
-/usr/include/c++/15.2.1/bits/stl_tree.h:
-
-/usr/include/c++/15.2.1/bits/stl_multimap.h:
-
-/usr/include/GLFW/glfw3.h:
-
-/usr/include/c++/15.2.1/bits/stl_map.h:
-
 /home/leviwfrey/projects/graphics/Engine/core/include/Input/KeyboardHandler.h:
 
 /home/leviwfrey/projects/graphics/Engine/core/include/GameObject.h:
@@ -6494,8 +6447,6 @@ Engine/CMakeFiles/Engine.dir/core/src/Transform.cpp.o: /home/leviwfrey/projects/
 
 /usr/include/c++/15.2.1/memory:
 
-/usr/include/c++/15.2.1/map:
-
 /usr/include/c++/15.2.1/new:
 
 /usr/include/c++/15.2.1/pstl/execution_defs.h:
@@ -6601,6 +6552,8 @@ Engine/CMakeFiles/Engine.dir/core/src/Transform.cpp.o: /home/leviwfrey/projects/
 /usr/include/glm/detail/func_vector_relational.inl:
 
 /usr/include/glm/gtx/component_wise.inl:
+
+/home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h:
 
 /usr/include/linux/close_range.h:
 

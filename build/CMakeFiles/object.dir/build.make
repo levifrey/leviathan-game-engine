@@ -72,31 +72,34 @@ include CMakeFiles/object.dir/flags.make
 CMakeFiles/object.dir/codegen:
 .PHONY : CMakeFiles/object.dir/codegen
 
-CMakeFiles/object.dir/games/object.cpp.o: CMakeFiles/object.dir/flags.make
-CMakeFiles/object.dir/games/object.cpp.o: /home/leviwfrey/projects/graphics/games/object.cpp
-CMakeFiles/object.dir/games/object.cpp.o: CMakeFiles/object.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/object.dir/games/object.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/object.dir/games/object.cpp.o -MF CMakeFiles/object.dir/games/object.cpp.o.d -o CMakeFiles/object.dir/games/object.cpp.o -c /home/leviwfrey/projects/graphics/games/object.cpp
+CMakeFiles/object.dir/games/test/object.cpp.o: CMakeFiles/object.dir/flags.make
+CMakeFiles/object.dir/games/test/object.cpp.o: /home/leviwfrey/projects/graphics/games/test/object.cpp
+CMakeFiles/object.dir/games/test/object.cpp.o: CMakeFiles/object.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/leviwfrey/projects/graphics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/object.dir/games/test/object.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/object.dir/games/test/object.cpp.o -MF CMakeFiles/object.dir/games/test/object.cpp.o.d -o CMakeFiles/object.dir/games/test/object.cpp.o -c /home/leviwfrey/projects/graphics/games/test/object.cpp
 
-CMakeFiles/object.dir/games/object.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/object.dir/games/object.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leviwfrey/projects/graphics/games/object.cpp > CMakeFiles/object.dir/games/object.cpp.i
+CMakeFiles/object.dir/games/test/object.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/object.dir/games/test/object.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leviwfrey/projects/graphics/games/test/object.cpp > CMakeFiles/object.dir/games/test/object.cpp.i
 
-CMakeFiles/object.dir/games/object.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/object.dir/games/object.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leviwfrey/projects/graphics/games/object.cpp -o CMakeFiles/object.dir/games/object.cpp.s
+CMakeFiles/object.dir/games/test/object.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/object.dir/games/test/object.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leviwfrey/projects/graphics/games/test/object.cpp -o CMakeFiles/object.dir/games/test/object.cpp.s
 
 # Object files for target object
 object_OBJECTS = \
-"CMakeFiles/object.dir/games/object.cpp.o"
+"CMakeFiles/object.dir/games/test/object.cpp.o"
 
 # External object files for target object
 object_EXTERNAL_OBJECTS =
 
-object: CMakeFiles/object.dir/games/object.cpp.o
+object: CMakeFiles/object.dir/games/test/object.cpp.o
 object: CMakeFiles/object.dir/build.make
 object: CMakeFiles/object.dir/compiler_depend.ts
 object: Engine/libEngine.a
+object: Engine/external/glfw/src/libglfw3.a
+object: /usr/lib/librt.a
+object: /usr/lib/libm.so
 object: Engine/external/libglad.a
 object: /usr/lib/libassimp.so.6.0.4
 object: /usr/lib/libz.so

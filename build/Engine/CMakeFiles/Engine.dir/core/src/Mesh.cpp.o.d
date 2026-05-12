@@ -391,7 +391,8 @@ Engine/CMakeFiles/Engine.dir/core/src/Mesh.cpp.o: \
  /usr/include/c++/15.2.1/bits/atomic_lockfree_defines.h \
  /usr/include/c++/15.2.1/backward/auto_ptr.h \
  /usr/include/c++/15.2.1/pstl/glue_memory_defs.h \
- /usr/include/c++/15.2.1/pstl/execution_defs.h /usr/include/GLFW/glfw3.h \
+ /usr/include/c++/15.2.1/pstl/execution_defs.h \
+ /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Texture.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/AssetManager.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/Mesh.h \

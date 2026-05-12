@@ -1,1 +1,1 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/object.dir/link.d CMakeFiles/object.dir/games/object.cpp.o -o object  Engine/libEngine.a -lglfw Engine/external/libglad.a /usr/lib/libassimp.so.6.0.4 /usr/lib/libz.so -lrt /usr/lib/libOpenGL.so
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/object.dir/link.d CMakeFiles/object.dir/games/test/object.cpp.o -o object  Engine/libEngine.a Engine/external/glfw/src/libglfw3.a /usr/lib/librt.a -lm -ldl Engine/external/libglad.a /usr/lib/libassimp.so.6.0.4 /usr/lib/libz.so -lrt /usr/lib/libOpenGL.so

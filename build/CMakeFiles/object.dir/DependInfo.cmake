@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/leviwfrey/projects/graphics/games/object.cpp" "CMakeFiles/object.dir/games/object.cpp.o" "gcc" "CMakeFiles/object.dir/games/object.cpp.o.d"
+  "/home/leviwfrey/projects/graphics/games/test/object.cpp" "CMakeFiles/object.dir/games/test/object.cpp.o" "gcc" "CMakeFiles/object.dir/games/test/object.cpp.o.d"
   "" "object" "gcc" "CMakeFiles/object.dir/link.d"
   )
 

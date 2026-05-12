@@ -3,7 +3,7 @@
 #include "Shapes.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-Mesh createCube(float size) {
+Mesh Shapes::createCube(float size) {
     std::vector<glm::vec4> vertices;
     std::vector<glm::vec4> normals;
     std::vector<glm::vec2> textures;
@@ -96,7 +96,7 @@ Mesh createCube(float size) {
     return cube;
 }   
 
-Mesh createFloor(float size) {
+Mesh Shapes::createPlane(float size) {
     std::vector<glm::vec4> vertices;
     std::vector<glm::vec4> normals;
     std::vector<glm::vec2> textures;
@@ -138,6 +138,6 @@ Mesh createFloor(float size) {
         indices_list.push_back(i);
     }
 
-    Mesh floor(vertex_list, indices_list);
-    return floor;
+    Mesh plane(vertex_list, indices_list);
+    return plane;
 }

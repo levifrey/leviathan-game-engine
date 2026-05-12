@@ -2,7 +2,7 @@ Engine/CMakeFiles/Engine.dir/core/src/DeltaClock.cpp.o: \
  /home/leviwfrey/projects/graphics/Engine/core/src/DeltaClock.cpp \
  /usr/include/stdc-predef.h \
  /home/leviwfrey/projects/graphics/Engine/core/include/DeltaClock.h \
- /usr/include/GLFW/glfw3.h \
+ /home/leviwfrey/projects/graphics/Engine/external/glfw/include/GLFW/glfw3.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/libc-header-start.h \

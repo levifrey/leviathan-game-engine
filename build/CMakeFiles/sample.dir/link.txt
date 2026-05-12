@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/sample.dir/link.d CMakeFiles/sample.dir/games/samples/sample.cpp.o -o sample  Engine/libEngine.a Engine/external/glfw/src/libglfw3.a /usr/lib/librt.a -lm -ldl Engine/external/libglad.a /usr/lib/libassimp.so.6.0.4 /usr/lib/libz.so -lrt /usr/lib/libOpenGL.so

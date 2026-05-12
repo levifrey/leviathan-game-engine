@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/object.dir/link.d"
-  "CMakeFiles/object.dir/games/object.cpp.o"
-  "CMakeFiles/object.dir/games/object.cpp.o.d"
+  "CMakeFiles/object.dir/games/test/object.cpp.o"
+  "CMakeFiles/object.dir/games/test/object.cpp.o.d"
   "object"
   "object.pdb"
 )

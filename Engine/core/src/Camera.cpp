@@ -43,16 +43,16 @@ void Camera::update() {
         glm::angleAxis(glm::radians(pitch_), glm::vec3(0.0f, 0.0f, 1.0f));
     t->setRotation(rotation);
     
-    if (kh->getKeyDown(GLFW_KEY_W)) {
+    if (kh->getKeyPressed(GLFW_KEY_W)) {
         t->translate(DeltaClock::getDeltaTime() * speed_ * getFront());
     }
-    if (kh->getKeyDown(GLFW_KEY_S)) {
+    if (kh->getKeyPressed(GLFW_KEY_S)) {
         t->translate(-DeltaClock::getDeltaTime() * speed_ * getFront());
     }
-    if (kh->getKeyDown(GLFW_KEY_A)) {
+    if (kh->getKeyPressed(GLFW_KEY_A)) {
         t->translate(-DeltaClock::getDeltaTime() * glm::normalize(glm::cross(getFront(), up_)) * speed_);
     }
-    if(kh->getKeyDown(GLFW_KEY_D)) {
+    if(kh->getKeyPressed(GLFW_KEY_D)) {
         t->translate(DeltaClock::getDeltaTime() * glm::normalize(glm::cross(getFront(), up_)) * speed_);
     }
 }

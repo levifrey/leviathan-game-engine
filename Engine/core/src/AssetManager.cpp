@@ -15,10 +15,10 @@ std::unordered_map<std::string, Model> AssetManager::models_;
 
 void AssetManager::init() {
     // --- Generated Meshes ---
-    Mesh cube = createCube(1.0f);
+    Mesh cube = Shapes::createCube(1.0f);
     meshes_.emplace("cube", cube);
 
-    Mesh plane = createFloor(1.0f);
+    Mesh plane = Shapes::createPlane(1.0f);
     meshes_.emplace("plane", plane);
     
     // --- Textures ---
@@ -28,11 +28,13 @@ void AssetManager::init() {
     Texture basic_container_specular(p::assetDir / "textures/container2_specular.jpg", TextureType::SPECULAR);
     Texture brick_diffuse(p::assetDir / "textures/brick.jpg", TextureType::DIFFUSE, true);
     Texture grass_diffuse(p::assetDir / "textures/grass.png", TextureType::DIFFUSE);
+    Texture window_diffuse(p::assetDir / "textures/window.png", TextureType::DIFFUSE);
     textures_.emplace("black_texture", black_texture);
     textures_.emplace("basic_container_diffuse", basic_container_diffuse);
     textures_.emplace("basic_container_specular", basic_container_specular);
     textures_.emplace("brick_diffuse", brick_diffuse);
     textures_.emplace("grass_diffuse", grass_diffuse);
+    textures_.emplace("window_diffuse", window_diffuse);
     
     // --- Shaders ---
     Shader default_shader(
@@ -75,6 +77,12 @@ void AssetManager::init() {
     grass_plane.addTexture(grass_diffuse);
     grass.addMesh(grass_plane);
     models_.emplace("grass", grass);
+
+    Model window = Model();
+    Mesh window_plane = plane;
+    window_plane.addTexture(window_diffuse);
+    window.addMesh(window_plane);
+    models_.emplace("window", window);
     
     // --- Models ---
     models_.try_emplace("backpack", Model(p::assetDir / "objects/backpack/backpack.obj", true));

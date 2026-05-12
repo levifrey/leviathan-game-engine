@@ -5,6 +5,7 @@
 #include "Texture.h"
 #include "AssetManager.h"
 
+
 Mesh::Mesh(vector<Vertex> vertices, vector<unsigned int> indices, vector<Texture> textures) {
     data_ = make_shared<MeshData>();
     data_->vertices_ = vertices;
