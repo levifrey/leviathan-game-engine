@@ -12,7 +12,7 @@ target_include_directories(glad PUBLIC
 # -------------------
 # GLFW (submodule) 
 # -------------------
-option(USE_SYSTEM_GLFW "Use system GLFW instead of bundled" OFF)
+option(USE_SYSTEM_GLFW "Use system GLFW instead of bundled" ON)
 
 if(USE_SYSTEM_GLFW)
     find_package(glfw3 REQUIRED)

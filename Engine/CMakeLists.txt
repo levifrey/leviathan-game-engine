@@ -64,6 +64,8 @@ if(NOT glm_FOUND)
     target_include_directories(Engine PUBLIC 
         "${CMAKE_CURRENT_SOURCE_DIR}/external/glm"
     )
+endif()
+
 if (TARGET OpenGL::OpenGL)
     target_link_libraries(Engine PUBLIC OpenGL::OpenGL)
 elseif(TARGET OpenGL::GL)
