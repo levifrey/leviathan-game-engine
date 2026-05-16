@@ -21,6 +21,7 @@ Following the steps from https://learnopengl.com/ but consolidated to make a use
 
 # Build 
  > bash build.sh
+
 (run sample program)
  > ./build/sample
 
