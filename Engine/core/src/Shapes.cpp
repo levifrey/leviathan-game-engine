@@ -3,6 +3,42 @@
 #include "Shapes.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+
+Mesh Shapes::createQuad() {
+    std::vector<glm::vec3> vertices;
+    std::vector<glm::vec2> textures;
+    vertices.push_back(glm::vec3(-1.0f, 1.0f, 0.0f));
+    vertices.push_back(glm::vec3(-1.0f, -1.0f, 0.0f));
+    vertices.push_back(glm::vec3(1.0f, -1.0f, 0.0f));
+
+    vertices.push_back(glm::vec3(-1.0f, 1.0f, 0.0f));
+    vertices.push_back(glm::vec3(1.0f, -1.0f, 0.0f));
+    vertices.push_back(glm::vec3(1.0f, 1.0f, 0.0f));
+
+    textures.push_back(glm::vec2(0.0f, 1.0f));
+    textures.push_back(glm::vec2(0.0f, 0.0f));
+    textures.push_back(glm::vec2(1.0f, 0.0f));
+    textures.push_back(glm::vec2(0.0f, 1.0f));
+    textures.push_back(glm::vec2(1.0f, 0.0f));
+    textures.push_back(glm::vec2(1.0f, 1.0f));
+
+    std::vector<Vertex> v_list;
+    std::vector<unsigned int> i_list;
+
+    for (unsigned int i = 0; i < 6; i++) {
+        Vertex v;
+        v.position_.x = vertices[i].x;
+        v.position_.y = vertices[i].y;
+        v.position_.z = vertices[i].z;
+        v.texCoords_.x = textures[i].x;
+        v.texCoords_.y = textures[i].y;
+        v_list.push_back(v);
+        i_list.push_back(i);
+    }
+    Mesh quad(v_list, i_list);
+    return quad;
+}
+
 Mesh Shapes::createCube(float size) {
     std::vector<glm::vec4> vertices;
     std::vector<glm::vec4> normals;

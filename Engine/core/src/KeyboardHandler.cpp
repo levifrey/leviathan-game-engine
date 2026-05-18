@@ -1,11 +1,13 @@
 #include "Input/KeyboardHandler.h"
 #include <GLFW/glfw3.h>
+#include <iostream>
 
 
 void KeyboardHandler::handleKeyPress(GLFWwindow* window, int key, int scancode, int action, int mods) {
     if (action == GLFW_PRESS) {
         keys_[key].down_ = true;
         keys_[key].pressed_ = true;
+        std::cout << "pressed!" << std::endl;
     } else if (action == GLFW_RELEASE) {
         keys_[key].released_ = true;
         keys_[key].pressed_ = false;

@@ -13,9 +13,11 @@ class Game;
 
 class GameObject {
     public:
-        GameObject(Game* game);
+        void init(Game* game) { game_ = game; }
+        GameObject(Game* game) { init(game); }
+        GameObject() {}
         Game* getGame() const;
-        virtual void init() {}
+        virtual void start() {}
         void update();
         GameObject* getParent() const;
         const std::unordered_set<GameObject*>& getChildren() const;

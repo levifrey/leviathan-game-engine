@@ -26,8 +26,8 @@ Following the steps from https://learnopengl.com/ but consolidated to make a use
  > ./build/sample
 
 (run custom program)
- - Write program as .cpp in games folder
- > ./build/FILENAME (without the .cpp)
+ - Write program as FILENAME .cpp in games folder
+ > ./build/FILENAME
 
 (to remake)
  - will recompile all games

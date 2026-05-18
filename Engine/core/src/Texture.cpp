@@ -5,6 +5,14 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 Texture::Texture(std::filesystem::path path, TextureType type, bool repeated) {
+    init(path, type, repeated);
+}
+
+Texture::Texture(unsigned char* data, int width, int height, TextureType type) {
+    init(data, width, height, type);
+}
+
+void Texture::init(std::filesystem::path path, TextureType type, bool repeated) {
     //stbi_set_flip_vertically_on_load(true);
     int width, height, nrChannels;
     unsigned char* data = stbi_load(path.c_str(), &width, &height, &nrChannels, 4);
@@ -31,7 +39,7 @@ Texture::Texture(std::filesystem::path path, TextureType type, bool repeated) {
     type_ = type;
 }
 
-Texture::Texture(unsigned char* data, int width, int height, TextureType type) {
+void Texture::init(unsigned char* data, int width, int height, TextureType type) {
     glGenTextures(1, &ID_);
     glBindTexture(GL_TEXTURE_2D, ID_);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
@@ -39,3 +47,4 @@ Texture::Texture(unsigned char* data, int width, int height, TextureType type) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); 
     type_ = type;
 }
+

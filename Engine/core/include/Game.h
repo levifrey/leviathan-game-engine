@@ -11,6 +11,8 @@
 #include <vector>
 #include <functional>
 #include "LightData.h"
+#include "Texture.h"
+#include "Model.h"
 
 class Game {
     public:
@@ -43,6 +45,13 @@ class Game {
         std::vector<LightSource*> light_sources_;
         GLuint lightUBO_;
         std::function<void(Game&)> debugFunction_;
+
+        // used for frame buffering
+        unsigned int frame_buffer_;
+        Texture buffer_texture_;
+        Model quad_model_;
+        GameObject buffer_object_;
+        unsigned int rbo_;
 };
 
 #endif

@@ -8,6 +8,7 @@
 #include "AssetManager.h"
 #include <iostream>
 #include <glm/glm.hpp>
+#include "Shapes.h"
 
 void printVectr(glm::vec3 vector) {
     std::cout << vector.x << " " << vector.y << " " << vector.z << std::endl;
@@ -119,19 +120,47 @@ Game::Game(int window_width, int window_height) {
     glBufferData(GL_UNIFORM_BUFFER, sizeof(LightBlock), nullptr, GL_DYNAMIC_DRAW);
     glBindBufferBase(GL_UNIFORM_BUFFER, 0, lightUBO_);
 
+    // generate single FrameBuffer, eventually frame buffers will probably be part of some sort of moudlar pipepline and custom amounts of framebuffers can be used.
+    glGenFramebuffers(1, &frame_buffer_);
+    glBindFramebuffer(GL_FRAMEBUFFER, frame_buffer_);
+    
+    // create texture buffer
+    buffer_texture_.init(NULL, window_height_, window_width_, TextureType::BUFFER); 
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, buffer_texture_.getID(), 0);
+
+    // create render buffer object
+    glGenRenderbuffers(1, &rbo_);
+    glBindRenderbuffer(GL_RENDERBUFFER, rbo_);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, window_width_, window_height_);
+    glBindRenderbuffer(GL_RENDERBUFFER, 0);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, rbo_);
+    
+    if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE) {
+        std::cout << "ERROR::FRAMEBUFFER:: Framebuffer is not complete!" << std::endl;
+    }
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    
+    // create object to be drawn for the screen
+    buffer_object_.init(this);
+    Mesh quad_mesh = Shapes::createQuad();
+    quad_mesh.addTexture(buffer_texture_);
+    quad_model_.addMesh(quad_mesh);
+    buffer_object_.addComponent<Renderer>(&quad_model_, AssetManager::getShader("screen_shader"));
 }
+
 
 /*
  * Only called once after all objects have been generated
  */
 void Game::Loop() {
     for (GameObject* obj : game_objects_) {
-        obj->init();
+        obj->start();
     }
 
     while(!glfwWindowShouldClose(window_)) {
 
         // gather user input and update input handlers
+        keyboard_handler_.clearStates();
         glfwPollEvents();
         mouse_handler_.update();  
 
@@ -140,19 +169,13 @@ void Game::Loop() {
             glfwSetWindowShouldClose(window_, true);
         }
 
-        // Reset Graphics buffers/masks for clean rendering
-        glStencilMask(0xFF);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-        glStencilMask(0x00);
-
-
         DeltaClock::tick();
         
         // Update all game objects
         for (GameObject* obj : game_objects_) {
             obj->update();
         }
-        
+
         // send light data to GPU
         LightBlock light_block;
         for (int i = 0; i < light_sources_.size(); i++) {
@@ -163,6 +186,18 @@ void Game::Loop() {
         glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
         glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(LightBlock), &light_block);
         
+        bool useFBO = true;
+        if (useFBO) {
+            glBindFramebuffer(GL_FRAMEBUFFER, frame_buffer_);
+        } else {
+            glBindFramebuffer(GL_FRAMEBUFFER, 0);
+        }
+
+        // Reset Graphics buffers/masks for clean rendering
+        glStencilMask(0xFF);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+        glStencilMask(0x00);
+        glEnable(GL_DEPTH_TEST);
 
         // call render function for each object me
         for (GameObject* obj : game_objects_) {
@@ -170,6 +205,14 @@ void Game::Loop() {
                 Renderer* r = obj->getComponent<Renderer>();
                 r->render();
             }
+        }
+
+        if (useFBO) {
+            glDisable(GL_DEPTH_TEST);
+            glBindFramebuffer(GL_FRAMEBUFFER, 0);
+            glClear(GL_COLOR_BUFFER_BIT);
+            glBindTexture(GL_TEXTURE_2D, buffer_texture_.getID());
+            buffer_object_.getComponent<Renderer>()->render();
         }
         
         // call debug function
@@ -179,7 +222,6 @@ void Game::Loop() {
         
         // Update screen
         glfwSwapBuffers(window_);
-        keyboard_handler_.clearStates();
     }
 }
 

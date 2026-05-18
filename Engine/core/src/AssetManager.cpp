@@ -20,6 +20,9 @@ void AssetManager::init() {
 
     Mesh plane = Shapes::createPlane(1.0f);
     meshes_.emplace("plane", plane);
+
+    Mesh quad = Shapes::createQuad();
+    meshes_.emplace("quad", quad);
     
     // --- Textures ---
     unsigned char* black = new unsigned char[4]{0,0,0,255};
@@ -41,18 +44,22 @@ void AssetManager::init() {
             p::assetDir / "shaders/default.vert",
             p::assetDir / "shaders/default.frag");
     Shader light_shader(
-            p::assetDir / "shaders/lights.vert",
+            p::assetDir / "shaders/camera.vert",
             p::assetDir / "shaders/lights.frag");
     Shader flat_shader(
-            p::assetDir / "shaders/flat.vert",
+            p::assetDir / "shaders/camera.vert",
             p::assetDir / "shaders/flat.frag");
     Shader singleColor_shader(
-            p::assetDir / "shaders/singleColor.vert",
+            p::assetDir / "shaders/default.vert",
             p::assetDir / "shaders/singleColor.frag");
+    Shader screen_shader(
+            p::assetDir / "shaders/screen.vert",
+            p::assetDir / "shaders/screen.frag");
     shaders_.emplace("default_shader", default_shader);
     shaders_.emplace("light_shader", light_shader);
     shaders_.emplace("flat_shader", flat_shader);
     shaders_.emplace("singleColor_shader", singleColor_shader);
+    shaders_.emplace("screen_shader", screen_shader);
 
     // --- Generated Models ---
     Model default_box = Model();

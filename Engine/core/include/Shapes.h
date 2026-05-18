@@ -5,6 +5,7 @@
 namespace Shapes {
 Mesh createCube(float size);
 Mesh createPlane(float size);
+Mesh createQuad();
 }
 
 #endif

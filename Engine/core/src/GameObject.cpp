@@ -4,12 +4,6 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "Game.h"
 #include <memory>
-#include <typeinfo>
-#include <typeindex>
-
-GameObject::GameObject(Game* game) {
-    game_ = game;
-}
 
 Game* GameObject::getGame() const {
     return game_;

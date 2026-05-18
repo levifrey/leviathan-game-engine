@@ -28,12 +28,14 @@ class cakeBehavior : public Component {
     void update() override {
         KeyboardHandler* k = getGameObject()->getGame()->getKeyboardHandler();
         if (k->getKeyDown(GLFW_KEY_O)) {
+            std::cout << "key found" << std::endl;
             outlined = !outlined;
             Renderer* r = getGameObject()->getComponent<Renderer>();
-            if (outlined) {
+            if (!outlined) {
                 r->setRenderEffect<BasicEffect>();
             } else {
                 r->setRenderEffect<OutlineEffect>(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), 0.03f);
+                std::cout << "ran!" << std::endl;
             }
         }
     }

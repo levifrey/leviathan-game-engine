@@ -51,6 +51,7 @@ void Mesh::setUpMesh() {
 void Mesh::draw(Shader &shader) {
     unsigned int diffuseNr = 1;
     unsigned int specularNr = 1;
+    unsigned int bufferNr = 1;
     for (unsigned int i = 0; i < textures_.size(); i++) {
         glActiveTexture(GL_TEXTURE0 + i);
         string name;
