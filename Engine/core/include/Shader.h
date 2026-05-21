@@ -1,22 +1,16 @@
-#ifndef SHADER_H
-#define SHADER_H
-
+#pragma once
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <string>
-#include <fstream>
-#include <sstream>
-#include <iostream>
-#include <filesystem>
 
 class Shader {
 public: 
-    unsigned int ID;
-    Shader(std::filesystem::path vertexPath, std::filesystem::path fragmentPath);
+    Shader(unsigned int ID) : ID_(ID) {}
+    unsigned int ID_;
 
-    void use();
+    void use() const;
 
     void setBool(const std::string &name, bool value) const;
     void setInt(const std::string &name, int value) const;
@@ -24,9 +18,4 @@ public:
     void setMat4(const std::string &name, glm::mat4 value) const;
     void setVec3(const std::string &name, glm::vec3 value) const;
     void setVec4(const std::string &name, glm::vec4 value) const;
-
-    void reserveTexture(const std::string &var_name, int texture_num); 
 };
-
-
-#endif

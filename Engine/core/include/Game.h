@@ -33,7 +33,7 @@ class Game {
         void Loop();
         void addGameObject(GameObject* obj);
         void addLightSource(LightSource* light);
-        void applyGlobalUniforms(Shader* shader);
+        void applyGlobalUniforms(const Shader& shader);
     private:
         int window_width_;
         int window_height_;
@@ -45,13 +45,16 @@ class Game {
         std::vector<LightSource*> light_sources_;
         GLuint lightUBO_;
         std::function<void(Game&)> debugFunction_;
-
+        
+        /*
         // used for frame buffering
         unsigned int frame_buffer_;
+        unsigned int rbo_;
         Texture buffer_texture_;
         Model quad_model_;
+        Material buffer_material_;
         GameObject buffer_object_;
-        unsigned int rbo_;
+        */
 };
 
 #endif

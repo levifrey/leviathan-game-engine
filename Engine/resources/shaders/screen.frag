@@ -3,7 +3,10 @@ out vec4 FragColor;
 
 in vec2 TexCoords;
 
-uniform sampler2D screenTexture;
+struct Material {
+    uniform sampler2D buffer1;
+};
+Material material;
 const float off = 1.0 / 200.0; 
 
 void main() {
@@ -29,7 +32,7 @@ void main() {
 
     vec3 color = vec3(0.0);
     for (int i = 0; i < 9; i++) {
-        color += kernel[i] * vec3(texture(screenTexture, TexCoords + offsets[i]));
+        color += kernel[i] * vec3(texture(material.buffer1, TexCoords + offsets[i]));
     }
 
     FragColor = vec4(color, 1);

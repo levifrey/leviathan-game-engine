@@ -109,11 +109,13 @@ Game::Game(int window_width, int window_height) {
     // Create important game objects:
     mouse_handler_ = MouseHandler();
     keyboard_handler_ = KeyboardHandler(); 
-
+    
+    
     // Gather Assets
     PathUtils::init();
     AssetManager::init();
 
+    /*
     // generate light UBO
     glGenBuffers(1, &lightUBO_);
     glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
@@ -146,6 +148,7 @@ Game::Game(int window_width, int window_height) {
     quad_mesh.addTexture(buffer_texture_);
     quad_model_.addMesh(quad_mesh);
     buffer_object_.addComponent<Renderer>(&quad_model_, AssetManager::getShader("screen_shader"));
+*/
 }
 
 
@@ -186,12 +189,14 @@ void Game::Loop() {
         glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
         glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(LightBlock), &light_block);
         
+        /*
         bool useFBO = true;
         if (useFBO) {
             glBindFramebuffer(GL_FRAMEBUFFER, frame_buffer_);
         } else {
             glBindFramebuffer(GL_FRAMEBUFFER, 0);
         }
+        */
 
         // Reset Graphics buffers/masks for clean rendering
         glStencilMask(0xFF);
@@ -207,6 +212,7 @@ void Game::Loop() {
             }
         }
 
+        /*
         if (useFBO) {
             glDisable(GL_DEPTH_TEST);
             glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -214,6 +220,7 @@ void Game::Loop() {
             glBindTexture(GL_TEXTURE_2D, buffer_texture_.getID());
             buffer_object_.getComponent<Renderer>()->render();
         }
+        */
         
         // call debug function
         if (debugFunction_) {
@@ -227,8 +234,8 @@ void Game::Loop() {
 
 
 
-void Game::applyGlobalUniforms(Shader* shader) {
-    shader->setMat4("view", getCamera()->getView());
-    shader->setMat4("projection", getCamera()->getProjection());
-    shader->setVec3("viewPos", getCamera()->getPosition());
+void Game::applyGlobalUniforms(const Shader& shader) {
+    shader.setMat4("view", getCamera()->getView());
+    shader.setMat4("projection", getCamera()->getProjection());
+    shader.setVec3("viewPos", getCamera()->getPosition());
 }

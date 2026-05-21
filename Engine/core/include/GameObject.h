@@ -1,7 +1,6 @@
 #ifndef GAME_OBJECT_H
 #define GAME_OBJECT_H
 
-#include <vector>
 #include <glm/glm.hpp>
 #include <unordered_map>
 #include <typeindex>

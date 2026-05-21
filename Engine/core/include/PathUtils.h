@@ -8,6 +8,8 @@ namespace PathUtils {
 inline std::filesystem::path projectDir;
 inline std::filesystem::path executableDir;
 inline std::filesystem::path assetDir;
+inline std::filesystem::path shaderDir;
+inline std::filesystem::path objectDir;
 
 inline std::filesystem::path getExecutableDir() {
     char buffer[PATH_MAX];
@@ -21,6 +23,8 @@ inline void init() {
     executableDir = getExecutableDir();
     projectDir = executableDir.parent_path();
     assetDir = projectDir / "Engine/resources";
+    shaderDir = assetDir / "shaders";
+    objectDir = assetDir / "objects";
 }
 
 }

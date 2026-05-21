@@ -1,130 +1,335 @@
 #include "AssetManager.h"
-#include "Shapes.h"
-#include "PathUtils.h"
 #include "Mesh.h"
-#include "Model.h"
-namespace p = PathUtils;
+#include "PathUtils.h"
 
-std::unordered_map<std::string, Mesh> AssetManager::meshes_;
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
+#include <iostream>
+#include <fstream>
+#include <glad/glad.h>
+#include <glm/glm.hpp>
 
-std::unordered_map<std::string, Texture> AssetManager::textures_;
 
-std::unordered_map<std::string, Shader> AssetManager::shaders_;
+std::vector<Mesh> AssetManager::meshes_;
+std::vector<Texture> AssetManager::textures_;
+std::vector<Material> AssetManager::materials_;
+std::vector<Model> AssetManager::models_;
+std::vector<Shader> AssetManager::shaders_;
 
-std::unordered_map<std::string, Model> AssetManager::models_;
+std::unordered_map<AssetManager::ShaderKey, ShaderID, AssetManager::ShaderKeyHash> AssetManager::shader_cache_;
+std::unordered_map<std::string, ModelID> AssetManager::model_cache_;
+std::unordered_map<std::string, TextureID> AssetManager::texture_cache_;
+
+AssetManager::DefaultShaders AssetManager::defaultShaders_;
+
 
 void AssetManager::init() {
-    // --- Generated Meshes ---
-    Mesh cube = Shapes::createCube(1.0f);
-    meshes_.emplace("cube", cube);
-
-    Mesh plane = Shapes::createPlane(1.0f);
-    meshes_.emplace("plane", plane);
-
-    Mesh quad = Shapes::createQuad();
-    meshes_.emplace("quad", quad);
-    
-    // --- Textures ---
-    unsigned char* black = new unsigned char[4]{0,0,0,255};
-    Texture black_texture(black, 1, 1, TextureType::DEFAULT);
-    Texture basic_container_diffuse(p::assetDir / "textures/container2.jpg", TextureType::DIFFUSE);
-    Texture basic_container_specular(p::assetDir / "textures/container2_specular.jpg", TextureType::SPECULAR);
-    Texture brick_diffuse(p::assetDir / "textures/brick.jpg", TextureType::DIFFUSE, true);
-    Texture grass_diffuse(p::assetDir / "textures/grass.png", TextureType::DIFFUSE);
-    Texture window_diffuse(p::assetDir / "textures/window.png", TextureType::DIFFUSE);
-    textures_.emplace("black_texture", black_texture);
-    textures_.emplace("basic_container_diffuse", basic_container_diffuse);
-    textures_.emplace("basic_container_specular", basic_container_specular);
-    textures_.emplace("brick_diffuse", brick_diffuse);
-    textures_.emplace("grass_diffuse", grass_diffuse);
-    textures_.emplace("window_diffuse", window_diffuse);
-    
-    // --- Shaders ---
-    Shader default_shader(
-            p::assetDir / "shaders/default.vert",
-            p::assetDir / "shaders/default.frag");
-    Shader light_shader(
-            p::assetDir / "shaders/camera.vert",
-            p::assetDir / "shaders/lights.frag");
-    Shader flat_shader(
-            p::assetDir / "shaders/camera.vert",
-            p::assetDir / "shaders/flat.frag");
-    Shader singleColor_shader(
-            p::assetDir / "shaders/default.vert",
-            p::assetDir / "shaders/singleColor.frag");
-    Shader screen_shader(
-            p::assetDir / "shaders/screen.vert",
-            p::assetDir / "shaders/screen.frag");
-    shaders_.emplace("default_shader", default_shader);
-    shaders_.emplace("light_shader", light_shader);
-    shaders_.emplace("flat_shader", flat_shader);
-    shaders_.emplace("singleColor_shader", singleColor_shader);
-    shaders_.emplace("screen_shader", screen_shader);
-
-    // --- Generated Models ---
-    Model default_box = Model();
-    default_box.addMesh(cube);
-    models_.emplace("default_box", default_box);
-
-    Model floor = Model();
-    Mesh floor_plane = plane; 
-    floor_plane.addTexture(brick_diffuse);
-    floor.addMesh(floor_plane);
-    models_.emplace("floor", floor);
-
-    Model container = Model();
-    Mesh container_cube = cube;
-    container_cube.addTexture(basic_container_diffuse);
-    container_cube.addTexture(basic_container_specular);
-    container.addMesh(container_cube);
-    models_.emplace("container", container);
-    
-    Model grass = Model();
-    Mesh grass_plane = plane;
-    grass_plane.addTexture(grass_diffuse);
-    grass.addMesh(grass_plane);
-    models_.emplace("grass", grass);
-
-    Model window = Model();
-    Mesh window_plane = plane;
-    window_plane.addTexture(window_diffuse);
-    window.addMesh(window_plane);
-    models_.emplace("window", window);
-    
-    // --- Models ---
-    models_.try_emplace("backpack", Model(p::assetDir / "objects/backpack/backpack.obj", true));
-    models_.try_emplace("cake", Model(p::assetDir / "objects/cake/Cake.obj"));
+    defaultShaders_.outline_ = loadShader(
+            PathUtils::shaderDir / "camera.vert", 
+            PathUtils::shaderDir / "singleColor.frag");
 }
 
-Mesh* AssetManager::getMesh(const string& name) {
-    auto it = meshes_.find(name);
-    if (it != meshes_.end()) {
-        return &(it->second);
-    }
-    return nullptr;
+/*
+ * Get assets from ID
+ */
+
+const Mesh& AssetManager::getMesh(MeshID id) {
+    return meshes_.at(id);    
 }
 
-Texture* AssetManager::getTexture(const string& name) {
-    auto it = textures_.find(name);
-    if (it != textures_.end()) {
-        return &(it->second);
-    }
-    return nullptr;
+const Texture& AssetManager::getTexture(TextureID id) {
+    return textures_.at(id);
 }
 
-Shader* AssetManager::getShader( const string& name) {
-    auto it = shaders_.find(name);
-    if (it != shaders_.end()) {
-        return &(it->second);
-    }
-    return nullptr;
+const Material& AssetManager::getMaterial(MaterialID id) {
+    return materials_.at(id);
+};
+
+const Model& AssetManager::getModel(ModelID id) {
+    return models_.at(id);
 }
 
-Model* AssetManager::getModel(const string& name) {
-    auto it = models_.find(name);
-    if (it != models_.end()) {
-        return &(it->second);
-    }
-    return nullptr;
+const Shader& AssetManager::getShader(ShaderID id) {
+    return shaders_.at(id);
+}
 
+/*
+ * Load asset for the first time or pull from cache if already loaded somewherer else
+ */
+
+ModelID AssetManager::loadModel(const std::filesystem::path& path) {
+    auto it = model_cache_.find(path.string());
+    if (it != model_cache_.end()) {
+        return it->second;
+    } else {
+        return loadModelFromFile(path); 
+    }
+}
+
+TextureID AssetManager::loadTexture(const std::filesystem::path& path) {
+    auto it = texture_cache_.find(path.string());
+    if (it != texture_cache_.end()) {
+        return it->second;
+    } else {
+        return loadTextureFromFile(path);
+    }
+}
+
+
+ShaderID AssetManager::loadShader(const std::filesystem::path& vertex_path, const std::filesystem::path& fragment_path) {
+    auto it = shader_cache_.find({vertex_path.string(), fragment_path.string()});
+    if(it != shader_cache_.end()) {
+        return it->second;
+    } else {
+        return loadShaderFromFile(vertex_path, fragment_path);
+    }
+}
+
+/*
+ * Model Loading Pipeline Code
+ */
+
+ModelID AssetManager::loadModelFromFile(const std::filesystem::path& path) {
+    Assimp::Importer importer;
+    const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
+
+    if(!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
+        std::cout << "ERROR::ASSIMP::" << importer.GetErrorString() << std::endl;
+    }
+
+    LoadContext context;
+    context.directory_ = path.parent_path();
+    processNode(scene->mRootNode, scene, context);
+    models_.push_back(std::move(context.model_));
+    model_cache_.insert({path.string(), models_.size()-1});
+    return (ModelID)models_.size()-1;
+}
+
+
+void AssetManager::processNode(aiNode* node, const aiScene* scene, LoadContext& context) {
+    for (unsigned int i = 0; i < node->mNumMeshes; i++) {
+        aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
+        processMesh(mesh, scene, context); 
+    }
+
+    for (unsigned int i = 0; i < node->mNumChildren; i++) {
+        processNode(node->mChildren[i], scene, context);
+    }
+}
+
+void AssetManager::processMesh(aiMesh* mesh, const aiScene* scene, LoadContext& context) { 
+    vector<Vertex> vertices;
+    vector<unsigned int> indices;
+
+    for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
+        Vertex vertex;
+        glm::vec3 vector;
+        vector.x = mesh->mVertices[i].x;
+        vector.y = mesh->mVertices[i].y;
+        vector.z = mesh->mVertices[i].z;
+        vertex.position_ = vector;
+        if (mesh->HasNormals()) {
+            vector.x = mesh->mNormals[i].x;
+            vector.y = mesh->mNormals[i].y;
+            vector.z = mesh->mNormals[i].z;
+            vertex.normal_ = vector;
+        }
+
+
+        if (mesh->mTextureCoords[0]) {
+            glm::vec2 vec;
+            vec.x = mesh->mTextureCoords[0][i].x;
+            vec.y = mesh->mTextureCoords[0][i].y;
+            vertex.texCoords_ = vec;
+        } else {
+            vertex.texCoords_ = glm::vec2(0.0, 0.0);
+
+        }
+
+        vertices.push_back(vertex);
+    }
+
+    for (unsigned int i = 0; i < mesh->mNumFaces; i++) {
+        aiFace face = mesh->mFaces[i];
+        for (unsigned int j = 0; j < face.mNumIndices; j++) {
+            indices.push_back(face.mIndices[j]);
+        }
+    }
+    
+    // Create the new mesh and assign it an ID
+    meshes_.push_back({vertices, indices});
+    MeshID mesh_id = meshes_.size()-1;
+
+    auto it = context.material_cache_.find(mesh->mMaterialIndex);
+    MaterialID mat_id;
+
+    // Use cached material
+    if (it != context.material_cache_.end()) {
+        mat_id = it->second;
+    }
+    
+    // Create a new material and assign a new ID
+    else {
+        Material new_material;
+
+        std::vector<TextureSlot> new_mat_textures;
+        float shininess = 1.0f;
+        
+        // Get textures
+        aiMaterial* assimp_material = scene->mMaterials[mesh->mMaterialIndex];
+        vector<TextureSlot> diffuse_maps = loadMaterialTextures(assimp_material, aiTextureType_DIFFUSE, context);
+        vector<TextureSlot> specular_maps = loadMaterialTextures(assimp_material, aiTextureType_SPECULAR, context);
+        new_mat_textures.insert(new_mat_textures.end(), diffuse_maps.begin(), diffuse_maps.end());
+        new_mat_textures.insert(new_mat_textures.end(), specular_maps.begin(), specular_maps.end());
+
+        // Get shininess
+        assimp_material->Get(AI_MATKEY_SHININESS, shininess);
+        
+        // Fill the Material object, add it to the assets, and cache it
+        new_material.textures_slots_ = std::move(new_mat_textures);
+        new_material.shininess_ = shininess;
+        materials_.push_back(std::move(new_material));
+        mat_id = materials_.size()-1;
+        context.material_cache_.insert({mesh->mMaterialIndex, mat_id});
+    }
+    
+    context.model_.parts_.push_back({mesh_id, mat_id});
+}
+
+
+std::vector<TextureSlot> AssetManager::loadMaterialTextures(aiMaterial* mat, aiTextureType type, LoadContext& context) {
+    TextureType new_type;
+    if(type == aiTextureType_DIFFUSE) {
+        new_type = TextureType::DIFFUSE;
+    } else if(type == aiTextureType_SPECULAR) {
+        new_type = TextureType::SPECULAR;
+    }
+
+    std::vector<TextureSlot> textures;
+    for (unsigned int i = 0; i < mat->GetTextureCount(type); i++) {
+        aiString str;
+        mat->GetTexture(type, i, &str);
+        string sub_path = str.C_Str();
+        const std::filesystem::path new_path = context.directory_ / sub_path;
+        TextureID id = loadTexture(new_path);
+        textures.push_back({id, new_type});
+    }
+    return textures;
+}
+
+/*
+ * Texture Loading Code
+ */
+
+TextureID AssetManager::loadTextureFromFile(const std::filesystem::path& path) {   
+    int width, height, nrChannels;
+    unsigned int ID;
+    unsigned char* data = stbi_load(path.c_str(), &width, &height, &nrChannels, 4);
+    glGenTextures(1, &ID);
+    glBindTexture(GL_TEXTURE_2D, ID);
+    bool repeated = false;
+    if (repeated) {
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    } else { 
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    }
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    if (data) {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    } else {
+        std::cout << "FAILED TO LOAD TEXTURE: " << path.string() << std::endl;
+    }
+    stbi_image_free(data);
+    std::cout << "-- generated texture from: " << path.string() << ", with ID: " << ID << std::endl;
+
+    textures_.push_back({ID});
+    texture_cache_.insert({path.string(), (TextureID)textures_.size()-1});
+    return textures_.size()-1;
+}
+
+/*
+ * Shader Loading code
+ */
+
+ShaderID AssetManager::loadShaderFromFile(
+        const std::filesystem::path& vertex_path, 
+        const std::filesystem::path& fragment_path) 
+{
+    unsigned int ID;
+    std::string vertexCode;
+    std::string fragmentCode;
+    std::ifstream vShaderFile;
+    std::ifstream fShaderFile;
+
+    vShaderFile.exceptions (std::ifstream::failbit | std::ifstream::badbit);
+    fShaderFile.exceptions (std::ifstream::failbit | std::ifstream::badbit);
+
+    try {
+        vShaderFile.open(vertex_path.string());
+        fShaderFile.open(fragment_path.string());
+        std::stringstream vShaderStream, fShaderStream;
+        
+        vShaderStream << vShaderFile.rdbuf();
+        fShaderStream << fShaderFile.rdbuf();
+
+        vShaderFile.close();
+        fShaderFile.close();
+
+        vertexCode = vShaderStream.str();
+        fragmentCode = fShaderStream.str();
+    } 
+    catch(std::ifstream::failure e) {
+        std::cout << "FAILED TO READ FROM FILE" << std::endl;
+    }
+
+    const char* vShaderCode = vertexCode.c_str();
+    const char* fShaderCode = fragmentCode.c_str();
+    unsigned int vertex, fragment;
+    int success;
+    char infoLog[512];
+ 
+    vertex = glCreateShader(GL_VERTEX_SHADER);
+    glShaderSource(vertex, 1, &vShaderCode, NULL);
+    glCompileShader(vertex);
+
+    glGetShaderiv(vertex, GL_COMPILE_STATUS, &success);
+    if(!success) {
+        glGetShaderInfoLog(vertex, 512, NULL, infoLog);
+        std::cout << "ERROR::SHADER::VERTEX::COMPILATION::COMPILATION_FAILED (" << vertex_path.string() << ")" << std::endl;
+        std::cerr << infoLog << std::endl;
+    }
+
+
+    fragment = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragment, 1, &fShaderCode, NULL);
+    glCompileShader(fragment);
+
+    glGetShaderiv(fragment, GL_COMPILE_STATUS, &success);
+    if(!success) {
+        glGetShaderInfoLog(fragment, 512, NULL, infoLog);
+        std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED (" << fragment_path.string() << ")" << std::endl;
+        std::cerr << infoLog << std::endl;
+    }
+
+    ID = glCreateProgram();
+    glAttachShader(ID, vertex);
+    glAttachShader(ID, fragment);
+    glLinkProgram(ID);
+
+    glGetProgramiv(ID, GL_LINK_STATUS, &success);
+    if(!success) {
+        glGetProgramInfoLog(ID, 512, NULL, infoLog);
+        std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILURE" << std::endl;
+    }
+
+    glDeleteShader(vertex);
+    glDeleteShader(fragment);
+    
+    shaders_.push_back({ID});
+    shader_cache_.insert({{vertex_path.string(), fragment_path.string()}, (ShaderID)shaders_.size()-1});
+    return (ShaderID)shaders_.size()-1;
 }

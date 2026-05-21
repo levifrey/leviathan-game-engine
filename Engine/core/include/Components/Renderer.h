@@ -1,28 +1,36 @@
 #pragma once
 
 #include "Component.h"
-#include "Model.h"
+#include "AssetTypes.h"
+#include "Mesh.h"
+#include "Material.h"
 #include "Shader.h"
-#include <memory>
-#include "RenderEffects/AllRenderEffects.h"
+#include "Transform.h"
+
+struct OutlineConfig {
+    bool active_;
+    glm::vec4 color_;
+    float width_;
+};
+
 
 
 class Renderer : public Component {
     public:
-        Renderer(Model* model, Shader* shader);
+        Renderer(ModelID model, ShaderID shader);
         void render();
         void update() override {}
-        Model* getModel() { return model_; }
-        Shader* getShader() { return shader_; }
-
-        template<typename T, typename... Args>
-        void setRenderEffect(Args&&... args) {
-            effect_ = std::make_unique<T>(std::forward<Args>(args)...);
-        }
-
+        ModelID getModel() { return model_id_; }
+        ShaderID getShader() { return shader_id_; }
+        OutlineConfig& getOutlineConfig() { return outline_; }
     private:
-        Model* model_;
-        Shader* shader_;
-        std::unique_ptr<RenderEffect> effect_ = std::make_unique<BasicEffect>();
+        ModelID model_id_;
+        ShaderID shader_id_;
+        void useMaterial(const Material& material, const Shader& shader);
+        void drawMesh(const Mesh& mesh);
+
+        // Render Settings:
+        OutlineConfig outline_{false, glm::vec4(1.0f, 1.0f, 1.0f, 1.0f), 0.05f};
+        void drawOutline(const Mesh& mesh, glm::mat4 transform);
 };
 
