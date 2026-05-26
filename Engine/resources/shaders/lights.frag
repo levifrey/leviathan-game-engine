@@ -77,11 +77,18 @@ vec3 CalcAreaLight(LightData light, vec3 norm, vec3 viewDir) {
     vec3 diffuse = vec3(light.diffuse) * lightAngle * vec3(texture(material.diffuse1, TexCoord));
 
     // specular shading
+    vec3 specTex = texture(material.specular1, TexCoord).rgb;
+    float specMask = max(max(specTex.r, specTex.g), specTex.b);
+    vec3 reflectDir = reflect(-lightDir, norm);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
+    vec3 specular = vec3(light.specular) * spec * specTex * specMask;
+    /*
     vec3 reflectDir = reflect(-lightDir, norm);
     float light_above_face = max(dot(lightDir, norm), 0.0);
     reflectDir = normalize(light_above_face * reflectDir);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
     vec3 specular = vec3(light.specular) * spec * vec3(texture(material.specular1, TexCoord));
+    */
     return specular + diffuse;
 }
 
@@ -118,13 +125,11 @@ void main()
     for (int i = 0; i < lightCount[0]; i++) {
         if (lights[i].position_type[3] == AREA) {
             result += CalcAreaLight(lights[i], norm, viewDir);
-        } 
-        else if (lights[i].position_type[3] == POINT) {
+        } else if (lights[i].position_type[3] == POINT) {
             result += CalcPointLight(lights[i], norm, viewDir);
         } else if (lights[i].position_type[3] == DIRECTIONAL) {
             result += CalcDirLight(lights[i], norm, viewDir);
-        }
-        else if  (lights[i].position_type[3] == SPOT) {
+        } else if  (lights[i].position_type[3] == SPOT) {
             result += CalcSpotLight(lights[i], norm, viewDir);
         }
     }

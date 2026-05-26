@@ -7,7 +7,6 @@ void KeyboardHandler::handleKeyPress(GLFWwindow* window, int key, int scancode, 
     if (action == GLFW_PRESS) {
         keys_[key].down_ = true;
         keys_[key].pressed_ = true;
-        std::cout << "pressed!" << std::endl;
     } else if (action == GLFW_RELEASE) {
         keys_[key].released_ = true;
         keys_[key].pressed_ = false;

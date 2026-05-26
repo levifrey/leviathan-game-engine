@@ -13,7 +13,7 @@ struct TextureSlot {
 };
 
 struct Material {
-    std::vector<TextureSlot> textures_slots_;
+    std::vector<TextureSlot> texture_slots_;
     float shininess_;
 };
 

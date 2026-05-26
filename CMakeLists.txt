@@ -26,4 +26,15 @@ foreach(GAME_FILE ${USER_SOURCES})
     )
     
     target_link_libraries(${GAME_NAME} PRIVATE Engine)
+    if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+        target_compile_options(${GAME_NAME} PRIVATE
+            -fsanitize=address 
+            -fno-omit-frame-pointer
+            -g
+            -O0
+        )
+        target_link_options(${GAME_NAME} PRIVATE
+            -fsanitize=address
+        )
+    endif()
 endforeach()

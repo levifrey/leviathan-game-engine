@@ -10,6 +10,7 @@ inline std::filesystem::path executableDir;
 inline std::filesystem::path assetDir;
 inline std::filesystem::path shaderDir;
 inline std::filesystem::path objectDir;
+inline std::filesystem::path textureDir;
 
 inline std::filesystem::path getExecutableDir() {
     char buffer[PATH_MAX];
@@ -25,6 +26,7 @@ inline void init() {
     assetDir = projectDir / "Engine/resources";
     shaderDir = assetDir / "shaders";
     objectDir = assetDir / "objects";
+    textureDir = assetDir / "textures";
 }
 
 }

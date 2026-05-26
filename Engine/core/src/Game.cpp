@@ -115,13 +115,12 @@ Game::Game(int window_width, int window_height) {
     PathUtils::init();
     AssetManager::init();
 
-    /*
     // generate light UBO
     glGenBuffers(1, &lightUBO_);
     glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
     glBufferData(GL_UNIFORM_BUFFER, sizeof(LightBlock), nullptr, GL_DYNAMIC_DRAW);
     glBindBufferBase(GL_UNIFORM_BUFFER, 0, lightUBO_);
-
+    /*
     // generate single FrameBuffer, eventually frame buffers will probably be part of some sort of moudlar pipepline and custom amounts of framebuffers can be used.
     glGenFramebuffers(1, &frame_buffer_);
     glBindFramebuffer(GL_FRAMEBUFFER, frame_buffer_);

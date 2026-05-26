@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "Game.h"
 #include "AssetManager.h"
+#include <iostream>
 
 Renderer::Renderer(ModelID model_id, ShaderID shader_id) : 
     model_id_(model_id),
@@ -23,6 +24,7 @@ void Renderer::render() {
         useMaterial(material, shader);
         
         if (outline_.active_) {
+            glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
             glStencilFunc(GL_ALWAYS, 1, 0xFF);
             glStencilMask(0xFF);
         }
@@ -30,27 +32,37 @@ void Renderer::render() {
         drawMesh(mesh);
 
         if (outline_.active_) {
-            drawOutline(mesh, transform);
-            shader.use();
+            drawOutline(shader, mesh, transform);
         }
     }
+}
+
+void bindTexture(const Shader& shader, unsigned int bind_num, const std::string& name, TextureID id) {
+    glActiveTexture(GL_TEXTURE0 + bind_num);
+    shader.setInt(name, bind_num);
+    const Texture& texture = AssetManager::getTexture(id);
+    glBindTexture(GL_TEXTURE_2D, texture.ID_);
 }
 
 void Renderer::useMaterial(const Material& material, const Shader& shader) {
     unsigned int diffuseNr = 1;
     unsigned int specularNr = 1;
     unsigned int bufferNr = 1;
-    for (unsigned int i = 0; i < material.textures_slots_.size(); i++) {
-        glActiveTexture(GL_TEXTURE0 + i);
+    unsigned int i;
+    for (i = 0; i < material.texture_slots_.size(); i++) {
         std::string name;
-        if (material.textures_slots_[i].type_ == TextureType::DIFFUSE) {
+        if (material.texture_slots_[i].type_ == TextureType::DIFFUSE) {
             name = "diffuse" + std::to_string(diffuseNr++);
-        } else if(material.textures_slots_[i].type_ == TextureType::SPECULAR) {
+        } else if(material.texture_slots_[i].type_ == TextureType::SPECULAR) {
             name = "specular" + std::to_string(specularNr++);
         }
-        shader.setInt(("material." + name).c_str(), i);
-        const Texture& texture = AssetManager::getTexture(material.textures_slots_[i].ID_);
-        glBindTexture(GL_TEXTURE_2D, texture.ID_);
+        bindTexture(shader, i, "material." + name, material.texture_slots_[i].ID_);
+    }
+    if (diffuseNr == 1) {
+        bindTexture(shader, i++, "material.diffuse1", AssetManager::getTextures().fallback_); 
+    }
+    if (specularNr == 1) {
+        bindTexture(shader, i++, "material.specular1", AssetManager::getTextures().fallback_);
     }
     glActiveTexture(GL_TEXTURE0);
     shader.setFloat("material.shininess", material.shininess_);
@@ -62,18 +74,19 @@ void Renderer::drawMesh(const Mesh& mesh) {
     glBindVertexArray(0);
 }
 
-void Renderer::drawOutline(const Mesh& mesh, glm::mat4 transform) {
+void Renderer::drawOutline(const Shader& shader, const Mesh& mesh, glm::mat4 transform) {
     const Shader& outline_shader = AssetManager::getShader(AssetManager::getShaders().outline_);
 
-    glStencilFunc(GL_ALWAYS, 1, 0xFF);
+    glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
     glStencilMask(0x00);
     float factor = outline_.width_ + 1.0f;
     glm::mat4 scaled_transform = glm::scale(transform, glm::vec3(factor)); 
     outline_shader.use();
     outline_shader.setVec4("color", outline_.color_);
     outline_shader.setMat4("model", scaled_transform);
+    getGameObject()->getGame()->applyGlobalUniforms(outline_shader);
     drawMesh(mesh);
     
     glStencilFunc(GL_ALWAYS, 1, 0xFF);
-
+    shader.use();
 }

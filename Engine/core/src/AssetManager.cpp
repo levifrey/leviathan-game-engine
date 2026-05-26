@@ -1,6 +1,7 @@
 #include "AssetManager.h"
 #include "Mesh.h"
 #include "PathUtils.h"
+#include "Shapes.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
@@ -21,16 +22,45 @@ std::unordered_map<std::string, ModelID> AssetManager::model_cache_;
 std::unordered_map<std::string, TextureID> AssetManager::texture_cache_;
 
 AssetManager::DefaultShaders AssetManager::defaultShaders_;
+AssetManager::DefaultGeometry AssetManager::defaultGeometry_;
+AssetManager::DefaultTextures AssetManager::defaultTextures_;
+AssetManager::DefaultMaterials AssetManager::defaultMaterials_;
 
 
 void AssetManager::init() {
+    /*
+     *  Load Engine Shader
+     */
+    defaultShaders_.fallback_ = loadShader(
+            PathUtils::shaderDir / "camera.vert",
+            PathUtils::shaderDir / "default.frag");
+
     defaultShaders_.outline_ = loadShader(
             PathUtils::shaderDir / "camera.vert", 
             PathUtils::shaderDir / "singleColor.frag");
+    
+    /*
+     *  Load Engine Geometry
+     */
+    defaultGeometry_.cube_ = storeMesh(Shapes::createCube(1.0f));
+    defaultGeometry_.plane_ = storeMesh(Shapes::createPlane(1.0f));
+    defaultGeometry_.quad_ = storeMesh(Shapes::createQuad());
+
+    /*
+     *  Load Engine Textures
+     */
+    unsigned char black[] = {0,0,0,0};
+    defaultTextures_.fallback_ = storeTextureFromData(black, 1, 1);
+
+    /*
+     * Load Engine Materials
+     */
+    defaultMaterials_.textureless_ = storeMaterial({{},1.0f});
+    
 }
 
 /*
- * Get assets from ID
+ *  Get assets from ID
  */
 
 const Mesh& AssetManager::getMesh(MeshID id) {
@@ -54,7 +84,26 @@ const Shader& AssetManager::getShader(ShaderID id) {
 }
 
 /*
- * Load asset for the first time or pull from cache if already loaded somewherer else
+ *  Store Assets
+ */
+MeshID AssetManager::storeMesh(Mesh mesh) {
+    meshes_.push_back(mesh);
+    return (MeshID)meshes_.size()-1;
+}
+
+MaterialID AssetManager::storeMaterial(Material material) {
+    materials_.push_back(material);
+    return (MaterialID)materials_.size()-1;
+}
+
+ModelID AssetManager::storeModel(Model model) {
+    models_.push_back(model);
+    return (ModelID)models_.size()-1;
+}
+
+
+/*
+ *  Load asset for the first time or pull from cache if already loaded somewherer else
  */
 
 ModelID AssetManager::loadModel(const std::filesystem::path& path) {
@@ -91,7 +140,7 @@ ShaderID AssetManager::loadShader(const std::filesystem::path& vertex_path, cons
 
 ModelID AssetManager::loadModelFromFile(const std::filesystem::path& path) {
     Assimp::Importer importer;
-    const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
+    const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate /*| aiProcess_FlipUVs*/);
 
     if(!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
         std::cout << "ERROR::ASSIMP::" << importer.GetErrorString() << std::endl;
@@ -143,7 +192,6 @@ void AssetManager::processMesh(aiMesh* mesh, const aiScene* scene, LoadContext& 
             vertex.texCoords_ = vec;
         } else {
             vertex.texCoords_ = glm::vec2(0.0, 0.0);
-
         }
 
         vertices.push_back(vertex);
@@ -183,12 +231,16 @@ void AssetManager::processMesh(aiMesh* mesh, const aiScene* scene, LoadContext& 
         new_mat_textures.insert(new_mat_textures.end(), specular_maps.begin(), specular_maps.end());
 
         // Get shininess
-        assimp_material->Get(AI_MATKEY_SHININESS, shininess);
+        if (assimp_material->Get(AI_MATKEY_SHININESS, shininess) == AI_SUCCESS) {
+            if (shininess <= 0.0f)
+                shininess = 1.0f;
+        }
         
         // Fill the Material object, add it to the assets, and cache it
-        new_material.textures_slots_ = std::move(new_mat_textures);
+        new_material.texture_slots_ = std::move(new_mat_textures);
         new_material.shininess_ = shininess;
         materials_.push_back(std::move(new_material));
+        std::cout << "diffuse" <<std::endl;
         mat_id = materials_.size()-1;
         context.material_cache_.insert({mesh->mMaterialIndex, mat_id});
     }
@@ -227,7 +279,7 @@ TextureID AssetManager::loadTextureFromFile(const std::filesystem::path& path) {
     unsigned char* data = stbi_load(path.c_str(), &width, &height, &nrChannels, 4);
     glGenTextures(1, &ID);
     glBindTexture(GL_TEXTURE_2D, ID);
-    bool repeated = false;
+    bool repeated = true;
     if (repeated) {
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -242,6 +294,7 @@ TextureID AssetManager::loadTextureFromFile(const std::filesystem::path& path) {
         glGenerateMipmap(GL_TEXTURE_2D);
     } else {
         std::cout << "FAILED TO LOAD TEXTURE: " << path.string() << std::endl;
+        return defaultTextures_.fallback_;
     }
     stbi_image_free(data);
     std::cout << "-- generated texture from: " << path.string() << ", with ID: " << ID << std::endl;
@@ -249,6 +302,21 @@ TextureID AssetManager::loadTextureFromFile(const std::filesystem::path& path) {
     textures_.push_back({ID});
     texture_cache_.insert({path.string(), (TextureID)textures_.size()-1});
     return textures_.size()-1;
+}
+
+TextureID AssetManager::storeTextureFromData(const unsigned char* data, int width, int height) {
+    unsigned int ID;
+    glGenTextures(1, &ID);
+    glBindTexture(GL_TEXTURE_2D, ID);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+    glBindTexture(GL_TEXTURE_2D, 0); 
+    textures_.push_back({ID});
+    return textures_.size()-1;
+
 }
 
 /*
@@ -284,6 +352,7 @@ ShaderID AssetManager::loadShaderFromFile(
     } 
     catch(std::ifstream::failure e) {
         std::cout << "FAILED TO READ FROM FILE" << std::endl;
+        return defaultShaders_.fallback_;
     }
 
     const char* vShaderCode = vertexCode.c_str();
@@ -301,6 +370,7 @@ ShaderID AssetManager::loadShaderFromFile(
         glGetShaderInfoLog(vertex, 512, NULL, infoLog);
         std::cout << "ERROR::SHADER::VERTEX::COMPILATION::COMPILATION_FAILED (" << vertex_path.string() << ")" << std::endl;
         std::cerr << infoLog << std::endl;
+        return defaultShaders_.fallback_;
     }
 
 
@@ -313,6 +383,7 @@ ShaderID AssetManager::loadShaderFromFile(
         glGetShaderInfoLog(fragment, 512, NULL, infoLog);
         std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED (" << fragment_path.string() << ")" << std::endl;
         std::cerr << infoLog << std::endl;
+        return defaultShaders_.fallback_;
     }
 
     ID = glCreateProgram();
@@ -324,6 +395,7 @@ ShaderID AssetManager::loadShaderFromFile(
     if(!success) {
         glGetProgramInfoLog(ID, 512, NULL, infoLog);
         std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILURE" << std::endl;
+        return defaultShaders_.fallback_;
     }
 
     glDeleteShader(vertex);

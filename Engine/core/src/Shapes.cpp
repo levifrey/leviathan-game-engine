@@ -35,8 +35,7 @@ Mesh Shapes::createQuad() {
         v_list.push_back(v);
         i_list.push_back(i);
     }
-    Mesh quad(v_list, i_list);
-    return quad;
+    return {v_list, i_list};
 }
 
 Mesh Shapes::createCube(float size) {
@@ -128,8 +127,7 @@ Mesh Shapes::createCube(float size) {
         indices.push_back(i);
     }
 
-    Mesh cube(vertex_list, indices);
-    return cube;
+    return {vertex_list, indices};
 }   
 
 Mesh Shapes::createPlane(float size) {
@@ -174,6 +172,5 @@ Mesh Shapes::createPlane(float size) {
         indices_list.push_back(i);
     }
 
-    Mesh plane(vertex_list, indices_list);
-    return plane;
+    return {vertex_list, indices_list};
 }

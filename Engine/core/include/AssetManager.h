@@ -25,27 +25,52 @@ class AssetManager {
 private:
 
     struct DefaultShaders {
+        ShaderID fallback_;
         ShaderID outline_;
     };
+    
+    struct DefaultGeometry {
+        MeshID cube_;
+        MeshID plane_;
+        MeshID quad_;
+    };
 
+    struct DefaultTextures {
+        TextureID fallback_;
+    };
 
+    struct DefaultMaterials {
+        MaterialID textureless_;
+    };
 
 public:
     static void init();
-
+    
+    // Get assets from ID
     static const Mesh& getMesh(MeshID id);
     static const Texture& getTexture(TextureID id);
     static const Material& getMaterial(MaterialID id);
     static const Model& getModel(ModelID id);
     static const Shader& getShader(ShaderID id);
-
+    
+    // Load assets from filesystem
     static ModelID loadModel(const std::filesystem::path& path);
     static TextureID loadTexture(const std::filesystem::path& path);
     static ShaderID loadShader(
             const std::filesystem::path& vertex_path, 
             const std::filesystem::path& fragment_path);
-
+    
+    // Store generated assets into global data 
+    static MeshID storeMesh(Mesh mesh);
+    static TextureID storeTextureFromData(const unsigned char* data, int width, int height);
+    static MaterialID storeMaterial(Material material);
+    static ModelID storeModel(Model model);
+    
+    // Get Preloaded assets
     static const DefaultShaders& getShaders() { return defaultShaders_; }
+    static const DefaultGeometry& getGeometry() { return defaultGeometry_; }
+    static const DefaultTextures& getTextures() { return defaultTextures_; }
+    static const DefaultMaterials& getMaterials() { return defaultMaterials_; }
 
 
 private:
@@ -103,4 +128,7 @@ private:
             const std::filesystem::path& fragment_path);
 
     static DefaultShaders defaultShaders_;
+    static DefaultGeometry defaultGeometry_;
+    static DefaultTextures defaultTextures_;
+    static DefaultMaterials defaultMaterials_;
 };

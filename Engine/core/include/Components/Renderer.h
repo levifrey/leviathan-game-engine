@@ -31,6 +31,6 @@ class Renderer : public Component {
 
         // Render Settings:
         OutlineConfig outline_{false, glm::vec4(1.0f, 1.0f, 1.0f, 1.0f), 0.05f};
-        void drawOutline(const Mesh& mesh, glm::mat4 transform);
+        void drawOutline(const Shader& shader, const Mesh& mesh, glm::mat4 transform);
 };
 
