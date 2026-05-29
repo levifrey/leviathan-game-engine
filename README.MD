@@ -19,21 +19,36 @@ Following the steps from https://learnopengl.com/ but consolidated to make a use
  - OpenGL 4.6
  - assimp
 
-# Build 
+# Build
  > bash build.sh
 
-(run sample program)
- > ./build/sample
+# Sample Program
+The sample program features:
+- Basic game initialization / workflow example
+- Model loading with assimp
+- Geometry generation
+- Dynamic lighting 
+- Different lighting types 
+- Rendering effects
+- Keyboard / Mouse input (press "o" and "k")
+- Customized / modular game object behavior 
 
-(run custom program)
- - Write program as FILENAME .cpp in games folder
- > ./build/FILENAME
+(run sample program)
+ > bash run.sh sample
+
+# Create your own game
+ - Write program as FILENAME.cpp in /games
+ > bash build.sh
+ > bash run.sh FILENAME
 
 (to remake)
- - will recompile all games
+ - Will recompile all games
  > bash make.sh
 
- - will recompile and run (recommended)
+ - Will just recompile
+ > bash remake.sh
+
+ - Will recompile and run (recommended)
  > bash run.sh FILENAME
 
 
