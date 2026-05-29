@@ -56,7 +56,7 @@ void Camera::update() {
 }
 
 glm::vec3 Camera::getFront() {
-    return getGameObject()->getComponent<Transform>()->getRotation()  * glm::vec3(1.0f, 0.0f, 0.0f);
+    return getGameObject()->getComponent<Transform>()->getWorldRotation()  * glm::vec3(1.0f, 0.0f, 0.0f);
 }
 
 glm::vec3 Camera::getPosition() {

@@ -3,8 +3,10 @@
 
 #include <glm/glm.hpp>
 #include "Components/LightSource.h"
-#include "Shader.h"
 #include "Components/Transform.h"
+#include "GameObject.h"
+#include <cmath>
+#include <glm/gtc/constants.hpp>
 
 class SpotLight : public LightSource {
     public:
@@ -28,8 +30,8 @@ class SpotLight : public LightSource {
 
         SpotLight() : LightSource() {
             direction_ = glm::vec3(0.0f, -1.0f, 0.0f);
-            innerCutoff_ = 12.5f;
-            outerCutoff_ = 17.5f;
+            innerCutoff_ = 10.0f;
+            outerCutoff_ = 20.0f;
         }
         
         LightData packLightData() const override {
@@ -37,7 +39,10 @@ class SpotLight : public LightSource {
             data.ambient_ = glm::vec4(getAmbient(), 1.0f);
             data.diffuse_ = glm::vec4(getDiffuse(), 1.0f);
             data.specular_ = glm::vec4(getSpecular(), 1.0f);
-            data.spotlight_ = glm::vec4(innerCutoff_, outerCutoff_, 1.0f, 1.0f);
+            data.spotlight_ = glm::vec4(
+                    std::cos(glm::radians(innerCutoff_)), 
+                    std::cos(glm::radians(outerCutoff_)), 
+                    1.0f, 1.0f);
             data.direction_ = glm::vec4(direction_, 1.0f);
 
             Transform* t = getGameObject()->getComponent<Transform>();

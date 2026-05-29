@@ -25,7 +25,8 @@ class Transform : public Component {
         
         glm::vec3 getLocalPosition();
         glm::vec3 getWorldPosition();
-        glm::quat getRotation();
+        glm::quat getLocalRotation();
+        glm::quat getWorldRotation();
         glm::vec3 getScale();
 
         glm::mat4 getWorldMatrix();

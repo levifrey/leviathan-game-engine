@@ -29,7 +29,10 @@ class LightSource : public Component {
         void setSpecular(glm::vec3 specular) { specular_ = specular; }
 
         virtual ~LightSource() = default;
+        bool getOn() { return on_; }
+        void flipOnOff() { on_ = !on_; };
     private:
+        bool on_ = true;
         glm::vec3 ambient_;
         glm::vec3 diffuse_;
         glm::vec3 specular_;

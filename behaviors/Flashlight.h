@@ -2,6 +2,7 @@
 #include "Components/Component.h"
 #include "Components/Transform.h"
 #include "Components/lights/SpotLight.h"
+#include "GameObject.h"
 /*
  * Component that dynamically rotates SpotLight based on Transform
  * REQUIRES: SpotLight, Transform

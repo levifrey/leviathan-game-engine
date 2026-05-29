@@ -180,10 +180,13 @@ void Game::Loop() {
 
         // send light data to GPU
         LightBlock light_block;
+        int lightsFound = 0;
         for (int i = 0; i < light_sources_.size(); i++) {
-            light_block.light_data[i] = light_sources_[i]->packLightData();
+            if (light_sources_[i]->getOn()) {
+                light_block.light_data[lightsFound++] = light_sources_[i]->packLightData();
+            }
         }
-        light_block.lightCount[0] = light_sources_.size();
+        light_block.lightCount[0] = lightsFound;
 
         glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
         glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(LightBlock), &light_block);

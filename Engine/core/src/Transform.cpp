@@ -40,7 +40,15 @@ glm::vec3 Transform::getWorldPosition() {
     return glm::vec3(getWorldMatrix()[3]);
 }
 
-glm::quat Transform::getRotation() {
+glm::quat Transform::getLocalRotation() {
+    return rotation_;
+}
+
+glm::quat Transform::getWorldRotation() {
+    GameObject* parent = getGameObject()->getParent();
+    if (parent && parent->hasComponent<Transform>()) {
+        return parent->getComponent<Transform>()->getWorldRotation() * rotation_;
+    }
     return rotation_;
 }
 
