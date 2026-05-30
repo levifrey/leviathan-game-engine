@@ -190,7 +190,7 @@ void Game::Loop() {
         glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
         glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(LightBlock), &light_block);
         
-        bool useFBO = true;
+        bool useFBO = false;
         if (useFBO) {
             glBindFramebuffer(GL_FRAMEBUFFER, frame_buffer_);
         } else {
@@ -218,8 +218,8 @@ void Game::Loop() {
             glClear(GL_COLOR_BUFFER_BIT);
 
             // Bind necessary objects to render the buffer
-            const Shader& screenShader = AssetManager::getShader(AssetManager::getShaders().screen_);
-            const Mesh& quad = AssetManager::getMesh(AssetManager::getGeometry().quad_);
+            const Shader& screenShader = AssetManager::getShader(AssetManager::defaultShaders().screen_);
+            const Mesh& quad = AssetManager::getMesh(AssetManager::defaultMeshes().quad_);
             screenShader.use();
             screenShader.setInt("material.buffer1", 0);
             glActiveTexture(GL_TEXTURE0);

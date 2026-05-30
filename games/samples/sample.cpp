@@ -91,10 +91,10 @@ int main() {
     ModelID cakeModel = AssetManager::loadModel(PathUtils::objectDir / "cake/Cake.obj");
     ModelID backpackModel = AssetManager::loadModel(PathUtils::objectDir / "backpack/backpack.obj");
     ModelID containerModel = AssetManager::storeModel({{
-            {AssetManager::getGeometry().cube_, containerMaterial}
+            {AssetManager::defaultMeshes().cube_, containerMaterial}
             }});
     ModelID cubeModel = AssetManager::storeModel({{
-            {AssetManager::getGeometry().cube_, AssetManager::getMaterials().textureless_}
+            {AssetManager::defaultMeshes().cube_, AssetManager::defaultMaterials().textureless_}
             }});
     ModelID floorModel = AssetManager::storeModel({{
             {floorMesh, brickMaterial}
@@ -118,7 +118,7 @@ int main() {
     // light cube
     t = lightCube.addComponent<Transform>();
     t->translate(glm::vec3(10.0f, -1.0f, 0.0f));
-    r = lightCube.addComponent<Renderer>(cubeModel, AssetManager::getShaders().fallback_);
+    r = lightCube.addComponent<Renderer>(cubeModel, AssetManager::defaultShaders().fallback_);
     AreaLight* l = lightCube.addComponent<AreaLight>();
     game.addGameObject(&lightCube);
     game.addLightSource(l);

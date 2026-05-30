@@ -59,10 +59,10 @@ void Renderer::useMaterial(const Material& material, const Shader& shader) {
         bindTexture(shader, i, "material." + name, material.texture_slots_[i].ID_);
     }
     if (diffuseNr == 1) {
-        bindTexture(shader, i++, "material.diffuse1", AssetManager::getTextures().fallback_); 
+        bindTexture(shader, i++, "material.diffuse1", AssetManager::defaultTextures().fallback_); 
     }
     if (specularNr == 1) {
-        bindTexture(shader, i++, "material.specular1", AssetManager::getTextures().fallback_);
+        bindTexture(shader, i++, "material.specular1", AssetManager::defaultTextures().fallback_);
     }
     glActiveTexture(GL_TEXTURE0);
     shader.setFloat("material.shininess", material.shininess_);
@@ -75,7 +75,7 @@ void Renderer::drawMesh(const Mesh& mesh) {
 }
 
 void Renderer::drawOutline(const Shader& shader, const Mesh& mesh, glm::mat4 transform) {
-    const Shader& outline_shader = AssetManager::getShader(AssetManager::getShaders().outline_);
+    const Shader& outline_shader = AssetManager::getShader(AssetManager::defaultShaders().outline_);
 
     glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
     glStencilMask(0x00);

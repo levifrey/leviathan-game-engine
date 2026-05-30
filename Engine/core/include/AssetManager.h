@@ -69,10 +69,10 @@ public:
     static ShaderID storeShader(Shader shader);
     
     // Get Preloaded assets
-    static const DefaultShaders& getShaders() { return defaultShaders_; }
-    static const DefaultGeometry& getGeometry() { return defaultGeometry_; }
-    static const DefaultTextures& getTextures() { return defaultTextures_; }
-    static const DefaultMaterials& getMaterials() { return defaultMaterials_; }
+    static const DefaultShaders& defaultShaders() { return defaultShaders_; }
+    static const DefaultGeometry& defaultMeshes() { return defaultGeometry_; }
+    static const DefaultTextures& defaultTextures() { return defaultTextures_; }
+    static const DefaultMaterials& defaultMaterials() { return defaultMaterials_; }
 
 
 private:
