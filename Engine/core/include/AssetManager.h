@@ -64,7 +64,6 @@ public:
     // Store generated assets into global data 
     static MeshID storeMesh(Mesh mesh);
     static TextureID storeTexture(Texture texture);
-    static TextureID storeTextureFromData(const unsigned char* data, int width, int height);
     static MaterialID storeMaterial(Material material);
     static ModelID storeModel(Model model);
     
@@ -120,9 +119,6 @@ private:
             aiMaterial* mat, 
             aiTextureType type, 
             LoadContext& context);
-
-    // Texture loading
-    static TextureID loadTextureFromFile(const std::filesystem::path& path);
 
     // Shader loading
     static ShaderID loadShaderFromFile(

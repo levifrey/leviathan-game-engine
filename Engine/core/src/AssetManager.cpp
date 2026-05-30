@@ -2,6 +2,7 @@
 #include "Mesh.h"
 #include "PathUtils.h"
 #include "Shapes.h"
+#include "TextureLoader.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
@@ -54,7 +55,7 @@ void AssetManager::init() {
      *  Load Engine Textures
      */
     unsigned char black[] = {0,0,0,0};
-    defaultTextures_.fallback_ = storeTextureFromData(black, 1, 1);
+    defaultTextures_.fallback_ = storeTexture(TextureLoader::loadTextureFromData(black, 1, 1));
 
     /*
      * Load Engine Materials
@@ -129,7 +130,9 @@ TextureID AssetManager::loadTexture(const std::filesystem::path& path) {
     if (it != texture_cache_.end()) {
         return it->second;
     } else {
-        return loadTextureFromFile(path);
+        TextureID id = storeTexture(TextureLoader::loadTextureFromFile(path));
+        texture_cache_.insert({path.string(), id});
+        return id;
     }
 }
 
@@ -276,55 +279,6 @@ std::vector<TextureSlot> AssetManager::loadMaterialTextures(aiMaterial* mat, aiT
         textures.push_back({id, new_type});
     }
     return textures;
-}
-
-/*
- * Texture Loading Code
- */
-
-TextureID AssetManager::loadTextureFromFile(const std::filesystem::path& path) {   
-    int width, height, nrChannels;
-    unsigned int ID;
-    unsigned char* data = stbi_load(path.c_str(), &width, &height, &nrChannels, 4);
-    glGenTextures(1, &ID);
-    glBindTexture(GL_TEXTURE_2D, ID);
-    bool repeated = true;
-    if (repeated) {
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    } else { 
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    }
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    if (data) {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    } else {
-        std::cout << "FAILED TO LOAD TEXTURE: " << path.string() << std::endl;
-        return defaultTextures_.fallback_;
-    }
-    stbi_image_free(data);
-    std::cout << "-- generated texture from: " << path.string() << ", with ID: " << ID << std::endl;
-
-    textures_.push_back({ID});
-    texture_cache_.insert({path.string(), (TextureID)textures_.size()-1});
-    return textures_.size()-1;
-}
-
-TextureID AssetManager::storeTextureFromData(const unsigned char* data, int width, int height) {
-    unsigned int ID;
-    glGenTextures(1, &ID);
-    glBindTexture(GL_TEXTURE_2D, ID);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-    glBindTexture(GL_TEXTURE_2D, 0); 
-    textures_.push_back({ID});
-    return textures_.size()-1;
 }
 
 /*

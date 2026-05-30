@@ -1,14 +1,19 @@
+// From Engine
 #include "Game.h"
 #include "Components/Renderer.h"
 #include "GameObject.h"
-#include <glad/glad.h>
-#include "DeltaClock.h"
 #include "Components/LightSource.h"
+#include "DeltaClock.h"
 #include "PathUtils.h"
 #include "AssetManager.h"
+#include "TextureLoader.h"
+
+// From Standard Library
 #include <iostream>
+
+// From External
+#include <glad/glad.h>
 #include <glm/glm.hpp>
-#include "Shapes.h"
 
 void printVectr(glm::vec3 vector) {
     std::cout << vector.x << " " << vector.y << " " << vector.z << std::endl;
@@ -128,17 +133,8 @@ Game::Game(int window_width, int window_height) {
     glBindFramebuffer(GL_FRAMEBUFFER, frame_buffer_);
     
     // create texture buffer
-    glGenTextures(1, &buffer_texture_);
-    glBindTexture(GL_TEXTURE_2D, buffer_texture_);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, window_width_, window_height_, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glBindTexture(GL_TEXTURE_2D, 0);
-    /*
-    buffer_texture_ = AssetManager::storeTextureFromData(NULL, window_height_, window_width_); 
-    const Texture& textureRef = AssetManager::getTexture(buffer_texture_);
-    */
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, buffer_texture_, 0);
+    buffer_texture_ = TextureLoader::loadTextureFromData(NULL, window_width_, window_height_);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, buffer_texture_.ID_, 0);
 
     // create render buffer object
     glGenRenderbuffers(1, &rbo_);
@@ -194,7 +190,7 @@ void Game::Loop() {
         glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
         glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(LightBlock), &light_block);
         
-        bool useFBO = false;
+        bool useFBO = true;
         if (useFBO) {
             glBindFramebuffer(GL_FRAMEBUFFER, frame_buffer_);
         } else {
@@ -223,12 +219,11 @@ void Game::Loop() {
 
             // Bind necessary objects to render the buffer
             const Shader& screenShader = AssetManager::getShader(AssetManager::getShaders().screen_);
-            //const Texture& textureRef = AssetManager::getTexture(buffer_texture_);
             const Mesh& quad = AssetManager::getMesh(AssetManager::getGeometry().quad_);
             screenShader.use();
             screenShader.setInt("material.buffer1", 0);
             glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, buffer_texture_);
+            glBindTexture(GL_TEXTURE_2D, buffer_texture_.ID_);
             
             glBindVertexArray(quad.VAO_);
             glDrawElements(GL_TRIANGLES, quad.indices_.size(), GL_UNSIGNED_INT, 0);

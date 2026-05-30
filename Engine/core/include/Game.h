@@ -49,7 +49,7 @@ class Game {
         // used for frame buffering
         unsigned int frame_buffer_;
         unsigned int rbo_;
-        unsigned int buffer_texture_;
+        Texture buffer_texture_;
 };
 
 #endif
