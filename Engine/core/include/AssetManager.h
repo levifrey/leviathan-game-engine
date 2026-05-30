@@ -27,6 +27,7 @@ private:
     struct DefaultShaders {
         ShaderID fallback_;
         ShaderID outline_;
+        ShaderID screen_;
     };
     
     struct DefaultGeometry {
@@ -62,6 +63,7 @@ public:
     
     // Store generated assets into global data 
     static MeshID storeMesh(Mesh mesh);
+    static TextureID storeTexture(Texture texture);
     static TextureID storeTextureFromData(const unsigned char* data, int width, int height);
     static MaterialID storeMaterial(Material material);
     static ModelID storeModel(Model model);

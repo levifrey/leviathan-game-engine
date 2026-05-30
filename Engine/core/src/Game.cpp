@@ -120,14 +120,25 @@ Game::Game(int window_width, int window_height) {
     glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
     glBufferData(GL_UNIFORM_BUFFER, sizeof(LightBlock), nullptr, GL_DYNAMIC_DRAW);
     glBindBufferBase(GL_UNIFORM_BUFFER, 0, lightUBO_);
+    
     /*
-    // generate single FrameBuffer, eventually frame buffers will probably be part of some sort of moudlar pipepline and custom amounts of framebuffers can be used.
+     * Generate only other Frame Buffer
+     */
     glGenFramebuffers(1, &frame_buffer_);
     glBindFramebuffer(GL_FRAMEBUFFER, frame_buffer_);
     
     // create texture buffer
-    buffer_texture_.init(NULL, window_height_, window_width_, TextureType::BUFFER); 
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, buffer_texture_.getID(), 0);
+    glGenTextures(1, &buffer_texture_);
+    glBindTexture(GL_TEXTURE_2D, buffer_texture_);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, window_width_, window_height_, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBindTexture(GL_TEXTURE_2D, 0);
+    /*
+    buffer_texture_ = AssetManager::storeTextureFromData(NULL, window_height_, window_width_); 
+    const Texture& textureRef = AssetManager::getTexture(buffer_texture_);
+    */
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, buffer_texture_, 0);
 
     // create render buffer object
     glGenRenderbuffers(1, &rbo_);
@@ -140,14 +151,6 @@ Game::Game(int window_width, int window_height) {
         std::cout << "ERROR::FRAMEBUFFER:: Framebuffer is not complete!" << std::endl;
     }
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    
-    // create object to be drawn for the screen
-    buffer_object_.init(this);
-    Mesh quad_mesh = Shapes::createQuad();
-    quad_mesh.addTexture(buffer_texture_);
-    quad_model_.addMesh(quad_mesh);
-    buffer_object_.addComponent<Renderer>(&quad_model_, AssetManager::getShader("screen_shader"));
-*/
 }
 
 
@@ -191,14 +194,12 @@ void Game::Loop() {
         glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
         glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(LightBlock), &light_block);
         
-        /*
-        bool useFBO = true;
+        bool useFBO = false;
         if (useFBO) {
             glBindFramebuffer(GL_FRAMEBUFFER, frame_buffer_);
         } else {
             glBindFramebuffer(GL_FRAMEBUFFER, 0);
         }
-        */
 
         // Reset Graphics buffers/masks for clean rendering
         glStencilMask(0xFF);
@@ -206,24 +207,34 @@ void Game::Loop() {
         glStencilMask(0x00);
         glEnable(GL_DEPTH_TEST);
 
-        // call render function for each object me
+        // call render function for each object
         for (GameObject* obj : game_objects_) {
             if(obj->hasComponent<Renderer>()) {
                 Renderer* r = obj->getComponent<Renderer>();
                 r->render();
             }
         }
-
-        /*
-        if (useFBO) {
+        
+        if (useFBO) { 
+            // Reset main rendering buffer
             glDisable(GL_DEPTH_TEST);
             glBindFramebuffer(GL_FRAMEBUFFER, 0);
             glClear(GL_COLOR_BUFFER_BIT);
-            glBindTexture(GL_TEXTURE_2D, buffer_texture_.getID());
-            buffer_object_.getComponent<Renderer>()->render();
+
+            // Bind necessary objects to render the buffer
+            const Shader& screenShader = AssetManager::getShader(AssetManager::getShaders().screen_);
+            //const Texture& textureRef = AssetManager::getTexture(buffer_texture_);
+            const Mesh& quad = AssetManager::getMesh(AssetManager::getGeometry().quad_);
+            screenShader.use();
+            screenShader.setInt("material.buffer1", 0);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, buffer_texture_);
+            
+            glBindVertexArray(quad.VAO_);
+            glDrawElements(GL_TRIANGLES, quad.indices_.size(), GL_UNSIGNED_INT, 0);
+            glBindVertexArray(0); 
         }
-        */
-        
+
         // call debug function
         if (debugFunction_) {
             debugFunction_(*this);

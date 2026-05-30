@@ -4,13 +4,15 @@ out vec4 FragColor;
 in vec2 TexCoords;
 
 struct Material {
-    uniform sampler2D buffer1;
+    sampler2D buffer1;
 };
-Material material;
+uniform Material material;
 const float off = 1.0 / 200.0; 
 
 void main() {
-    //FragColor = texture(screenTexture, TexCoords);
+    
+    FragColor = texture(material.buffer1, TexCoords);
+    
     vec2 offsets[9] = vec2[](
         vec2(-off, off),
         vec2(0.0, off),
@@ -36,4 +38,5 @@ void main() {
     }
 
     FragColor = vec4(color, 1);
+    
 }

@@ -38,6 +38,10 @@ void AssetManager::init() {
     defaultShaders_.outline_ = loadShader(
             PathUtils::shaderDir / "camera.vert", 
             PathUtils::shaderDir / "singleColor.frag");
+
+    defaultShaders_.screen_ = loadShader(
+            PathUtils::shaderDir / "screen.vert",
+            PathUtils::shaderDir / "screen.frag");
     
     /*
      *  Load Engine Geometry
@@ -99,6 +103,11 @@ MaterialID AssetManager::storeMaterial(Material material) {
 ModelID AssetManager::storeModel(Model model) {
     models_.push_back(model);
     return (ModelID)models_.size()-1;
+}
+
+TextureID AssetManager::storeTexture(Texture texture) {
+    textures_.push_back(texture);
+    return (TextureID)textures_.size()-1;
 }
 
 
@@ -316,7 +325,6 @@ TextureID AssetManager::storeTextureFromData(const unsigned char* data, int widt
     glBindTexture(GL_TEXTURE_2D, 0); 
     textures_.push_back({ID});
     return textures_.size()-1;
-
 }
 
 /*

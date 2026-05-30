@@ -1,10 +1,9 @@
-#ifndef COMPONENT_H
-#define COMPONENT_H
+#pragma once
 class GameObject;
 class Component {
     public:
         Component() {}
-        Component(GameObject* game_object) { game_object_ = game_object; }
+        Component(GameObject* game_object) : game_object_(game_object) {}
         virtual ~Component() = default;
         virtual void update() {}
         virtual void init() {}
@@ -14,5 +13,3 @@ class Component {
     private:
         GameObject* game_object_;
 };
-
-#endif

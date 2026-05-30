@@ -46,15 +46,10 @@ class Game {
         GLuint lightUBO_;
         std::function<void(Game&)> debugFunction_;
         
-        /*
         // used for frame buffering
         unsigned int frame_buffer_;
         unsigned int rbo_;
-        Texture buffer_texture_;
-        Model quad_model_;
-        Material buffer_material_;
-        GameObject buffer_object_;
-        */
+        unsigned int buffer_texture_;
 };
 
 #endif
