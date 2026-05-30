@@ -3,6 +3,7 @@
 #include "PathUtils.h"
 #include "Shapes.h"
 #include "TextureLoader.h"
+#include "ShaderLoader.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
@@ -32,17 +33,20 @@ void AssetManager::init() {
     /*
      *  Load Engine Shader
      */
-    defaultShaders_.fallback_ = loadShader(
+    defaultShaders_.fallback_ = storeShader(
+            ShaderLoader::loadShaderFromFile(
             PathUtils::shaderDir / "camera.vert",
-            PathUtils::shaderDir / "default.frag");
+            PathUtils::shaderDir / "default.frag"));
 
-    defaultShaders_.outline_ = loadShader(
+    defaultShaders_.outline_ = storeShader(
+            ShaderLoader::loadShaderFromFile(
             PathUtils::shaderDir / "camera.vert", 
-            PathUtils::shaderDir / "singleColor.frag");
+            PathUtils::shaderDir / "singleColor.frag"));
 
-    defaultShaders_.screen_ = loadShader(
+    defaultShaders_.screen_ = storeShader(
+            ShaderLoader::loadShaderFromFile(
             PathUtils::shaderDir / "screen.vert",
-            PathUtils::shaderDir / "screen.frag");
+            PathUtils::shaderDir / "screen.frag"));
     
     /*
      *  Load Engine Geometry
@@ -111,6 +115,10 @@ TextureID AssetManager::storeTexture(Texture texture) {
     return (TextureID)textures_.size()-1;
 }
 
+ShaderID AssetManager::storeShader(Shader shader) {
+    shaders_.push_back(shader);
+    return (ShaderID)shaders_.size()-1;
+}
 
 /*
  *  Load asset for the first time or pull from cache if already loaded somewherer else
@@ -142,7 +150,9 @@ ShaderID AssetManager::loadShader(const std::filesystem::path& vertex_path, cons
     if(it != shader_cache_.end()) {
         return it->second;
     } else {
-        return loadShaderFromFile(vertex_path, fragment_path);
+        ShaderID id = storeShader(ShaderLoader::loadShaderFromFile(vertex_path, fragment_path));
+        shader_cache_.insert({{vertex_path.string(), fragment_path.string()}, id});
+        return id;
     }
 }
 
@@ -279,91 +289,4 @@ std::vector<TextureSlot> AssetManager::loadMaterialTextures(aiMaterial* mat, aiT
         textures.push_back({id, new_type});
     }
     return textures;
-}
-
-/*
- * Shader Loading code
- */
-
-ShaderID AssetManager::loadShaderFromFile(
-        const std::filesystem::path& vertex_path, 
-        const std::filesystem::path& fragment_path) 
-{
-    unsigned int ID;
-    std::string vertexCode;
-    std::string fragmentCode;
-    std::ifstream vShaderFile;
-    std::ifstream fShaderFile;
-
-    vShaderFile.exceptions (std::ifstream::failbit | std::ifstream::badbit);
-    fShaderFile.exceptions (std::ifstream::failbit | std::ifstream::badbit);
-
-    try {
-        vShaderFile.open(vertex_path.string());
-        fShaderFile.open(fragment_path.string());
-        std::stringstream vShaderStream, fShaderStream;
-        
-        vShaderStream << vShaderFile.rdbuf();
-        fShaderStream << fShaderFile.rdbuf();
-
-        vShaderFile.close();
-        fShaderFile.close();
-
-        vertexCode = vShaderStream.str();
-        fragmentCode = fShaderStream.str();
-    } 
-    catch(std::ifstream::failure e) {
-        std::cout << "FAILED TO READ FROM FILE" << std::endl;
-        return defaultShaders_.fallback_;
-    }
-
-    const char* vShaderCode = vertexCode.c_str();
-    const char* fShaderCode = fragmentCode.c_str();
-    unsigned int vertex, fragment;
-    int success;
-    char infoLog[512];
- 
-    vertex = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertex, 1, &vShaderCode, NULL);
-    glCompileShader(vertex);
-
-    glGetShaderiv(vertex, GL_COMPILE_STATUS, &success);
-    if(!success) {
-        glGetShaderInfoLog(vertex, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::VERTEX::COMPILATION::COMPILATION_FAILED (" << vertex_path.string() << ")" << std::endl;
-        std::cerr << infoLog << std::endl;
-        return defaultShaders_.fallback_;
-    }
-
-
-    fragment = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragment, 1, &fShaderCode, NULL);
-    glCompileShader(fragment);
-
-    glGetShaderiv(fragment, GL_COMPILE_STATUS, &success);
-    if(!success) {
-        glGetShaderInfoLog(fragment, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED (" << fragment_path.string() << ")" << std::endl;
-        std::cerr << infoLog << std::endl;
-        return defaultShaders_.fallback_;
-    }
-
-    ID = glCreateProgram();
-    glAttachShader(ID, vertex);
-    glAttachShader(ID, fragment);
-    glLinkProgram(ID);
-
-    glGetProgramiv(ID, GL_LINK_STATUS, &success);
-    if(!success) {
-        glGetProgramInfoLog(ID, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILURE" << std::endl;
-        return defaultShaders_.fallback_;
-    }
-
-    glDeleteShader(vertex);
-    glDeleteShader(fragment);
-    
-    shaders_.push_back({ID});
-    shader_cache_.insert({{vertex_path.string(), fragment_path.string()}, (ShaderID)shaders_.size()-1});
-    return (ShaderID)shaders_.size()-1;
 }

@@ -66,6 +66,7 @@ public:
     static TextureID storeTexture(Texture texture);
     static MaterialID storeMaterial(Material material);
     static ModelID storeModel(Model model);
+    static ShaderID storeShader(Shader shader);
     
     // Get Preloaded assets
     static const DefaultShaders& getShaders() { return defaultShaders_; }
@@ -119,11 +120,6 @@ private:
             aiMaterial* mat, 
             aiTextureType type, 
             LoadContext& context);
-
-    // Shader loading
-    static ShaderID loadShaderFromFile(
-            const std::filesystem::path& vertex_path, 
-            const std::filesystem::path& fragment_path);
 
     static DefaultShaders defaultShaders_;
     static DefaultGeometry defaultGeometry_;
