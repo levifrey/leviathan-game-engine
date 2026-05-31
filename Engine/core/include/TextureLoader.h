@@ -2,6 +2,7 @@
 
 #include <filesystem>
 #include "Texture.h"
+#include <array>
 
 class TextureLoader {
     public:
@@ -10,4 +11,7 @@ class TextureLoader {
                 const unsigned char* data,
                 unsigned int width,
                 unsigned int height);
+
+        // posx, negx, posy, negy, posz, negz
+        static Texture loadCubemapFromFile(std::array<std::filesystem::path, 6> paths);
 };

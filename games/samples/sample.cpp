@@ -66,6 +66,10 @@ int main() {
     ShaderID phongShader = AssetManager::loadShader(
             PathUtils::shaderDir / "camera.vert",
             PathUtils::shaderDir / "lights.frag");
+    ShaderID blurEffectShader = AssetManager::loadShader(
+            PathUtils::shaderDir / "screen.vert",
+            PathUtils::shaderDir / "blurScreen.frag");
+    //game.setPostProcessingEffect(blurEffectShader);
     
     // Textures
     TextureID containerDiffuse = AssetManager::loadTexture(
@@ -74,6 +78,13 @@ int main() {
             PathUtils::textureDir / "container2_specular.jpg");
     TextureID brickDiffuse = AssetManager::loadTexture(
             PathUtils::textureDir / "brick.jpg");
+
+    std::filesystem::path cubeDir = PathUtils::textureDir / "skybox";
+    TextureID skyCubemap = AssetManager::loadCubemap(
+            {cubeDir / "right.jpg", cubeDir / "left.jpg", 
+            cubeDir / "top.jpg", cubeDir / "bottom.jpg",
+            cubeDir / "front.jpg", cubeDir / "back.jpg"});
+    game.setSkybox(skyCubemap);
     
     // Materials
     MaterialID containerMaterial = AssetManager::storeMaterial({
@@ -82,7 +93,7 @@ int main() {
             32.0f});
     MaterialID brickMaterial = AssetManager::storeMaterial({
             {{brickDiffuse, TextureType::DIFFUSE}},
-            32.0f });
+            32.0f});
 
     // Meshes
     MeshID floorMesh = AssetManager::storeMesh(Shapes::createPlane(50.0f));
@@ -141,7 +152,7 @@ int main() {
     t = floor.addComponent<Transform>();
     r = floor.addComponent<Renderer>(floorModel, phongShader);
     t->translate(glm::vec3(01.0f, -3.0f, 0.0f));
-    game.addGameObject(&floor);
+    //game.addGameObject(&floor);
 
     // flashlight
     t = flashlight.addComponent<Transform>();

@@ -37,6 +37,9 @@ void Renderer::render() {
     }
 }
 
+/*
+ * Ran each time for every mesh, need to find a way to maybe map by material
+ */
 void bindTexture(const Shader& shader, unsigned int bind_num, const std::string& name, TextureID id) {
     glActiveTexture(GL_TEXTURE0 + bind_num);
     shader.setInt(name, bind_num);
@@ -53,10 +56,10 @@ void Renderer::useMaterial(const Material& material, const Shader& shader) {
         std::string name;
         if (material.texture_slots_[i].type_ == TextureType::DIFFUSE) {
             name = "diffuse" + std::to_string(diffuseNr++);
+            bindTexture(shader, i, "material." + name, material.texture_slots_[i].ID_);
         } else if(material.texture_slots_[i].type_ == TextureType::SPECULAR) {
             name = "specular" + std::to_string(specularNr++);
         }
-        bindTexture(shader, i, "material." + name, material.texture_slots_[i].ID_);
     }
     if (diffuseNr == 1) {
         bindTexture(shader, i++, "material.diffuse1", AssetManager::defaultTextures().fallback_); 

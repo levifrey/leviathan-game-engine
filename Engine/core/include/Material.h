@@ -4,7 +4,8 @@
 
 enum TextureType {
     DIFFUSE,
-    SPECULAR
+    SPECULAR,
+    CUBEMAP
 };
 
 struct TextureSlot {

@@ -1,22 +1,32 @@
-#ifndef GAME_H
-#define GAME_H
+#pragma once
+
+// From Standard
+#include <vector>
+#include <functional>
+
+// From External
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
+// From Engine
 #include "Input/MouseHandler.h"
 #include "Input/KeyboardHandler.h"
 #include "GameObject.h"
 #include "Components/Camera.h"
 #include "Shader.h"
 #include "Components/LightSource.h"
-#include <vector>
-#include <functional>
-#include "LightData.h"
 #include "Texture.h"
-#include "Model.h"
+#include "AssetTypes.h"
 
 class Game {
     public:
         Game(int window_width, int window_height);
+        void setCamera(Camera* camera);
+        void setPostProcessingEffect(ShaderID shader) { postEffect_ = shader; }
+        void setSkybox(TextureID texture) {
+            hasSkybox_ = true;
+            skyboxTexture_ = texture;
+        }
         
         static void frameBufferSizeCallback(GLFWwindow* window, int width, int height); 
         static Game* GamePtr(GLFWwindow* window);
@@ -26,7 +36,6 @@ class Game {
 
         MouseHandler* getMouseHandler();
         KeyboardHandler* getKeyboardHandler();
-        void setCamera(Camera* camera);
         Camera* getCamera();
         void setDebugFunction(std::function<void(Game&)> debugFunction);
         
@@ -47,9 +56,17 @@ class Game {
         std::function<void(Game&)> debugFunction_;
         
         // used for frame buffering
+        ShaderID postEffect_;
         unsigned int frame_buffer_;
         unsigned int rbo_;
         Texture buffer_texture_;
-};
 
-#endif
+        // used for skybox
+        TextureID skyboxTexture_;
+        bool hasSkybox_ = false;
+
+        /*
+         * Functions used for rendering pipeline
+         */
+        void drawSkybox();
+};

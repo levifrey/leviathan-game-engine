@@ -147,6 +147,10 @@ Game::Game(int window_width, int window_height) {
         std::cout << "ERROR::FRAMEBUFFER:: Framebuffer is not complete!" << std::endl;
     }
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+    postEffect_ = AssetManager::loadShader(
+            PathUtils::shaderDir / "screen.vert",
+            PathUtils::shaderDir / "defaultScreen.frag");
 }
 
 
@@ -190,18 +194,17 @@ void Game::Loop() {
         glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
         glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(LightBlock), &light_block);
         
-        bool useFBO = false;
-        if (useFBO) {
-            glBindFramebuffer(GL_FRAMEBUFFER, frame_buffer_);
-        } else {
-            glBindFramebuffer(GL_FRAMEBUFFER, 0);
-        }
+        // Draw to frame buffer for cool post processing effects
+        glBindFramebuffer(GL_FRAMEBUFFER, frame_buffer_);
+
 
         // Reset Graphics buffers/masks for clean rendering
         glStencilMask(0xFF);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
         glStencilMask(0x00);
         glEnable(GL_DEPTH_TEST);
+
+        if (hasSkybox_) { drawSkybox(); }
 
         // call render function for each object
         for (GameObject* obj : game_objects_) {
@@ -210,25 +213,25 @@ void Game::Loop() {
                 r->render();
             }
         }
-        
-        if (useFBO) { 
-            // Reset main rendering buffer
-            glDisable(GL_DEPTH_TEST);
-            glBindFramebuffer(GL_FRAMEBUFFER, 0);
-            glClear(GL_COLOR_BUFFER_BIT);
 
-            // Bind necessary objects to render the buffer
-            const Shader& screenShader = AssetManager::getShader(AssetManager::defaultShaders().screen_);
-            const Mesh& quad = AssetManager::getMesh(AssetManager::defaultMeshes().quad_);
-            screenShader.use();
-            screenShader.setInt("material.buffer1", 0);
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, buffer_texture_.ID_);
-            
-            glBindVertexArray(quad.VAO_);
-            glDrawElements(GL_TRIANGLES, quad.indices_.size(), GL_UNSIGNED_INT, 0);
-            glBindVertexArray(0); 
-        }
+
+        /*
+         * Render frame buffer onto a quad object
+         */
+        glDisable(GL_DEPTH_TEST);
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        const Shader& screenShader = AssetManager::getShader(postEffect_);
+        const Mesh& quad = AssetManager::getMesh(AssetManager::defaultMeshes().quad_);
+        screenShader.use();
+        screenShader.setInt("material.buffer1", 0);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, buffer_texture_.ID_);
+        
+        glBindVertexArray(quad.VAO_);
+        glDrawElements(GL_TRIANGLES, quad.indices_.size(), GL_UNSIGNED_INT, 0);
+        glBindVertexArray(0); 
 
         // call debug function
         if (debugFunction_) {
@@ -238,6 +241,22 @@ void Game::Loop() {
         // Update screen
         glfwSwapBuffers(window_);
     }
+}
+
+void Game::drawSkybox() {
+    glDepthMask(GL_FALSE);
+    const Shader& shader = AssetManager::getShader(AssetManager::defaultShaders().skybox_);
+    const Mesh& mesh = AssetManager::getMesh(AssetManager::defaultMeshes().cube_);
+    const Texture& texture = AssetManager::getTexture(skyboxTexture_);
+    shader.use();
+    shader.setInt("material.cubemap", 0);
+    applyGlobalUniforms(shader);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, texture.ID_); 
+    glBindVertexArray(mesh.VAO_);
+    glDrawElements(GL_TRIANGLES, mesh.indices_.size(), GL_UNSIGNED_INT, 0);
+    glBindVertexArray(0);
+    glDepthMask(GL_TRUE);
 }
 
 

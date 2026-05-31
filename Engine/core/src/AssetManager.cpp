@@ -15,13 +15,15 @@
 
 std::vector<Mesh> AssetManager::meshes_;
 std::vector<Texture> AssetManager::textures_;
+std::vector<Texture> AssetManager::cubemaps_;
 std::vector<Material> AssetManager::materials_;
 std::vector<Model> AssetManager::models_;
 std::vector<Shader> AssetManager::shaders_;
 
-std::unordered_map<AssetManager::ShaderKey, ShaderID, AssetManager::ShaderKeyHash> AssetManager::shader_cache_;
-std::unordered_map<std::string, ModelID> AssetManager::model_cache_;
-std::unordered_map<std::string, TextureID> AssetManager::texture_cache_;
+std::map<AssetManager::ShaderKey, ShaderID> AssetManager::shader_cache_;
+std::map<std::string, ModelID> AssetManager::model_cache_;
+std::map<std::string, TextureID> AssetManager::texture_cache_;
+std::map<AssetManager::CubemapKey, TextureID> AssetManager::cubemap_cache_;
 
 AssetManager::DefaultShaders AssetManager::defaultShaders_;
 AssetManager::DefaultGeometry AssetManager::defaultGeometry_;
@@ -33,21 +35,18 @@ void AssetManager::init() {
     /*
      *  Load Engine Shader
      */
-    defaultShaders_.fallback_ = storeShader(
-            ShaderLoader::loadShaderFromFile(
+    defaultShaders_.fallback_ = loadShader(
             PathUtils::shaderDir / "camera.vert",
-            PathUtils::shaderDir / "default.frag"));
+            PathUtils::shaderDir / "default.frag");
 
-    defaultShaders_.outline_ = storeShader(
-            ShaderLoader::loadShaderFromFile(
+    defaultShaders_.outline_ = loadShader(
             PathUtils::shaderDir / "camera.vert", 
-            PathUtils::shaderDir / "singleColor.frag"));
+            PathUtils::shaderDir / "singleColor.frag");
 
-    defaultShaders_.screen_ = storeShader(
-            ShaderLoader::loadShaderFromFile(
-            PathUtils::shaderDir / "screen.vert",
-            PathUtils::shaderDir / "screen.frag"));
-    
+    defaultShaders_.skybox_ = loadShader(
+            PathUtils::shaderDir / "skybox.vert", 
+            PathUtils::shaderDir / "skybox.frag");
+
     /*
      *  Load Engine Geometry
      */
@@ -80,9 +79,13 @@ const Texture& AssetManager::getTexture(TextureID id) {
     return textures_.at(id);
 }
 
+const Texture& AssetManager::getCubemap(TextureID id) {
+    return cubemaps_.at(id);
+}
+
 const Material& AssetManager::getMaterial(MaterialID id) {
     return materials_.at(id);
-};
+}
 
 const Model& AssetManager::getModel(ModelID id) {
     return models_.at(id);
@@ -115,10 +118,16 @@ TextureID AssetManager::storeTexture(Texture texture) {
     return (TextureID)textures_.size()-1;
 }
 
+TextureID AssetManager::storeCubemap(Texture texture) {
+    cubemaps_.push_back(texture);
+    return (TextureID)cubemaps_.size()-1;
+}
+
 ShaderID AssetManager::storeShader(Shader shader) {
     shaders_.push_back(shader);
     return (ShaderID)shaders_.size()-1;
 }
+
 
 /*
  *  Load asset for the first time or pull from cache if already loaded somewherer else
@@ -140,6 +149,17 @@ TextureID AssetManager::loadTexture(const std::filesystem::path& path) {
     } else {
         TextureID id = storeTexture(TextureLoader::loadTextureFromFile(path));
         texture_cache_.insert({path.string(), id});
+        return id;
+    }
+}
+
+TextureID AssetManager::loadCubemap(std::array<std::filesystem::path, 6> paths) {
+    auto it = cubemap_cache_.find({paths});
+    if (it != cubemap_cache_.end()) {
+        return it->second;
+    } else {
+        TextureID id = storeCubemap(TextureLoader::loadCubemapFromFile(paths));
+        cubemap_cache_.insert({{paths}, id});
         return id;
     }
 }

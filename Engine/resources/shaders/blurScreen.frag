@@ -9,10 +9,7 @@ struct Material {
 uniform Material material;
 const float off = 1.0 / 200.0; 
 
-void main() {
-    
-    FragColor = texture(material.buffer1, TexCoords);
-    
+void main() { 
     vec2 offsets[9] = vec2[](
         vec2(-off, off),
         vec2(0.0, off),

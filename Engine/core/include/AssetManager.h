@@ -2,7 +2,7 @@
 
 // standard
 #include <string>
-#include <unordered_map>
+#include <map>
 #include <vector>
 #include <filesystem>
 #include <functional>
@@ -20,6 +20,11 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
+
+/*
+ * A global storage for all game assets
+ * If an Asset is needed between objects, AssetManager will cache them and can be loaded separately
+ */
 class AssetManager {
 
 private:
@@ -27,7 +32,7 @@ private:
     struct DefaultShaders {
         ShaderID fallback_;
         ShaderID outline_;
-        ShaderID screen_;
+        ShaderID skybox_;
     };
     
     struct DefaultGeometry {
@@ -53,10 +58,12 @@ public:
     static const Material& getMaterial(MaterialID id);
     static const Model& getModel(ModelID id);
     static const Shader& getShader(ShaderID id);
+    static const Texture& getCubemap(TextureID id);
     
-    // Load assets from filesystem
+    // Load assets from AssetManager
     static ModelID loadModel(const std::filesystem::path& path);
     static TextureID loadTexture(const std::filesystem::path& path);
+    static TextureID loadCubemap(std::array<std::filesystem::path, 6> paths);
     static ShaderID loadShader(
             const std::filesystem::path& vertex_path, 
             const std::filesystem::path& fragment_path);
@@ -64,6 +71,7 @@ public:
     // Store generated assets into global data 
     static MeshID storeMesh(Mesh mesh);
     static TextureID storeTexture(Texture texture);
+    static TextureID storeCubemap(Texture texture);
     static MaterialID storeMaterial(Material material);
     static ModelID storeModel(Model model);
     static ShaderID storeShader(Shader shader);
@@ -86,31 +94,32 @@ private:
     struct ShaderKey {
         std::string vertex_path;
         std::string fragment_path;
-        bool operator==(const ShaderKey& other) const {
-            return vertex_path == other.vertex_path &&
-                   fragment_path == other.fragment_path;
+        bool operator<(const ShaderKey& other) const {
+            if (vertex_path != other.vertex_path) return vertex_path < other.vertex_path;
+            return fragment_path < other.fragment_path;
         }
     };
 
-    struct ShaderKeyHash {
-        size_t operator()(const ShaderKey& key) const {
-            return std::hash<std::string>()(key.vertex_path) ^
-                (std::hash<std::string>()(key.fragment_path) << 1);
+    struct CubemapKey {
+        std::array<std::filesystem::path, 6> paths;
+        bool operator<(const CubemapKey& other) const {
+            return paths < other.paths;
         }
     };
-
 
     // Global Data Storage
     static std::vector<Mesh> meshes_;
     static std::vector<Texture> textures_;
+    static std::vector<Texture> cubemaps_;
     static std::vector<Material> materials_;
     static std::vector<Model> models_;
     static std::vector<Shader> shaders_;
 
     // Data Caches
-    static std::unordered_map<std::string, TextureID> texture_cache_;
-    static std::unordered_map<std::string, ModelID> model_cache_;
-    static std::unordered_map<ShaderKey, ShaderID, ShaderKeyHash> shader_cache_;
+    static std::map<std::string, TextureID> texture_cache_;
+    static std::map<CubemapKey, TextureID> cubemap_cache_;
+    static std::map<std::string, ModelID> model_cache_;
+    static std::map<ShaderKey, ShaderID> shader_cache_;
 
     // Model loading
     static ModelID loadModelFromFile(const std::filesystem::path& path);
