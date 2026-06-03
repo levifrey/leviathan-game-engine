@@ -69,4 +69,5 @@ class Game {
          * Functions used for rendering pipeline
          */
         void drawSkybox();
+        void drawScreenBuffer();
 };

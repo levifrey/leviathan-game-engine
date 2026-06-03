@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "Game.h"
 #include "AssetManager.h"
+#include "RenderBindings.h"
 #include <iostream>
 
 Renderer::Renderer(ModelID model_id, ShaderID shader_id) : 
@@ -48,26 +49,11 @@ void bindTexture(const Shader& shader, unsigned int bind_num, const std::string&
 }
 
 void Renderer::useMaterial(const Material& material, const Shader& shader) {
-    unsigned int diffuseNr = 1;
-    unsigned int specularNr = 1;
-    unsigned int bufferNr = 1;
-    unsigned int i;
-    for (i = 0; i < material.texture_slots_.size(); i++) {
-        std::string name;
-        if (material.texture_slots_[i].type_ == TextureType::DIFFUSE) {
-            name = "diffuse" + std::to_string(diffuseNr++);
-            bindTexture(shader, i, "material." + name, material.texture_slots_[i].ID_);
-        } else if(material.texture_slots_[i].type_ == TextureType::SPECULAR) {
-            name = "specular" + std::to_string(specularNr++);
-        }
-    }
-    if (diffuseNr == 1) {
-        bindTexture(shader, i++, "material.diffuse1", AssetManager::defaultTextures().fallback_); 
-    }
-    if (specularNr == 1) {
-        bindTexture(shader, i++, "material.specular1", AssetManager::defaultTextures().fallback_);
-    }
-    glActiveTexture(GL_TEXTURE0);
+    shader.use();
+    const Texture& diffuse = AssetManager::getTexture(material.diffuse_);
+    const Texture& specular = AssetManager::getTexture(material.specular_);
+    glBindTextureUnit((int)TextureBinding::Diffuse, diffuse.ID_);
+    glBindTextureUnit((int)TextureBinding::Specular, specular.ID_);
     shader.setFloat("material.shininess", material.shininess_);
 }
 

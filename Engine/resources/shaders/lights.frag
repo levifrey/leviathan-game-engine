@@ -10,10 +10,11 @@ in vec3 FragPos;
 out vec4 FragColor;
 
 struct Material {
-    sampler2D diffuse1;
-    sampler2D specular1;
     float shininess;
 };
+
+layout (binding = 0) uniform sampler2D diffuseTex;
+layout (binding = 1) uniform sampler2D specularTex;
 
 struct LightData {
     vec4 position_type; // (x,y,z,type)
@@ -46,8 +47,8 @@ vec3 CalcDirLight(LightData light, vec3 norm, vec3 viewDir) {
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
 
     // combine
-    vec3 diffuse = vec3(light.diffuse) * diff * vec3(texture(material.diffuse1, TexCoord));
-    vec3 specular = vec3(light.specular) * spec * vec3(texture(material.specular1, TexCoord));
+    vec3 diffuse = vec3(light.diffuse) * diff * vec3(texture(diffuseTex, TexCoord));
+    vec3 specular = vec3(light.specular) * spec * vec3(texture(specularTex, TexCoord));
     return (diffuse + specular);
 }
 
@@ -58,14 +59,14 @@ vec3 CalcPointLight(LightData light, vec3 norm, vec3 viewDir) {
     float lightAngle = max(dot(norm, lightDir), 0.0);
 
     // diffuse shading
-    vec3 diffuse = vec3(light.diffuse) * lightAngle * vec3(texture(material.diffuse1, TexCoord));
+    vec3 diffuse = vec3(light.diffuse) * lightAngle * vec3(texture(diffuseTex, TexCoord));
 
     // specular shading
     vec3 reflectDir = reflect(-lightDir, norm);
     float light_above_face = max(dot(lightDir, norm), 0.0);
     reflectDir = normalize(light_above_face * reflectDir);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
-    vec3 specular = vec3(light.specular) * spec * vec3(texture(material.specular1, TexCoord));
+    vec3 specular = vec3(light.specular) * spec * vec3(texture(specularTex, TexCoord));
     return attenuation * (specular + diffuse);
 }
 
@@ -74,10 +75,10 @@ vec3 CalcAreaLight(LightData light, vec3 norm, vec3 viewDir) {
     float lightAngle = max(dot(norm, lightDir), 0.0);
 
     // diffuse shading
-    vec3 diffuse = vec3(light.diffuse) * lightAngle * vec3(texture(material.diffuse1, TexCoord));
+    vec3 diffuse = vec3(light.diffuse) * lightAngle * vec3(texture(diffuseTex, TexCoord));
 
     // specular shading
-    vec3 specTex = texture(material.specular1, TexCoord).rgb;
+    vec3 specTex = texture(specularTex, TexCoord).rgb;
     float specMask = max(max(specTex.r, specTex.g), specTex.b);
     vec3 reflectDir = reflect(-lightDir, norm);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
@@ -87,7 +88,7 @@ vec3 CalcAreaLight(LightData light, vec3 norm, vec3 viewDir) {
     float light_above_face = max(dot(lightDir, norm), 0.0);
     reflectDir = normalize(light_above_face * reflectDir);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
-    vec3 specular = vec3(light.specular) * spec * vec3(texture(material.specular1, TexCoord));
+    vec3 specular = vec3(light.specular) * spec * vec3(texture(specularTex, TexCoord));
     */
     return specular + diffuse;
 }
@@ -100,14 +101,14 @@ vec3 CalcSpotLight(LightData light, vec3 norm, vec3 viewDir) {
     
     // diffuse shading
     float lightAngle = max(dot(norm, lightDir), 0.0);
-    vec3 diffuse = vec3(light.diffuse) * lightAngle * vec3(texture(material.diffuse1, TexCoord));
+    vec3 diffuse = vec3(light.diffuse) * lightAngle * vec3(texture(diffuseTex, TexCoord));
 
     // specular shading
     vec3 reflectDir = reflect(-lightDir, norm);
     float light_above_face = max(dot(lightDir, norm), 0.0);
     reflectDir = normalize(light_above_face * reflectDir);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
-    vec3 specular = vec3(light.specular) * spec * vec3(texture(material.specular1, TexCoord));
+    vec3 specular = vec3(light.specular) * spec * vec3(texture(specularTex, TexCoord));
 
     return intensity * (diffuse + specular);
 }
@@ -115,7 +116,7 @@ vec3 CalcSpotLight(LightData light, vec3 norm, vec3 viewDir) {
 
 void main()
 {
-    vec4 texColor = texture(material.diffuse1, TexCoord);
+    vec4 texColor = texture(diffuseTex, TexCoord);
     if (texColor.a < 0.1) {
         discard;
     }

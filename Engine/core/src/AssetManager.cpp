@@ -63,7 +63,7 @@ void AssetManager::init() {
     /*
      * Load Engine Materials
      */
-    defaultMaterials_.textureless_ = storeMaterial({{},1.0f});
+    defaultMaterials_.textureless_ = storeMaterial({});
     
 }
 
@@ -260,29 +260,22 @@ void AssetManager::processMesh(aiMesh* mesh, const aiScene* scene, LoadContext& 
     
     // Create a new material and assign a new ID
     else {
-        Material new_material;
-
-        std::vector<TextureSlot> new_mat_textures;
-        float shininess = 1.0f;
+        Material newMaterial;
         
         // Get textures
         aiMaterial* assimp_material = scene->mMaterials[mesh->mMaterialIndex];
-        vector<TextureSlot> diffuse_maps = loadMaterialTextures(assimp_material, aiTextureType_DIFFUSE, context);
-        vector<TextureSlot> specular_maps = loadMaterialTextures(assimp_material, aiTextureType_SPECULAR, context);
-        new_mat_textures.insert(new_mat_textures.end(), diffuse_maps.begin(), diffuse_maps.end());
-        new_mat_textures.insert(new_mat_textures.end(), specular_maps.begin(), specular_maps.end());
-
+        newMaterial.diffuse_ = loadMaterialTextures(assimp_material, aiTextureType_DIFFUSE, context);
+        newMaterial.specular_ = loadMaterialTextures(assimp_material, aiTextureType_SPECULAR, context);
         // Get shininess
+        int shininess;
         if (assimp_material->Get(AI_MATKEY_SHININESS, shininess) == AI_SUCCESS) {
             if (shininess <= 0.0f)
                 shininess = 1.0f;
+            newMaterial.shininess_ = shininess;
         }
         
         // Fill the Material object, add it to the assets, and cache it
-        new_material.texture_slots_ = std::move(new_mat_textures);
-        new_material.shininess_ = shininess;
-        materials_.push_back(std::move(new_material));
-        std::cout << "diffuse" <<std::endl;
+        materials_.push_back(std::move(newMaterial));
         mat_id = materials_.size()-1;
         context.material_cache_.insert({mesh->mMaterialIndex, mat_id});
     }
@@ -291,22 +284,13 @@ void AssetManager::processMesh(aiMesh* mesh, const aiScene* scene, LoadContext& 
 }
 
 
-std::vector<TextureSlot> AssetManager::loadMaterialTextures(aiMaterial* mat, aiTextureType type, LoadContext& context) {
-    TextureType new_type;
-    if(type == aiTextureType_DIFFUSE) {
-        new_type = TextureType::DIFFUSE;
-    } else if(type == aiTextureType_SPECULAR) {
-        new_type = TextureType::SPECULAR;
+TextureID AssetManager::loadMaterialTextures(aiMaterial* mat, aiTextureType type, LoadContext& context) {
+    if (mat->GetTextureCount(type) == 0) {
+        return defaultTextures_.fallback_;
     }
-
-    std::vector<TextureSlot> textures;
-    for (unsigned int i = 0; i < mat->GetTextureCount(type); i++) {
-        aiString str;
-        mat->GetTexture(type, i, &str);
-        string sub_path = str.C_Str();
-        const std::filesystem::path new_path = context.directory_ / sub_path;
-        TextureID id = loadTexture(new_path);
-        textures.push_back({id, new_type});
-    }
-    return textures;
+    aiString str;
+    mat->GetTexture(type, 0, &str);
+    string subPath = str.C_Str();
+    const std::filesystem::path newPath = context.directory_ / subPath;
+    return loadTexture(newPath);
 }

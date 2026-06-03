@@ -60,13 +60,14 @@ public:
     static const Shader& getShader(ShaderID id);
     static const Texture& getCubemap(TextureID id);
     
-    // Load assets from AssetManager
+    // Load assets from Filesystem and emplace into AssetManager
     static ModelID loadModel(const std::filesystem::path& path);
     static TextureID loadTexture(const std::filesystem::path& path);
     static TextureID loadCubemap(std::array<std::filesystem::path, 6> paths);
     static ShaderID loadShader(
             const std::filesystem::path& vertex_path, 
             const std::filesystem::path& fragment_path);
+
     
     // Store generated assets into global data 
     static MeshID storeMesh(Mesh mesh);
@@ -125,7 +126,7 @@ private:
     static ModelID loadModelFromFile(const std::filesystem::path& path);
     static void processNode(aiNode* node, const aiScene* scene, LoadContext& context);
     static void processMesh(aiMesh* mesh, const aiScene* scene, LoadContext& context);
-    static std::vector<TextureSlot> loadMaterialTextures(
+    static TextureID loadMaterialTextures(
             aiMaterial* mat, 
             aiTextureType type, 
             LoadContext& context);

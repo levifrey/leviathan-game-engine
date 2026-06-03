@@ -3,12 +3,8 @@
 out vec4 FragColor;
 in vec3 TexCoords;
 
-struct Material {
-    samplerCube cubemap;
-};
-uniform Material material;
+layout (binding = 2) uniform samplerCube cubemap;
 
 void main() {
-    //FragColor = vec4(1.0, 0.0, 0.0, 0.0);
-    FragColor = texture(material.cubemap, TexCoords);
+    FragColor = texture(cubemap, TexCoords);
 }

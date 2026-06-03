@@ -5,19 +5,15 @@ in vec2 TexCoord;
 
 out vec4 FragColor;
 
-struct Material {
-    sampler2D diffuse1;
-};
-
-uniform Material material;
+layout (binding = 0) uniform sampler2D diffuseTex;
 
 void main()
 {
     //FragColor = vec4(TexCoord, 0.0, 1.0);
-    vec4 texColor = texture(material.diffuse1, TexCoord);
+    vec4 texColor = texture(diffuseTex, TexCoord);
     if (texColor.a < 0.1) {
         discard;
     }
-    FragColor = texture(material.diffuse1,TexCoord);
+    FragColor = texColor;
 }
 

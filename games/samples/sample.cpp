@@ -87,28 +87,29 @@ int main() {
     game.setSkybox(skyCubemap);
     
     // Materials
-    MaterialID containerMaterial = AssetManager::storeMaterial({
-            {{containerDiffuse, TextureType::DIFFUSE},
-            {containerSpecular, TextureType::SPECULAR}}, 
-            32.0f});
-    MaterialID brickMaterial = AssetManager::storeMaterial({
-            {{brickDiffuse, TextureType::DIFFUSE}},
-            32.0f});
+    Material containerMaterial;
+    containerMaterial.diffuse_ = containerDiffuse;
+    containerMaterial.specular_ = containerSpecular;
+    containerMaterial.shininess_ = 32.0f;
+    Material brickMaterial;
+    brickMaterial.diffuse_ = brickDiffuse;
+    brickMaterial.shininess_ = 32.0f;
+    MaterialID containerMatID = AssetManager::storeMaterial(containerMaterial);
+    MaterialID brickMatID = AssetManager::storeMaterial(brickMaterial);
 
     // Meshes
     MeshID floorMesh = AssetManager::storeMesh(Shapes::createPlane(50.0f));
 
     // Models
-    ModelID cakeModel = AssetManager::loadModel(PathUtils::objectDir / "cake/Cake.obj");
     ModelID backpackModel = AssetManager::loadModel(PathUtils::objectDir / "backpack/backpack.obj");
     ModelID containerModel = AssetManager::storeModel({{
-            {AssetManager::defaultMeshes().cube_, containerMaterial}
+            {AssetManager::defaultMeshes().cube_, containerMatID}
             }});
     ModelID cubeModel = AssetManager::storeModel({{
             {AssetManager::defaultMeshes().cube_, AssetManager::defaultMaterials().textureless_}
             }});
     ModelID floorModel = AssetManager::storeModel({{
-            {floorMesh, brickMaterial}
+            {floorMesh, brickMatID}
             }});
     
     // Game Objects
