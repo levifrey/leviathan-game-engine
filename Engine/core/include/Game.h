@@ -53,6 +53,7 @@ class Game {
         std::vector<GameObject*> game_objects_;
         std::vector<LightSource*> light_sources_;
         GLuint lightUBO_;
+        GLuint cameraUBO_;
         std::function<void(Game&)> debugFunction_;
         
         // used for frame buffering
@@ -68,6 +69,7 @@ class Game {
         /*
          * Functions used for rendering pipeline
          */
+        void writeToUBOs();
         void drawSkybox();
         void drawScreenBuffer();
 };

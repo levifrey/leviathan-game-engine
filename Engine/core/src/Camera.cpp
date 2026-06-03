@@ -70,3 +70,7 @@ glm::mat4 Camera::getView() {
 glm::mat4 Camera::getProjection() {
     return glm::perspective(glm::radians(fov_), aspect_ratio_, zNear_, zFar_);
 }
+
+CameraData Camera::getData() {
+    return {getView(), getProjection(), glm::vec4(getPosition(), 1.0f)};
+}

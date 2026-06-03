@@ -47,6 +47,11 @@ void AssetManager::init() {
             PathUtils::shaderDir / "skybox.vert", 
             PathUtils::shaderDir / "skybox.frag");
 
+    defaultShaders_.noPostEffect_ = loadShader(
+            PathUtils::shaderDir / "screen.vert",
+            PathUtils::shaderDir / "defaultScreen.frag");
+
+
     /*
      *  Load Engine Geometry
      */

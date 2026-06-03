@@ -5,8 +5,12 @@ layout (location = 2) in vec2 aTexCoords;
 
 out vec3 TexCoords;
 
-uniform mat4 projection;
-uniform mat4 view;
+layout(std140, binding=1) uniform CameraData {
+    mat4 view;
+    mat4 projection;
+    vec4 viewPos;
+};
+
 
 void main() {
     TexCoords = aPos;

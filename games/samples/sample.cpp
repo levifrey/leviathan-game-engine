@@ -69,6 +69,9 @@ int main() {
     ShaderID blurEffectShader = AssetManager::loadShader(
             PathUtils::shaderDir / "screen.vert",
             PathUtils::shaderDir / "blurScreen.frag");
+    ShaderID reflectShader = AssetManager::loadShader(
+            PathUtils::shaderDir / "reflect.vert",
+            PathUtils::shaderDir / "reflect.frag");
     //game.setPostProcessingEffect(blurEffectShader);
     
     // Textures
@@ -91,14 +94,16 @@ int main() {
     containerMaterial.diffuse_ = containerDiffuse;
     containerMaterial.specular_ = containerSpecular;
     containerMaterial.shininess_ = 32.0f;
+
     Material brickMaterial;
     brickMaterial.diffuse_ = brickDiffuse;
     brickMaterial.shininess_ = 32.0f;
+
     MaterialID containerMatID = AssetManager::storeMaterial(containerMaterial);
     MaterialID brickMatID = AssetManager::storeMaterial(brickMaterial);
 
     // Meshes
-    MeshID floorMesh = AssetManager::storeMesh(Shapes::createPlane(50.0f));
+    MeshID floorMesh = AssetManager::storeMesh(Shapes::createPlane(40.0f));
 
     // Models
     ModelID backpackModel = AssetManager::loadModel(PathUtils::objectDir / "backpack/backpack.obj");
@@ -116,7 +121,7 @@ int main() {
     GameObject lightCube(&game);
     GameObject backpack(&game);
     GameObject container(&game);
-    GameObject cake(&game);
+    GameObject mirrorContainer(&game);
     GameObject floor(&game);
     GameObject flashlight(&game);
 
@@ -163,6 +168,13 @@ int main() {
     t->translate(glm::vec3(1.0f,-0.2f, 0.5f));
     game.addGameObject(&flashlight);
     game.addLightSource(s);
+
+    // mirror
+    t = mirrorContainer.addComponent<Transform>();
+    t->translate(glm::vec3(1.0f, -1.0f, 7.0f));
+    t->scale(glm::vec3(4,4,4));
+    r = mirrorContainer.addComponent<Renderer>(containerModel, reflectShader);
+    game.addGameObject(&mirrorContainer);
 
     game.Loop();
     

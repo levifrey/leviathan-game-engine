@@ -23,4 +23,4 @@ enum LightType {
     POINT,
     DIRECTIONAL,
     SPOT
-};
+}; 

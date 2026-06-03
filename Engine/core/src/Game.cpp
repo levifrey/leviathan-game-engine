@@ -8,6 +8,7 @@
 #include "AssetManager.h"
 #include "TextureLoader.h"
 #include "RenderBindings.h"
+#include "CameraData.h"
 
 // From Standard Library
 #include <iostream>
@@ -102,6 +103,7 @@ Game::Game(int window_width, int window_height) {
     glStencilMask(0x00);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_PROGRAM_POINT_SIZE);
 
     glClearColor(23.0f/255.0f, 19.0f/255.0f, 19.0f/255.0f, 1.0f);
     glfwSetInputMode(window_, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -126,6 +128,12 @@ Game::Game(int window_width, int window_height) {
     glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
     glBufferData(GL_UNIFORM_BUFFER, sizeof(LightBlock), nullptr, GL_DYNAMIC_DRAW);
     glBindBufferBase(GL_UNIFORM_BUFFER, (int)UBOBinding::Lights, lightUBO_);
+
+    // generate camera UBO
+    glGenBuffers(1, &cameraUBO_);
+    glBindBuffer(GL_UNIFORM_BUFFER, cameraUBO_);
+    glBufferData(GL_UNIFORM_BUFFER, sizeof(CameraData), nullptr, GL_DYNAMIC_DRAW);
+    glBindBufferBase(GL_UNIFORM_BUFFER, (int)UBOBinding::Camera, cameraUBO_);
     
     /*
      * Generate only other Frame Buffer
@@ -149,9 +157,7 @@ Game::Game(int window_width, int window_height) {
     }
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-    postEffect_ = AssetManager::loadShader(
-            PathUtils::shaderDir / "screen.vert",
-            PathUtils::shaderDir / "defaultScreen.frag");
+    postEffect_ = AssetManager::defaultShaders().noPostEffect_;
 }
 
 
@@ -182,19 +188,8 @@ void Game::Loop() {
             obj->update();
         }
 
-        // send light data to GPU
-        LightBlock light_block;
-        int lightsFound = 0;
-        for (int i = 0; i < light_sources_.size(); i++) {
-            if (light_sources_[i]->getOn()) {
-                light_block.light_data[lightsFound++] = light_sources_[i]->packLightData();
-            }
-        }
-        light_block.lightCount[0] = lightsFound;
+        writeToUBOs();
 
-        glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
-        glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(LightBlock), &light_block);
-        
         // Draw to frame buffer for cool post processing effects
         glBindFramebuffer(GL_FRAMEBUFFER, frame_buffer_);
 
@@ -212,7 +207,7 @@ void Game::Loop() {
                 r->render();
             }
         }
-        if (hasSkybox_) { drawSkybox(); }
+        if (hasSkybox_) { drawSkybox();}
         drawScreenBuffer();
 
         // call debug function
@@ -223,6 +218,27 @@ void Game::Loop() {
         // Update screen
         glfwSwapBuffers(window_);
     }
+}
+
+void Game::writeToUBOs() {
+    // fill Light UBO
+    LightBlock light_block;
+    int lightsFound = 0;
+    for (int i = 0; i < light_sources_.size(); i++) {
+        if (light_sources_[i]->getOn()) {
+            light_block.light_data[lightsFound++] = light_sources_[i]->packLightData();
+        }
+    }
+    light_block.lightCount[0] = lightsFound;
+
+    glBindBuffer(GL_UNIFORM_BUFFER, lightUBO_);
+    glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(LightBlock), &light_block);
+        
+    // fill Camera UBO
+    CameraData cameraData = camera_->getData();
+    glBindBuffer(GL_UNIFORM_BUFFER, cameraUBO_);
+    glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(CameraData), &cameraData); 
+    glBindBuffer(GL_UNIFORM_BUFFER, 0);
 }
 
 void Game::drawScreenBuffer() {
@@ -243,10 +259,8 @@ void Game::drawSkybox() {
     glDepthFunc(GL_LEQUAL);
     const Shader& shader = AssetManager::getShader(AssetManager::defaultShaders().skybox_);
     const Mesh& mesh = AssetManager::getMesh(AssetManager::defaultMeshes().cube_);
-    const Texture& texture = AssetManager::getCubemap(skyboxTexture_);
 
     shader.use();
-    glBindTextureUnit(2, texture.ID_);
     applyGlobalUniforms(shader);
     glBindVertexArray(mesh.VAO_);
     glDrawElements(GL_TRIANGLES, mesh.indices_.size(), GL_UNSIGNED_INT, 0);
@@ -257,7 +271,11 @@ void Game::drawSkybox() {
 
 
 void Game::applyGlobalUniforms(const Shader& shader) {
+    const Texture& texture = AssetManager::getCubemap(skyboxTexture_);
+    glBindTextureUnit((int)TextureBinding::Skybox, texture.ID_);
+    /*
     shader.setMat4("view", getCamera()->getView());
     shader.setMat4("projection", getCamera()->getProjection());
     shader.setVec3("viewPos", getCamera()->getPosition());
+    */
 }

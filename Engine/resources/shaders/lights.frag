@@ -32,9 +32,14 @@ layout(std140, binding = 0) uniform LightBlock {
     vec4 lightCount;
 };
 
+layout(std140, binding = 1) uniform CameraData {
+    mat4 view;
+    mat4 projection;
+    vec4 viewPos;
+};
+
 uniform Material material;
 uniform mat4 model;
-uniform vec3 viewPos;
 
 vec3 CalcDirLight(LightData light, vec3 norm, vec3 viewDir) {
     vec3 lightDir = normalize(-vec3(light.direction));
@@ -121,7 +126,7 @@ void main()
         discard;
     }
     vec3 norm = normalize(Normal);
-    vec3 viewDir = normalize(viewPos - FragPos);
+    vec3 viewDir = normalize(vec3(viewPos) - FragPos);
     vec3 result = vec3(0.0, 0.0, 0.0);
     for (int i = 0; i < lightCount[0]; i++) {
         if (lights[i].position_type[3] == AREA) {
@@ -136,3 +141,4 @@ void main()
     }
     FragColor = vec4(result, 1.0);
 }
+ 

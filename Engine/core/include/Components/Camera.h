@@ -1,7 +1,7 @@
-#ifndef CAMERA_H
-#define CAMERA_H
+#pragma once
 #include <glm/glm.hpp>
 #include "Components/Component.h"
+#include "CameraData.h"
 
 class Camera : public Component {
     public:
@@ -10,17 +10,20 @@ class Camera : public Component {
                float fov = 45.0f,
                float aspect_ratio = 1.0f,
                float zNear = 0.1f,
-               float zFar = 100.0f
-               );
+               float zFar = 100.0f);
+
         void update() override;
+
         glm::mat4 getView();
         glm::mat4 getProjection();
         glm::vec3 getFront();
         glm::vec3 getPosition();
-        void setSpeed(float speed) { speed_ = speed; }
-        void setAspectRatio(float ratio) { aspect_ratio_ = ratio; }
         float getPitch() { return pitch_; }
         float getYaw() { return yaw_; }
+        CameraData getData();
+
+        void setSpeed(float speed) { speed_ = speed; }
+        void setAspectRatio(float ratio) { aspect_ratio_ = ratio; }
 
     private:
         float fov_;
@@ -33,5 +36,3 @@ class Camera : public Component {
         float zNear_;
         float zFar_;
 };
-
-#endif

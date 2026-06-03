@@ -6,8 +6,12 @@ out vec2 TexCoord;
 out vec3 Normal;
 out vec3 FragPos;
 uniform mat4 model;
-uniform mat4 view;
-uniform mat4 projection;
+
+layout(std140, binding = 1) uniform CameraData {
+    mat4 view;
+    mat4 projection;
+    vec4 viewPos;
+};
 
 void main() 
 {

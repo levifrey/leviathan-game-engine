@@ -8,6 +8,7 @@ enum class TextureBinding : int {
 };
 
 enum class UBOBinding : int {
-    Lights = 0
+    Lights = 0,
+    Camera = 1
 };
 

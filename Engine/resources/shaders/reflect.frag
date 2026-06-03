@@ -1,8 +1,12 @@
 #version 460 core
+uniform vec3 viewPos;
+in vec3 Position;
+in vec3 Normal;
+
+layout (binding = 2) uniform samplerCube skybox;
+
 out vec4 FragColor;
 
-in vec3 viewPos;
-uniform samplerCube skybox;
 
 void main() {
     vec3 I = normalize(Position-viewPos);

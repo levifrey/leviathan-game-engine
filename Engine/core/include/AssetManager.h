@@ -33,6 +33,7 @@ private:
         ShaderID fallback_;
         ShaderID outline_;
         ShaderID skybox_;
+        ShaderID noPostEffect_;
     };
     
     struct DefaultGeometry {
