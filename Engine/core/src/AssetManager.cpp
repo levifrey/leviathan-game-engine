@@ -8,7 +8,6 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 #include <iostream>
-#include <fstream>
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 
@@ -36,20 +35,20 @@ void AssetManager::init() {
      *  Load Engine Shader
      */
     defaultShaders_.fallback_ = loadShader(
-            PathUtils::shaderDir / "camera.vert",
-            PathUtils::shaderDir / "default.frag");
+            PathUtils::shaderDir / "default/default.vert",
+            PathUtils::shaderDir / "default/default.frag");
 
     defaultShaders_.outline_ = loadShader(
-            PathUtils::shaderDir / "camera.vert", 
-            PathUtils::shaderDir / "singleColor.frag");
+            PathUtils::shaderDir / "singleColor/singleColor.vert", 
+            PathUtils::shaderDir / "singleColor/singleColor.frag");
 
     defaultShaders_.skybox_ = loadShader(
-            PathUtils::shaderDir / "skybox.vert", 
-            PathUtils::shaderDir / "skybox.frag");
+            PathUtils::shaderDir / "skybox/skybox.vert", 
+            PathUtils::shaderDir / "skybox/skybox.frag");
 
     defaultShaders_.noPostEffect_ = loadShader(
-            PathUtils::shaderDir / "screen.vert",
-            PathUtils::shaderDir / "defaultScreen.frag");
+            PathUtils::shaderDir / "postprocess/screen.vert",
+            PathUtils::shaderDir / "postprocess/defaultScreen.frag");
 
 
     /*
@@ -170,13 +169,26 @@ TextureID AssetManager::loadCubemap(std::array<std::filesystem::path, 6> paths) 
 }
 
 
-ShaderID AssetManager::loadShader(const std::filesystem::path& vertex_path, const std::filesystem::path& fragment_path) {
-    auto it = shader_cache_.find({vertex_path.string(), fragment_path.string()});
+ShaderID AssetManager::loadShader(
+        const std::filesystem::path& vertex_path, 
+        const std::filesystem::path& fragment_path,
+        const std::filesystem::path& geometry_path) {
+    auto it = shader_cache_.find({
+            vertex_path.string(), 
+            fragment_path.string(), 
+            geometry_path.string()});
     if(it != shader_cache_.end()) {
         return it->second;
     } else {
-        ShaderID id = storeShader(ShaderLoader::loadShaderFromFile(vertex_path, fragment_path));
-        shader_cache_.insert({{vertex_path.string(), fragment_path.string()}, id});
+        ShaderID id = storeShader(ShaderLoader::loadShaderFromFile(
+                    vertex_path, 
+                    fragment_path,
+                    geometry_path));
+        shader_cache_.insert({{
+                vertex_path.string(), 
+                fragment_path.string(),
+                geometry_path.string()}, 
+                id});
         return id;
     }
 }

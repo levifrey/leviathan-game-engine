@@ -273,9 +273,5 @@ void Game::drawSkybox() {
 void Game::applyGlobalUniforms(const Shader& shader) {
     const Texture& texture = AssetManager::getCubemap(skyboxTexture_);
     glBindTextureUnit((int)TextureBinding::Skybox, texture.ID_);
-    /*
-    shader.setMat4("view", getCamera()->getView());
-    shader.setMat4("projection", getCamera()->getProjection());
-    shader.setVec3("viewPos", getCamera()->getPosition());
-    */
+    shader.setFloat("time", glfwGetTime());
 }

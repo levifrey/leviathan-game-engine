@@ -67,7 +67,8 @@ public:
     static TextureID loadCubemap(std::array<std::filesystem::path, 6> paths);
     static ShaderID loadShader(
             const std::filesystem::path& vertex_path, 
-            const std::filesystem::path& fragment_path);
+            const std::filesystem::path& fragment_path,
+            const std::filesystem::path& geometry_path = {});
 
     
     // Store generated assets into global data 
@@ -94,6 +95,23 @@ private:
     };
 
     struct ShaderKey {
+        std::filesystem::path vertex;
+        std::filesystem::path fragment;
+        std::filesystem::path geometry;
+        auto operator<(const ShaderKey& other) const  {
+            return 
+                std::tie(
+                    vertex, 
+                    fragment, 
+                    geometry)
+                 < std::tie(
+                    other.vertex, 
+                    other.fragment, 
+                    other.geometry);
+        }
+    };
+    /*
+    struct ShaderKey {
         std::string vertex_path;
         std::string fragment_path;
         bool operator<(const ShaderKey& other) const {
@@ -101,6 +119,7 @@ private:
             return fragment_path < other.fragment_path;
         }
     };
+    */
 
     struct CubemapKey {
         std::array<std::filesystem::path, 6> paths;

@@ -61,17 +61,21 @@ int main() {
      */
     // Shaders
     ShaderID flatShader = AssetManager::loadShader(
-            PathUtils::shaderDir / "camera.vert",
-            PathUtils::shaderDir / "flat.frag");
+            PathUtils::shaderDir / "flat/flat.vert",
+            PathUtils::shaderDir / "flat/flat.frag");
     ShaderID phongShader = AssetManager::loadShader(
-            PathUtils::shaderDir / "camera.vert",
-            PathUtils::shaderDir / "lights.frag");
+            PathUtils::shaderDir / "phong/phong.vert",
+            PathUtils::shaderDir / "phong/phong.frag");
     ShaderID blurEffectShader = AssetManager::loadShader(
-            PathUtils::shaderDir / "screen.vert",
-            PathUtils::shaderDir / "blurScreen.frag");
+            PathUtils::shaderDir / "postprocess/screen.vert",
+            PathUtils::shaderDir / "postprocess/blurScreen.frag");
     ShaderID reflectShader = AssetManager::loadShader(
-            PathUtils::shaderDir / "reflect.vert",
-            PathUtils::shaderDir / "reflect.frag");
+            PathUtils::shaderDir / "reflect/reflect.vert",
+            PathUtils::shaderDir / "reflect/reflect.frag");
+    ShaderID explodeShader = AssetManager::loadShader(
+            PathUtils::shaderDir / "explode/explode.vert",
+            PathUtils::shaderDir / "explode/explode.frag",
+            PathUtils::shaderDir / "explode/explode.geom");
     //game.setPostProcessingEffect(blurEffectShader);
     
     // Textures
@@ -142,7 +146,7 @@ int main() {
 
     // backpack
     t = backpack.addComponent<Transform>();
-    r = backpack.addComponent<Renderer>(backpackModel, phongShader);
+    r = backpack.addComponent<Renderer>(backpackModel, explodeShader);
     t->translate(glm::vec3(10.0f, -1.0f, -5.0f));
     game.addGameObject(&backpack);
 

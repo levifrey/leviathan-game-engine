@@ -1,7 +1,9 @@
 #version 460 core
 out vec4 FragColor;
 
-in vec2 TexCoords;
+in VS_OUT {
+    vec2 TexCoord;
+} fs_in;
 
 layout (binding = 3) uniform sampler2D bufferTex;
 const float off = 1.0 / 200.0; 
@@ -28,7 +30,7 @@ void main() {
 
     vec3 color = vec3(0.0);
     for (int i = 0; i < 9; i++) {
-        color += kernel[i] * vec3(texture(bufferTex, TexCoords + offsets[i]));
+        color += kernel[i] * vec3(texture(bufferTex, fs_in.TexCoord + offsets[i]));
     }
 
     FragColor = vec4(color, 1);
