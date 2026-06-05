@@ -49,6 +49,11 @@ void AssetManager::init() {
     defaultShaders_.noPostEffect_ = loadShader(
             PathUtils::shaderDir / "postprocess/screen.vert",
             PathUtils::shaderDir / "postprocess/defaultScreen.frag");
+    
+    defaultShaders_.visualizeNormals_ = loadShader(
+            PathUtils::shaderDir / "normal/normal.vert",
+            PathUtils::shaderDir / "normal/normal.frag",
+            PathUtils::shaderDir / "normal/normal.geom");
 
 
     /*

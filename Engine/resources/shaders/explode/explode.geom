@@ -7,6 +7,12 @@ in VS_OUT {
     vec2 TexCoord;
 } gs_in[];
 
+layout(std140, binding = 1) uniform CameraData {
+    mat4 view;
+    mat4 projection;
+    mat4 viewPos;
+};
+
 out vec2 TexCoord;
 
 uniform float time;
@@ -25,13 +31,14 @@ vec3 getNormal() {
 
 void main() {
     vec3 normal = getNormal();
-    gl_Position = explode(gl_in[0].gl_Position, normal);
+    mat4 m = projection * view;
+    gl_Position = m * explode(gl_in[0].gl_Position, normal);
     TexCoord = gs_in[0].TexCoord;
     EmitVertex();
-    gl_Position = explode(gl_in[1].gl_Position, normal);
+    gl_Position = m * explode(gl_in[1].gl_Position, normal);
     TexCoord = gs_in[1].TexCoord;
     EmitVertex();
-    gl_Position = explode(gl_in[2].gl_Position, normal);
+    gl_Position = m *explode(gl_in[2].gl_Position, normal);
     TexCoord = gs_in[2].TexCoord;
     EmitVertex();
     EndPrimitive();

@@ -34,6 +34,7 @@ private:
         ShaderID outline_;
         ShaderID skybox_;
         ShaderID noPostEffect_;
+        ShaderID visualizeNormals_;
     };
     
     struct DefaultGeometry {

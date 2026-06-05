@@ -146,7 +146,8 @@ int main() {
 
     // backpack
     t = backpack.addComponent<Transform>();
-    r = backpack.addComponent<Renderer>(backpackModel, explodeShader);
+    r = backpack.addComponent<Renderer>(backpackModel, phongShader);
+    r->getDebugConfig().visualizeNormals_ = true;
     t->translate(glm::vec3(10.0f, -1.0f, -5.0f));
     game.addGameObject(&backpack);
 

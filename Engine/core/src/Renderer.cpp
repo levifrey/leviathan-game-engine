@@ -35,6 +35,10 @@ void Renderer::render() {
         if (outline_.active_) {
             drawOutline(shader, mesh, transform);
         }
+
+        if (debug_.visualizeNormals_) {
+            drawNormals(shader, mesh, transform);
+        }
     }
 }
 
@@ -77,5 +81,13 @@ void Renderer::drawOutline(const Shader& shader, const Mesh& mesh, glm::mat4 tra
     drawMesh(mesh);
     
     glStencilFunc(GL_ALWAYS, 1, 0xFF);
+    shader.use();
+}
+
+void Renderer::drawNormals(const Shader& shader, const Mesh& mesh, glm::mat4 transform) {
+    const Shader& normShader = AssetManager::getShader(AssetManager::defaultShaders().visualizeNormals_);
+    normShader.use();
+    normShader.setMat4("model", transform);
+    drawMesh(mesh);
     shader.use();
 }
