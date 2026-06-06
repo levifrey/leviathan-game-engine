@@ -23,7 +23,7 @@ void printVectr(glm::vec3 vector) {
 
 void Game::frameBufferSizeCallback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
-    GamePtr(window)->getCamera()->setAspectRatio((float)width/(float)height);
+    GamePtr(window)->getCamera().getComponent<Camera>()->setAspectRatio((float)width/(float)height);
 }
 
 Game* Game::GamePtr(GLFWwindow* window) {
@@ -48,14 +48,6 @@ MouseHandler* Game::getMouseHandler() {
 
 KeyboardHandler* Game::getKeyboardHandler() {
     return &keyboard_handler_;
-}
-
-Camera* Game::getCamera() {
-    return camera_;
-}
-
-void Game::setCamera(Camera* camera) {
-    camera_ = camera;
 }
 
 void Game::addGameObject(GameObject* obj) {
@@ -117,6 +109,10 @@ Game::Game(int window_width, int window_height) {
     // Create important game objects:
     mouse_handler_ = MouseHandler();
     keyboard_handler_ = KeyboardHandler(); 
+    camera_.setGame(this);
+    camera_.addComponent<Transform>();
+    Camera* c = camera_.addComponent<Camera>();
+    c->setAspectRatio((float)window_width_ / (float)window_height_);
     
     
     // Gather Assets
@@ -142,7 +138,12 @@ Game::Game(int window_width, int window_height) {
     glBindFramebuffer(GL_FRAMEBUFFER, frame_buffer_);
     
     // create texture buffer
-    buffer_texture_ = TextureLoader::loadTextureFromData(NULL, window_width_, window_height_);
+    buffer_texture_ = TextureLoader::loadTextureFromData(
+            NULL, 
+            window_width_, 
+            window_height_,
+            {}
+            );
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, buffer_texture_.ID_, 0);
 
     // create render buffer object
@@ -182,7 +183,7 @@ void Game::Loop() {
         }
 
         DeltaClock::tick();
-        
+        camera_.update();
         // Update all game objects
         for (GameObject* obj : game_objects_) {
             obj->update();
@@ -235,7 +236,7 @@ void Game::writeToUBOs() {
     glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(LightBlock), &light_block);
         
     // fill Camera UBO
-    CameraData cameraData = camera_->getData();
+    CameraData cameraData = camera_.getComponent<Camera>()->getData();
     glBindBuffer(GL_UNIFORM_BUFFER, cameraUBO_);
     glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(CameraData), &cameraData); 
     glBindBuffer(GL_UNIFORM_BUFFER, 0);

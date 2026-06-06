@@ -20,6 +20,9 @@
 #include "AssetManager.h"
 #include "PathUtils.h"
 #include "AssetTypes.h"
+#include "CubemapConverter.h"
+#include "TextureLoader.h"
+#include "ShaderLoader.h"
 
 /*
  * Umbrella Headers: *MUST INCLUDE EVERYTHING IN ITS FOLDER*

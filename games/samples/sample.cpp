@@ -50,12 +50,7 @@ int main() {
     /*
      * Game Intialization
      */
-    Game game(1000, 1000);
-
-    PlayerCamera camera(&game);
-    game.setCamera(camera.getComponent<Camera>());
-    game.addGameObject(&camera);
-
+    Game game(1920, 1080);
     /*
      * Load needed Assets
      */
@@ -169,7 +164,7 @@ int main() {
     t = flashlight.addComponent<Transform>();
     SpotLight* s = flashlight.addComponent<SpotLight>();
     flashlight.addComponent<FlashLight>();
-    camera.addChild(&flashlight);
+    game.getCamera().addChild(&flashlight);
     t->translate(glm::vec3(1.0f,-0.2f, 0.5f));
     game.addGameObject(&flashlight);
     game.addLightSource(s);

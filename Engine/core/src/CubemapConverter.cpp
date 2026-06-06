@@ -3,9 +3,10 @@
 #include "ShaderLoader.h"
 #include "PathUtils.h"
 #include "Shapes.h"
+#include <iostream>
 
 void CubemapConverter::init() {
-    int size = 512;
+    int size = 1024;
     glGenFramebuffers(1, &captureFBO_);
     glBindFramebuffer(GL_FRAMEBUFFER, captureFBO_);
 
@@ -26,24 +27,17 @@ Texture CubemapConverter::equirectangularToCubemap(const std::filesystem::path& 
 
     // Load Equirect Texture into GPU buffers
     Texture equirectTexture = TextureLoader::loadTextureFromFile(path, 
-            {
-            .internalFormat = GL_RGB16F,
-            .format = GL_RGB,
-            .type = GL_FLOAT,
-            .wrapS = GL_REPEAT,
-            .wrapT = GL_CLAMP_TO_EDGE
-            }
-        );
-    
-    // load empty cubemap to draw to and eventually return
-    int size = 512;
-    Texture cubemap = TextureLoader::createEmptyCubemap(size, 
         {
-        .internalFormat = GL_RGB16F, 
-        .format = GL_RGB,
-        .type = GL_FLOAT
+        .wrapT = GL_CLAMP_TO_EDGE
         }
     );
+    
+    // load empty cubemap to draw to and eventually return
+    int size = 1024;
+    Texture cubemap = TextureLoader::createEmptyCubemap(size, 
+            {
+            .format = GL_UNSIGNED_BYTE
+            });
     
     // Init helper obejcts if needed
     if (!initialized_) {

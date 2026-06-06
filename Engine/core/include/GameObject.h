@@ -16,6 +16,7 @@ class GameObject {
         GameObject(Game* game) { init(game); }
         GameObject() {}
         Game* getGame() const;
+        void setGame(Game* game) { game_ = game; };
         virtual void start() {}
         void update();
         GameObject* getParent() const;

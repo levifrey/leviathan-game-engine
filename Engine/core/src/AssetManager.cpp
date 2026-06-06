@@ -5,8 +5,6 @@
 #include "TextureLoader.h"
 #include "ShaderLoader.h"
 
-#define STB_IMAGE_IMPLEMENTATION
-#include <stb_image.h>
 #include <iostream>
 #include <glad/glad.h>
 #include <glm/glm.hpp>
@@ -67,7 +65,12 @@ void AssetManager::init() {
      *  Load Engine Textures
      */
     unsigned char black[] = {0,0,0,0};
-    defaultTextures_.fallback_ = storeTexture(TextureLoader::loadTextureFromData(black, 1, 1));
+    defaultTextures_.fallback_ = storeTexture(TextureLoader::loadTextureFromData(
+                black, 
+                1, 
+                1,
+                {}
+                ));
 
     /*
      * Load Engine Materials
@@ -156,7 +159,7 @@ TextureID AssetManager::loadTexture(const std::filesystem::path& path) {
     if (it != texture_cache_.end()) {
         return it->second;
     } else {
-        TextureID id = storeTexture(TextureLoader::loadTextureFromFile(path));
+        TextureID id = storeTexture(TextureLoader::loadTextureFromFile(path, {}));
         texture_cache_.insert({path.string(), id});
         return id;
     }

@@ -21,7 +21,6 @@
 class Game {
     public:
         Game(int window_width, int window_height);
-        void setCamera(Camera* camera);
         void setPostProcessingEffect(ShaderID shader) { postEffect_ = shader; }
         void setSkybox(TextureID texture) {
             hasSkybox_ = true;
@@ -36,7 +35,7 @@ class Game {
 
         MouseHandler* getMouseHandler();
         KeyboardHandler* getKeyboardHandler();
-        Camera* getCamera();
+        GameObject& getCamera() { return camera_; }
         void setDebugFunction(std::function<void(Game&)> debugFunction);
         
         void Loop();
@@ -44,14 +43,20 @@ class Game {
         void addLightSource(LightSource* light);
         void applyGlobalUniforms(const Shader& shader);
     private:
+
+
         int window_width_;
         int window_height_;
+
         GLFWwindow* window_;
-        Camera* camera_;
+        
         MouseHandler mouse_handler_;
         KeyboardHandler keyboard_handler_;
+        // Game objects
         std::vector<GameObject*> game_objects_;
         std::vector<LightSource*> light_sources_;
+        GameObject camera_;
+
         GLuint lightUBO_;
         GLuint cameraUBO_;
         std::function<void(Game&)> debugFunction_;
