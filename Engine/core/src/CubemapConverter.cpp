@@ -6,7 +6,7 @@
 #include <iostream>
 
 void CubemapConverter::init() {
-    int size = 1024;
+    int size = 2048;
     glGenFramebuffers(1, &captureFBO_);
     glBindFramebuffer(GL_FRAMEBUFFER, captureFBO_);
 
@@ -33,7 +33,7 @@ Texture CubemapConverter::equirectangularToCubemap(const std::filesystem::path& 
     );
     
     // load empty cubemap to draw to and eventually return
-    int size = 1024;
+    int size = 2048;
     Texture cubemap = TextureLoader::createEmptyCubemap(size, 
             {
             .format = GL_UNSIGNED_BYTE

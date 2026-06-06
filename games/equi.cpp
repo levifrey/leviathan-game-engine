@@ -11,7 +11,7 @@ int main() {
 
     // Textures
     TextureID cubemap = AssetManager::storeCubemap(
-        CubemapConverter::equirectangularToCubemap(PathUtils::textureDir / "milky.jpg")
+        CubemapConverter::equirectangularToCubemap(PathUtils::textureDir / "grassland.jpg")
     );
 
     game.setSkybox(cubemap);
